@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@theme {
+    --font-roboto: "Roboto", sans-serif; 
+    --font-dmsans: "DM Sans", sans-serif; 
+    --color-nitsPrimary:#14294C;
+    --color-nitsLightBlue:#88C4FF;
+    --color-nitsBlue:#083D91;
+    --color-nitsBluePlus:#2387FF;
+}
+
+@layer base {
+  html {
+    @apply scroll-smooth scroll-pt-20 lg:scroll-pt-24;
+  }
+
+  body {
+    @apply font-roboto overflow-x-hidden antialiased;
+    @apply overflow-x-hidden antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold;
+  }
+
+  .screen-reader-text {
+    @apply sr-only;
+  }
+}
+
+@layer components {
+  .main-width {
+    @apply w-full 2xl:max-w-[100rem] sm:px-12 md:px-8 lg:px-10 xl:px-18 mx-auto px-4;
+  }
+  .btn {
+    @apply text-base font-medium transition-all duration-100 ease-linear leading-[24px];
+  }
+  .btn-icon{
+   @apply text-base inline-flex items-center justify-center gap-3.5 font-medium transition-all duration-300 ease-linear [&>svg]:transition-transform [&>svg]:ease-in-out;
+  }
+  .btn-fill.btn-white {
+    @apply bg-white text-nitsPrimary hover:text-white bg-white;
+     &:hover {
+        background: linear-gradient(277.13deg, #2387FF 30.3%, #68C0FF 101.46%);
+    }
+
+  }
+  .btn-fill.btn-primary {
+    @apply bg-nitsPrimary text-white  hover:text-nitsPrimary;
+    background: linear-gradient(277.13deg, #2387FF 30.3%, #68C0FF 101.46%);
+    &:hover {
+        background: white !important;
+    }
+  }
+
+  /* Header */
+  .main-navigation .mega-menu-wrapper{
+    @apply opacity-0 invisible opacity-100 transition-opacity duration-500 ease-in-out w-full absolute inset-x-0 top-0 w-full text-white mx-auto overflow-hidden shadow-md pt-[150px] z-0 pb-6;
+    background: linear-gradient(354.97deg, #2E5FB2 -59.85%, #14294C 95.76%);
+  }
+
+  #primary-menu>li.menu-item>a{
+    @apply text-base leading-[24px] font-bold text-white z-[1] relative;
+    
+  }
+   .main-navigation .menu-item-has-children:hover .mega-menu-wrapper {
+    @apply opacity-100 visible;
+  }
+  .mega-menu-wrapper ul.sub-menu li.menu-col{
+    @apply mb-12;
+  }
+  .mega-menu-wrapper ul.sub-menu li.menu-col ul li{
+    @apply mb-[3px];
+    
+  }
+  
+  /* Mobile Menu */
+  /* .main-mobile-nav {
+    @apply transition-opacity duration-500 px-2;
+  } */
+   /* Accordion base style - hidden by default */
+#primary-menu-mobile .sub-menu {
+  @apply hidden pl-4 space-y-2 transition-all duration-300 ease-in-out;
+}
+
+/* Visible state */
+#primary-menu-mobile .sub-menu.open {
+  @apply block;
+}
+
+/* Make parent clickable with visual cue */
+#primary-menu-mobile .menu-item-has-children > a {
+  @apply cursor-pointer flex justify-between items-center font-bold;
+}
+
+/* Optional: for an arrow or icon rotation */
+#primary-menu-mobile .rotate-icon {
+  @apply transform transition-transform duration-300;
+}
+
+#primary-menu-mobile .rotate-icon.open {
+  @apply rotate-180;
+}
+/* Mobile Navigation Container */
+.main-mobile-nav {
+  @apply fixed inset-0 bg-nitsPrimary w-full h-full z-50 pt-[200px] md:pt-36 transition-opacity duration-500 overflow-hidden;
+}
+
+/* Mobile Menu UL */
+#primary-menu-mobile {
+  @apply inline-flex flex-col lg:hidden gap-6 text-white font-normal text-lg;
+}
+
+/* General Menu Items */
+#primary-menu-mobile .menu-item {
+  @apply relative;
+}
+
+#primary-menu-mobile .menu-item > a {
+  @apply px-4 py-2 block transition-colors duration-300 hover:text-white text-lg;
+}
+
+/* Submenu Styling */
+#primary-menu-mobile .sub-menu {
+  @apply hidden pl-4 mt-2 flex flex-col gap-2;
+}
+
+#primary-menu-mobile .sub-menu.open {
+  @apply block;
+}
+
+/* Dropdown Icon Styling (if any added manually via pseudo-elements or inline spans) */
+#primary-menu-mobile .menu-item-has-children > a::after {
+  content: "▾";
+  @apply ml-2 text-lg align-middle;
+}
+
+/* Optional: icon rotation class */
+.rotate-icon.open {
+  @apply rotate-180 transition-transform duration-300;
+}
+
+  /* Footer */
+  .social-icon-btn {
+    @apply border-2 border-white rounded-full hover:bg-white hover:text-nitsPrimary transition-all duration-300 ease-in-out; 
+ }
+}
