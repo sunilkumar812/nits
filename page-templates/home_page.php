@@ -33,7 +33,7 @@ get_header();
     ]);
     ?>
     <!-- Dealership Insights Section -->
-    <?= get_template_part('partials/sections/partial', 'dealership_insights'); ?>
+    <?= //get_template_part('partials/sections/partial', 'dealership_insights'); ?>
 
 
 </main>
