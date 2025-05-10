@@ -32,9 +32,18 @@ get_header();
         'section_stack_cards' => 'section_stack_cards',
     ]);
     ?>
-    <!-- Dealership Insights Section -->
-    <?= get_template_part('partials/sections/partial', 'dealership_insights'); ?>
 
+    <!-- Dealership Insights Section -->
+    <?= get_template_part('partials/sections/partial', 'dealership_insights', [
+        'field_name' => 'dealership_insights',
+        'class_container' => 'mb-24',
+    ]); ?>
+
+    <!--Integrations Section -->
+    <?= get_template_part('partials/sections/partial', 'integrations', [
+        'field_name' => 'section_integrations',
+        'class_container' => 'mb-24 relative z-5',
+    ]); ?>
 </main>
 <?php
 get_footer();
