@@ -12,6 +12,11 @@
     --color-nitsBlue:#083D91;
     --color-nitsBluePlus:#2387FF;
     --color-nitsSteelBlue:#55779F;
+    --color-nitsDarkBlue:#1E4B93;
+
+    --tracking-1em: 1em;
+    --tracking-05em: 0.5em;
+
 }
 
 @layer base {
@@ -20,8 +25,7 @@
   }
 
   body {
-    @apply font-roboto overflow-x-hidden antialiased;
-    @apply overflow-x-hidden antialiased;
+    @apply font-roboto overflow-hidden antialiased;
   }
 
   h1,
@@ -150,8 +154,19 @@
   @apply rotate-180 transition-transform duration-300;
 }
 
-  /* Footer */
-  .social-icon-btn {
-    @apply border-2 border-white rounded-full hover:bg-white hover:text-nitsPrimary transition-all duration-300 ease-in-out; 
- }
+/* Footer */
+.social-icon-btn {
+  @apply border-2 border-white rounded-full hover:bg-white hover:text-nitsPrimary transition-all duration-300 ease-in-out; 
+}
+
+.stackcard{
+  @apply border-[3px] rounded-lg;
+  border-style: solid;
+  border-image-source: linear-gradient(94.78deg, #9AC8FF -1.83%, #E8F5FF 98.81%);
+  border-image-slice: 1;
+  background: linear-gradient(86.75deg, #FFFFFF 11%, #E6F9FF 103.82%);
+  
+
+}
+
 }

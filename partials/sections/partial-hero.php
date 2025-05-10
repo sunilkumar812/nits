@@ -28,7 +28,7 @@ $description = get_field('description') ?: 'Unlock the power of your dealership 
     <!-- Content -->
     <div class="main-width">
         <div class=" relative z-20 text-center px-4 max-w-[800px] mx-auto">
-            <h1 class="text-4xl md:text-6xl font-bold text-white mb-10">
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-10" data-aos="flip-down">
                 <?php echo esc_html($heading); ?>
             </h1>
             <p class="text-lg md:text-xl text-white/90 mb-12 max-w-3xl mx-auto">
