@@ -28,20 +28,20 @@ $description = get_field('description') ?: 'Unlock the power of your dealership 
     <!-- Content -->
     <div class="main-width">
         <div class=" relative z-20 text-center px-4 max-w-[800px] mx-auto">
-            <h1 class="text-4xl md:text-6xl font-bold text-white mb-10" data-aos="flip-down">
+            <h1 class="text-4xl lg:text-3xl 2xl:text-5xl 3xl:text-6xl font-bold text-white mb-10" data-aos="flip-down">
                 <?php echo esc_html($heading); ?>
             </h1>
-            <p class="text-lg md:text-xl text-white/90 mb-12 max-w-3xl mx-auto">
+            <p class="text-lg lg:text-lg 3xl:text-xl text-white/90 mb-12 max-w-3xl mx-auto">
                 <?php echo esc_html($description); ?>
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <?= get_template_part('partials/core/partial', 'button_primary', [
-                    'class' => 'btn-primary px-[22px] py-[17px] rounded-md text-xl',
+                    'class' => 'btn-primary px-[22px] py-[17px] rounded-md lg:text-lg 3xl:text-xl',
                     'text' => 'Explore Solutions',
                     'link' =>  '/explore-solutions',
                 ]); ?>
                 <?= get_template_part('partials/core/partial', 'button_primary', [
-                    'class' => 'btn-white px-[22px] py-[17px] rounded-md text-xl',
+                    'class' => 'btn-white px-[22px] py-[17px] rounded-md lg:text-lg 3xl:text-xl',
                     'text' => 'Get a Demo',
                     'link' =>  '/get-a-demo',
                 ]); ?>

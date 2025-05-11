@@ -23,8 +23,8 @@ if ($dealership_insights):
         <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
             <!-- Left Content Section -->
             <div class="lg:w-1/2 space-y-8">
-                <h2 class="text-3xl lg:text-5xl/15 font-bold text-nitsDarkBlue mb-[17px]"><?= esc_html($heading); ?></h2>
-                <p class="text-md lg:text-lg/7 text-black font-roboto mb-11"><?= esc_html($description); ?></p>
+                <h2 class="text-3xl lg:text-4xl 3xl:text-5xl/15 font-bold text-nitsDarkBlue mb-[17px]"><?= esc_html($heading); ?></h2>
+                <p class="text-sm lg:text-base 3xl:text-lg/7 text-black font-roboto mb-11"><?= esc_html($description); ?></p>
 
                 <!-- Team/Avatar Section -->
                 <div class="flex items-center gap-2 mb-6">
@@ -42,14 +42,14 @@ if ($dealership_insights):
                 </div>
 
                 <!-- Stats Section -->
-                <div class="flex gap-12 mb-20">
+                <div class="flex gap-12 mb-12 lg:mb-15 3xl:mb-20">
                     <div class="">
-                        <h3 class="text-3xl lg:text-5xl/11 font-bold text-nitsDarkBlue"><?= esc_html($stat_1_number)  ?></h3>
-                        <p class="text-xl text-black font-roboto"><?= esc_html($stat_1_text)  ?></p>
+                        <h3 class="text-base lg:text-3xl 3xl:text-5xl/11 font-bold text-nitsDarkBlue"><?= esc_html($stat_1_number)  ?></h3>
+                        <p class="text-base lg:text-lg 3xl:text-xl text-black font-roboto"><?= esc_html($stat_1_text)  ?></p>
                     </div>
                     <div class="">
-                        <h3 class="text-3xl lg:text-5xl/11 font-bold text-nitsDarkBlue"><?= esc_html($stat_2_number)  ?></h3>
-                        <p class="text-xl text-black font-roboto">R<?= esc_html($stat_2_text)  ?></p>
+                        <h3 class="text-base lg:text-3xl 3xl:text-5xl/11 font-bold text-nitsDarkBlue"><?= esc_html($stat_2_number)  ?></h3>
+                        <p class="text-base lg:text-lg 3xl:text-xl text-black font-roboto"><?= esc_html($stat_2_text)  ?></p>
                     </div>
                 </div>
 

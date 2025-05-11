@@ -5,8 +5,11 @@
 @tailwind utilities;
 
 @theme {
+     /*Font Family*/ 
     --font-roboto: "Roboto", sans-serif; 
     --font-dmsans: "DM Sans", sans-serif; 
+
+     /*Color*/ 
     --color-nitsPrimary:#14294C;
     --color-nitsLightBlue:#88C4FF;
     --color-nitsBlue:#083D91;
@@ -15,8 +18,12 @@
     --color-nitsDarkBlue:#1E4B93;
     --color-nitsDarkGray:#1F1F1F;
 
+     /*Letter Spacing*/ 
     --tracking-1em: 1em;
     --tracking-05em: 0.5em;
+
+     /*Breakpoints*/ 
+    --breakpoint-3xl: 100rem;
 
 }
 

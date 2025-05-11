@@ -13,7 +13,7 @@ $class_container = $args['class_container'] ?? 'mb-24';
             'heading' => $section_integrations['heading'],
             'heading_desc' => $section_integrations['heading_desc'],
         ]); ?>
-        <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
+        <div class="flex flex-col lg:flex-row items-center justify-between lg:gap-20 3xl:gap-12">
 
             <?php
             if ($section_integrations['cards'] && is_array($section_integrations['cards'])):
