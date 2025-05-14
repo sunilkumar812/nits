@@ -4,7 +4,7 @@ $section_stack_cards = get_field($args['section_stack_cards']);
 
 <?php if ($section_stack_cards): ?>
     <!--Heading -->
-    <?= get_template_part('partials/core/partial', 'section_heading', [
+    <?= get_template_part('partials/core/partial', 'section_heading_1', [
         'class_container' => 'mb-24',
         'icon' => $section_stack_cards['icon']['url'],
         'icon_heading' => $section_stack_cards['icon_heading'],

@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Manrope:wght@200..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
 @tailwind base;
 @tailwind components;
@@ -8,6 +9,8 @@
      /*Font Family*/ 
     --font-roboto: "Roboto", sans-serif; 
     --font-dmsans: "DM Sans", sans-serif; 
+    --font-type1: "Exo 2", sans-serif;
+    --font-type2: "Manrope", sans-serif;
 
      /*Color*/ 
     --color-nitsPrimary:#14294C;

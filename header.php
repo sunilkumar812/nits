@@ -46,8 +46,8 @@ use Detection\Exception\MobileDetectException;
 	<?php wp_body_open(); ?>
 	<div id="page" class="site">
 		<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Skip to content', 'nits'); ?></a>
-		<header id="masthead" class="site-header fixed inset-x-0 text-white pt-6.5 pb-6 lg:py-0 z-6 bg-nitsPrimary lg:z-5" data-aos="fade-down" data-aos-duration="500">
-			<div class="main-width flex items-center justify-between lg:py-[44px] md:py-[34px]">
+		<header id="masthead" class="site-header fixed inset-x-0 text-white z-6 bg-nitsPrimary lg:z-5" data-aos="fade-down" data-aos-duration="500">
+			<div class="main-width flex items-center justify-between 2xl:py-[20px] 3xl:py-[44px] lg:py-6 py-5">
 				<div class="site-branding z-[1] relative">
 					<a href="<?= esc_url(home_url('/')); ?>" rel="home">
 						<svg width="126" height="35" viewBox="0 0 126 35" fill="none" xmlns="http://www.w3.org/2000/svg">
