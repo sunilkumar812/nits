@@ -89,12 +89,12 @@ use Detection\Exception\MobileDetectException;
 				</nav><!-- #site-navigation -->
 				<div class="hidden lg:flex lg:gap-3 xl:gap-3 md:gap-3 gap-3 z-1">
 					<?= get_template_part('partials/core/partial', 'button_primary', [
-						'class' => 'btn-primary px-[16px] py-[10px] rounded-md',
+						'class' => 'btn-primary font-bold px-[16px] py-[10px] rounded-md',
 						'text' => 'Get a Demo',
 						'link' =>  '/contact',
 					]); ?>
 					<?= get_template_part('partials/core/partial', 'button_primary', [
-						'class' => 'btn-white px-[16px] py-[10px] rounded-md',
+						'class' => 'btn-white font-bold px-[16px] py-[10px] rounded-md',
 						'text' => 'Get Started',
 						'link' =>  '/contact',
 					]); ?>

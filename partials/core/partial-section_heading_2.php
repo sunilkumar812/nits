@@ -1,23 +1,23 @@
 <?php
-$class_container =  isset($args['class_container']) ? $args['class_container'] : 'mb-24';
-$heading3 = isset($args['heading3']) ? $args['heading3'] : '';
-$class_heading3 = isset($args['class_heading3']) ? $args['class_heading3'] : '';
-$heading2 = isset($args['heading2']) ? $args['heading2'] : '';
-$class_heading2 = isset($args['class_heading2']) ? $args['class_heading2'] : '';
-$paragraph = isset($args['paragraph']) ? $args['paragraph'] : '';
-$class_paragraph = isset($args['class_paragraph']) ? $args['class_paragraph'] : '';
+$class_container =  isset($args['class_container']) ? $args['class_container'] : '';
+$heading_1 = isset($args['heading_1']) ? $args['heading_1'] : '';
+$class_heading_1 = isset($args['class_heading_1']) ? $args['class_heading_1'] : '';
+$heading_2 = isset($args['heading_2']) ? $args['heading_2'] : '';
+$class_heading_2 = isset($args['class_heading_2']) ? $args['class_heading_2'] : '';
+$heading_desc = isset($args['heading_desc']) ? $args['heading_desc'] : '';
+$class_heading_desc = isset($args['class_heading_desc']) ? $args['class_heading_desc'] : '';
 
 ?>
 <div class="main-width <?= $class_container; ?>">
     <div class="mx-auto">
-        <?php if ($heading3): ?>
-            <h3 class="<?= $class_heading3; ?>"><?= esc_html($heading3); ?></h3>
+        <?php if ($heading_1): ?>
+            <h3 class="text-sm lg:text-lg uppercase tracking-[0.3em] font-type2 <?= $class_heading_1; ?>"><?= esc_html($heading_1); ?></h3>
         <?php endif;
-        if ($heading2): ?>
-            <h2 class="<?= $class_heading2; ?>"><?= esc_html($heading2); ?></h2>
+        if ($heading_2): ?>
+            <h2 class="text-2xl lg:text-3xl font-type1 <?= $class_heading_2; ?>"><?= esc_html($heading_2); ?></h2>
         <?php endif;
-        if ($paragraph): ?>
-            <p class="<?= $class_paragraph; ?>"><?= esc_html($paragraph); ?></p>
+        if ($heading_desc): ?>
+            <p class="text-sm lg:text-base font-roboto <?= $class_heading_desc; ?>"><?= esc_html($heading_desc); ?></p>
         <?php endif; ?>
     </div>
 </div>

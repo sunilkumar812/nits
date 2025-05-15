@@ -5,7 +5,7 @@ $link = isset($args['link']) ? $args['link'] : '/contact';
 $target = isset($args['target']) ? $args['target'] : '';
 $rel = isset($args['rel']) ? $args['rel'] : '';
 ?>
-<a class="btn btn-fill <?= $class ?>" href="<?= $link ?>"
+<a class="btn btn-fill font-type2 text-base lg:text-lg <?= $class ?>" href="<?= $link ?>"
     <?php if ($target) {
         echo 'target="' . esc_attr($target) . '"';
     } ?>

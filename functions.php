@@ -175,11 +175,15 @@ require get_template_directory() . '/inc/template-functions.php';
  */
 require get_template_directory() . '/inc/customizer.php';
 
-
 /**
  * Nits Theme Funtions.
  */
 require get_template_directory() . '/inc/nits-functions.php';
+
+/**
+ * Nits CPT
+ */
+require get_template_directory() . '/inc/cpt.php';
 
 /**
  * Mega menu walker

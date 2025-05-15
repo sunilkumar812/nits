@@ -36,12 +36,12 @@ $description = get_field('description') ?: 'Unlock the power of your dealership 
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <?= get_template_part('partials/core/partial', 'button_primary', [
-                    'class' => 'btn-primary px-[22px] py-[17px] rounded-md text-lg 3xl:text-xl',
+                    'class' => 'btn-primary font-bold px-[22px] py-[17px] rounded-md text-lg 3xl:text-xl',
                     'text' => 'Explore Solutions',
                     'link' =>  '/explore-solutions',
                 ]); ?>
                 <?= get_template_part('partials/core/partial', 'button_primary', [
-                    'class' => 'btn-white px-[22px] py-[17px] rounded-md lg:text-lg 3xl:text-xl',
+                    'class' => 'btn-white font-bold px-[22px] py-[17px] rounded-md lg:text-lg 3xl:text-xl',
                     'text' => 'Get a Demo',
                     'link' =>  '/get-a-demo',
                 ]); ?>

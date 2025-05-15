@@ -35,7 +35,7 @@ get_header();
 
     <!-- Dealership Insights Section -->
     <?= get_template_part('partials/sections/partial', 'dealership_insights', [
-        'field_name' => 'dealership_insights',
+        'field_name' => 'section_dealership_insights',
         'class_container' => 'mb-24 py-5 lg:py-10 xl:py-15',
     ]); ?>
 
@@ -47,7 +47,7 @@ get_header();
 
     <!-- Case Studies Section -->
     <?= get_template_part('partials/sections/partial', 'case_studies', [
-        'field_name' => 'case_studies',
+        'field_name' => 'section_case_studies',
         'class_container' => 'mb-24 lg:mb-32',
     ]); ?>
 </main>
