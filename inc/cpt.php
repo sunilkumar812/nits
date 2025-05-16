@@ -48,7 +48,6 @@ function nits_register_case_studies_post_type()
 }
 add_action('init', 'nits_register_case_studies_post_type');
 
-
 /**
  * Register Custom Taxonomies
  */
