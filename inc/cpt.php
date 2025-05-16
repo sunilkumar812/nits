@@ -39,11 +39,40 @@ function nits_register_case_studies_post_type()
         'public'             => true,
         'show_in_rest'       => true,
         'has_archive'        => true,
-        'rewrite'            => ['slug' => 'case-studies'],
+        // 'rewrite'            => ['slug' => 'case-studies'],
         'supports'           => ['title', 'editor', 'thumbnail', 'excerpt'],
         'menu_icon'          => 'dashicons-portfolio',
     ];
 
-    register_post_type('case_study', $args);
+    register_post_type('casestudy', $args);
 }
 add_action('init', 'nits_register_case_studies_post_type');
+
+
+/**
+ * Register Custom Taxonomies
+ */
+add_action('init', 'create_custom_taxonomy');
+function create_custom_taxonomy()
+{
+    $labels = array(
+        'name'              => __('Casestudy Categories'),
+        'singular_name'     => __('CasestudyPost'),
+        'search_items'      => __('Search CasestudyCategories'),
+        'all_items'         => __('All Casestudy Categories'),
+        'parent_item'       => __('Parent Casestudy Categories'),
+        'edit_item'         => __('Edit Casestudy Categories'),
+        'update_item'       => __('Update Casestudy Categories'),
+        'add_new_item'      => __('Add New Casestudy Categories'),
+        'new_item_name'     => __('New Casestudy Categories Name'),
+        'menu_name'         => __('Casestudy Categories'),
+    );
+    register_taxonomy('casestudy_categories', array('casestudy'), array(
+        'hierarchical'  => true,
+        'show_admin_column' => true,
+        'labels'        => $labels,
+        'show_ui'       => true,
+        'query_var'     => true,
+        // 'rewrite'       => array('slug' => 'casestudy_categories'),
+    ));
+}

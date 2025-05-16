@@ -16,44 +16,107 @@ if ($section_case_studies):
             'class_heading_2' => '3xl:text-[40px] font-bold text-white mb-2 lg:mb-3 3xl:mb-3.5',
             'heading_desc' => $heading_desc ?? 'Discover how we drive results for our clients.',
             'class_heading_desc' => '3xl:text-lg text-white',
-        ]);
-        ?>
+        ]); ?>
     </div>
 
     <div class="main-width relative -mt-15">
-        <div class="lg:flex flex-row lg:gap-16 3xl:gap-20">
-            <div class="max-w-[643px] 3xl:max-w-[743px] aspect-[3/2]">
-                <img src="http://localhost/nits/wp-content/uploads/2025/05/Rectangle-18.jpg" alt="" class="object-cover w-full">
-            </div>
-            <div class="flex flex-col gap-10 justify-end py-10 max-w-[500px]">
-                <div class="flex flex-col gap-5">
-                    <div class="flex flex-row gap-5">
-                        <span>SUCCESS</span> <span>5 min read</span>
-                    </div>
-                    <div class="">
-                        <h3 class="font-type1 text-xl lg:text-2xl 3xl:text-3xl text-nitsBlue mb-2">Transorming Dealership Performance with Data</h3>
-                        <p class="text-base text-black">See how our solutons have impacted dealership operations and porfitability</p>
+        <div class="swiper caseStudySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="lg:flex flex-row lg:gap-16 3xl:gap-20">
+                        <div class="max-w-[643px] 3xl:max-w-[743px] aspect-[3/2]">
+                            <img src="http://localhost/nits/wp-content/uploads/2025/05/Rectangle-18.jpg" alt="" class="object-cover w-full">
+                        </div>
+                        <div class="flex flex-col gap-10 justify-end py-10 max-w-[500px]">
+                            <div class="flex flex-col gap-5">
+                                <div class="flex flex-row gap-5">
+                                    <span>SUCCESS</span> <span>5 min read</span>
+                                </div>
+                                <div class="">
+                                    <h3 class="font-type1 text-xl lg:text-2xl 3xl:text-3xl text-nitsBlue mb-2">Transorming Dealership Performance with Data</h3>
+                                    <p class="text-base text-black">See how our solutons have impacted dealership operations and porfitability</p>
+                                </div>
+                            </div>
+                            <!-- CTA Button -->
+                            <div class="flex">
+                                <?= get_template_part('partials/core/partial', 'button_primary', [
+                                    'class' => 'btn-primary px-[22px] py-[17px] rounded-md 3xl:text-xl font-bold border border-1 hover:border-1 hover:boreder-nitsLightBlue',
+                                    'text' => 'Read more',
+                                    'link' =>  '/contact',
+                                ]); ?>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <!-- CTA Button -->
-                <div class="flex">
-                    <?= get_template_part('partials/core/partial', 'button_primary', [
-                        'class' => 'btn-primary px-[22px] py-[17px] rounded-md 3xl:text-xl font-bold border border-1 hover:border-1 hover:boreder-nitsLightBlue',
-                        'text' => 'Read more',
-                        'link' =>  '/contact',
-                    ]); ?>
+                <div class="swiper-slide">
+                    <div class="lg:flex flex-row lg:gap-16 3xl:gap-20">
+                        <div class="max-w-[643px] 3xl:max-w-[743px] aspect-[3/2]">
+                            <img src="http://localhost/nits/wp-content/uploads/2025/05/Rectangle-18.jpg" alt="" class="object-cover w-full">
+                        </div>
+                        <div class="flex flex-col gap-10 justify-end py-10 max-w-[500px]">
+                            <div class="flex flex-col gap-5">
+                                <div class="flex flex-row gap-5">
+                                    <span>SUCCESS</span> <span>5 min read</span>
+                                </div>
+                                <div class="">
+                                    <h3 class="font-type1 text-xl lg:text-2xl 3xl:text-3xl text-nitsBlue mb-2">Transorming Dealership Performance with Data</h3>
+                                    <p class="text-base text-black">See how our solutons have impacted dealership operations and porfitability</p>
+                                </div>
+                            </div>
+                            <!-- CTA Button -->
+                            <div class="flex">
+                                <?= get_template_part('partials/core/partial', 'button_primary', [
+                                    'class' => 'btn-primary px-[22px] py-[17px] rounded-md 3xl:text-xl font-bold border border-1 hover:border-1 hover:boreder-nitsLightBlue',
+                                    'text' => 'Read more',
+                                    'link' =>  '/contact',
+                                ]); ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="lg:flex flex-row lg:gap-16 3xl:gap-20">
+                        <div class="max-w-[643px] 3xl:max-w-[743px] aspect-[3/2]">
+                            <img src="http://localhost/nits/wp-content/uploads/2025/05/Rectangle-18.jpg" alt="" class="object-cover w-full">
+                        </div>
+                        <div class="flex flex-col gap-10 justify-end py-10 max-w-[500px]">
+                            <div class="flex flex-col gap-5">
+                                <div class="flex flex-row gap-5">
+                                    <span>SUCCESS</span> <span>5 min read</span>
+                                </div>
+                                <div class="">
+                                    <h3 class="font-type1 text-xl lg:text-2xl 3xl:text-3xl text-nitsBlue mb-2">Transorming Dealership Performance with Data</h3>
+                                    <p class="text-base text-black">See how our solutons have impacted dealership operations and porfitability</p>
+                                </div>
+                            </div>
+                            <!-- CTA Button -->
+                            <div class="flex">
+                                <?= get_template_part('partials/core/partial', 'button_primary', [
+                                    'class' => 'btn-primary px-[22px] py-[17px] rounded-md 3xl:text-xl font-bold border border-1 hover:border-1 hover:boreder-nitsLightBlue',
+                                    'text' => 'Read more',
+                                    'link' =>  '/contact',
+                                ]); ?>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
         </div>
     </div>
 
     <div class="main-width">
         <!-- Category Navigation -->
+
         <div class="flex justify-center items-center gap-4 mt-12">
-            <button class="px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600">Automotive Analytics</button>
-            <button class="px-4 py-2 text-sm font-medium text-gray-700 bg-blue-50 rounded-md">Performance Metrics</button>
-            <button class="px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600">Client Testimonials</button>
-            <button class="px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600">Case Studies</button>
+            <div class="min-w-4 lg:min-w-[103px] h-px bg-nitsBluePlus"></div>
+            <button class="px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 cursor-pointer">Automotive Analytics</button>
+            <button class="px-4 py-2 text-sm font-medium text-gray-700 bg-blue-50 rounded-md cursor-pointer">Performance Metrics</button>
+            <button class="px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 cursor-pointer">Client Testimonials</button>
+            <button class="px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 cursor-pointer">Case Studies</button>
+            <div class="min-w-4 lg:min-w-[103px] h-px bg-nitsBluePlus"></div>
         </div>
+
     </div>
 <?php endif; ?>
