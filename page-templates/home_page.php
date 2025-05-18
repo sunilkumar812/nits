@@ -14,17 +14,10 @@ get_header();
     <!-- Hero Section -->
     <?= get_template_part('partials/sections/partial', 'hero'); ?>
 
-    <!-- Separator H3 -->
-    <?= get_template_part('partials/core/partial', 'separator_h3', [
-        'class_container' => 'px-4 max-w-5xl mx-auto mt-15 mb-15 lg:mt-20 lg:mb-16',
-        'class_text' => 'text-xl md:text-xl font-semibold text-nitsSteelBlue text-center',
-        'text' => 'logo_slider_heading',
-    ]); ?>
-
     <!-- Logos Slider Section -->
     <?= get_template_part('partials/sections/partial', 'logo_slider', [
         'class_container' => 'mx-auto lg:max-w-[1538px] mb-15 lg:mb-[84px]',
-        'logo_slider_images' => 'logo_slider',
+        'field_name' => 'logo_slider',
     ]); ?>
 
     <!-- Cards Stack Section -->
@@ -50,6 +43,17 @@ get_header();
         'field_name' => 'section_case_studies',
         'class_container' => 'mb-24 lg:mb-32',
     ]); ?>
+
+    <!-- Video Section -->
+    <?= get_template_part('partials/sections/partial', 'video', [
+        'field_name' => 'video_section',
+    ]); ?>
+
+    <!-- Aards Section -->
+    <?= get_template_part('partials/sections/partial', 'awards', [
+        'field_name' => 'section_awards',
+    ]); ?>
+
 </main>
 <?php
 get_footer();

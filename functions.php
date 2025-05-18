@@ -64,8 +64,8 @@ function nits_setup()
 		'html5',
 		array(
 			'search-form',
-			'comment-form',
-			'comment-list',
+			// 'comment-form',
+			// 'comment-list',
 			'gallery',
 			'caption',
 			'style',
@@ -144,10 +144,6 @@ add_action('widgets_init', 'nits_widgets_init');
  */
 require get_template_directory() . '/inc/enqueue.php';
 
-/**
- * Implement the Custom Header feature.
- */
-require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Custom template tags for this theme.
@@ -164,10 +160,6 @@ require get_template_directory() . '/inc/template-functions.php';
  */
 require get_template_directory() . '/inc/customizer.php';
 
-/**
- * Nits Theme Funtions.
- */
-require get_template_directory() . '/inc/nits-functions.php';
 
 /**
  * Nits CPT

@@ -1,6 +1,6 @@
 <?php
 $section_case_studies = get_field($args['field_name']);
-if ($section_case_studies):
+if (!empty($section_case_studies)):
     $background_image = $section_case_studies['background_image'] ?? '';
     $heading_1 = $section_case_studies['heading_1'] ?? '';
     $heading_2 = $section_case_studies['heading_2'] ?? '';
@@ -106,7 +106,7 @@ if ($section_case_studies):
         </div>
     </div>
 
-    <div class="main-width">
+    <div class="main-width mb-25">
         <!-- Category Navigation -->
 
         <div class="flex justify-center items-center gap-4 mt-12">

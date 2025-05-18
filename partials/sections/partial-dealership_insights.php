@@ -1,7 +1,7 @@
 <?php
 $dealership_insights = get_field($args['field_name']);
 $class_container = $args['class_container'] ?? 'mb-24';
-if ($dealership_insights):
+if (!empty($dealership_insights)):
     $background_image = $dealership_insights['background_image'] ?? '';
     $heading = $dealership_insights['heading'] ?? '';
     $description = $dealership_insights['description'] ?? '';

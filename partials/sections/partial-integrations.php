@@ -2,7 +2,7 @@
 $section_integrations = get_field($args['field_name']);
 $class_container = $args['class_container'] ?? 'mb-24';
 
-if ($section_integrations): ?>
+if (!empty($section_integrations)): ?>
     <div class="main-width <?= esc_attr($class_container); ?>">
         <!--Section Heading -->
         <?= get_template_part('partials/core/partial', 'section_heading_1', [
