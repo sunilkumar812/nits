@@ -54,6 +54,12 @@ get_header();
         'field_name' => 'section_awards',
     ]); ?>
 
+    <!--Blog Section -->
+    <?= get_template_part('partials/sections/partial', 'blog_cards', [
+        'field_name' => 'section_blog_cards',
+        'class_container' => 'mb-24 relative z-5',
+    ]); ?>
+
 </main>
 <?php
 get_footer();
