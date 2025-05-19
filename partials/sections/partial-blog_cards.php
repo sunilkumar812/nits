@@ -23,30 +23,30 @@ if (!empty($section_blog)): ?>
                 foreach ($section_blog['nits_blog_posts'] as $post):
                     setup_postdata($post);
                     $author_id = get_the_author_meta('ID');
-                    $read_time = ceil(str_word_count(strip_tags(get_the_content())) / 200); // ~200 wpm
-                    $title = get_the_title($post);
-                    $permalink = get_permalink($post);
-                    $excerpt = wp_trim_words(get_the_excerpt($post), 25, '...');
-                    $thumbnail = get_the_post_thumbnail_url($post, 'medium_large');
-                    $categories = get_the_category($post);
-                    $date = get_the_date('d M Y', $post);
-                    $author_name = get_the_author_meta('display_name', $author_id);
-                    $avatar = get_avatar_url($author_id);
+                    // $read_time = ceil(str_word_count(strip_tags(get_the_content())) / 200); // ~200 wpm
+                    // $title = get_the_title($post);
+                    // $permalink = get_permalink($post);
+                    // $excerpt = wp_trim_words(get_the_excerpt($post), 25, '...');
+                    // $thumbnail = get_the_post_thumbnail_url($post, 'medium_large');
+                    // $categories = get_the_category($post);
+                    // $date = get_the_date('d M Y', $post);
+                    // $author_name = get_the_author_meta('display_name', $author_id);
+                    // $avatar = get_avatar_url($author_id);
 
                     echo get_template_part('partials/core/partial', 'card_2', [
                         'post' => $post,
-                        'author_id' => $author_id,
-                        'read_time' => $read_time,
-                        'title' => $title,
-                        'permalink' => $permalink,
-                        'excerpt' => $excerpt,
-                        'thumbnail' => $thumbnail,
-                        'categories' => $categories,
-                        'date' => $date,
-                        'author_name' => $author_name,
-                        'avatar' => $avatar,
-                        'class_container' => 'bg-white overflow-hidden transition-transform duration-300 hover:transform hover:scale-105 max-w-[416px]',
-                        'aos_attributes' => 'data-cursor="inverse" data-aos="fade-down" data-aos-delay="100" data-aos-anchor-placement="top-bottom"',
+                        'author_id' => get_the_author_meta('ID'),
+                        'read_time' => ceil(str_word_count(strip_tags(get_the_content())) / 200),
+                        'title' => get_the_title($post),
+                        'permalink' => get_permalink($post),
+                        'excerpt' => wp_trim_words(get_the_excerpt($post), 25, '...'),
+                        'thumbnail' => get_the_post_thumbnail_url($post, 'medium_large'),
+                        'categories' => get_the_category($post),
+                        'date' => get_the_date('d M Y', $post),
+                        'author_name' => get_the_author_meta('display_name', $author_id),
+                        'avatar' => get_avatar_url($author_id),
+                        'class_container' => ' bg-white overflow-hidden max-w-[416px]',
+                        'aos_attributes' => 'data-cursor="inverse" data-aos="fade-down" data-aos-delay="' . esc_attr($delay) . '" data-aos-anchor-placement="top-bottom"',
                     ]);
                     $delay += 100;
                 endforeach;

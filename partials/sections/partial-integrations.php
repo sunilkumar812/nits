@@ -1,6 +1,7 @@
 <?php
 $section_integrations = get_field($args['field_name']);
 $class_container = $args['class_container'] ?? 'mb-24';
+$button = $section_integrations['button'] ?? null;
 
 if (!empty($section_integrations)): ?>
     <div class="main-width <?= esc_attr($class_container); ?>">
@@ -33,13 +34,15 @@ if (!empty($section_integrations)): ?>
                 endforeach;
             endif; ?>
         </div>
-        <!-- CTA Button -->
-        <div class="flex justify-center">
-            <?= get_template_part('partials/core/partial', 'button_primary', [
-                'class' => 'btn-primary px-[22px] py-[17px] rounded-md text-xl font-bold border border-1 hover:border-1 hover:boreder-nitsLightBlue',
-                'text' => $section_integrations['button']['title'],
-                'link' =>  $section_integrations['button']['url'],
-            ]); ?>
-        </div>
+        <?php if (is_array($button) && !empty($button['url']) && !empty($button['title'])): ?>
+            <!-- CTA Button -->
+            <div class="flex justify-center">
+                <?= get_template_part('partials/core/partial', 'button_primary', [
+                    'class' => 'btn-primary px-[22px] py-[17px] rounded-md text-xl font-bold border border-1 hover:border-1 hover:boreder-nitsLightBlue',
+                    'text' => $section_integrations['button']['title'],
+                    'link' =>  $section_integrations['button']['url'],
+                ]); ?>
+            </div>
+        <?php endif; ?>
     </div>
 <?php endif; ?>

@@ -12,7 +12,7 @@ $class_container = $args['class_container'] ?? '';
 $aos_attributes = $args['aos_attributes'] ?? '';
 ?>
 
-<div class="<?= esc_attr($class_container); ?>" <?= $aos_attributes; ?>>
+<div class="transition-transform duration-300 hover:transform hover:scale-105<?= esc_attr($class_container); ?>" <?= $aos_attributes; ?>>
     <?php if (!empty($thumbnail)): ?>
         <img src="<?= esc_url($thumbnail); ?>" alt="<?= esc_attr($title); ?>" class="w-full h-48 object-cover">
     <?php endif; ?>
