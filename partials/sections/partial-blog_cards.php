@@ -1,9 +1,8 @@
 <?php
 $section_blog = get_field($args['field_name']);
 $class_container = $args['class_container'] ?? 'mb-24';
-?>
 
-<?php
+//var_dump($section_blog);
 
 if (!empty($section_blog)): ?>
     <div class="main-width <?= esc_attr($class_container); ?>">
@@ -40,6 +39,7 @@ if (!empty($section_blog)): ?>
                     ]);
                     $delay += 100;
                 endforeach;
+                wp_reset_postdata();
             endif; ?>
         </div>
     </div>

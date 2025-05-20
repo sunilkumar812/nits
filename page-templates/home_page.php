@@ -8,65 +8,72 @@
  * @package nits
  */
 get_header();
+if (have_posts()) :
+    while (have_posts()) :
+        the_post();
 ?>
-<main id="primary" class="z-4 relative overflow-hidden">
 
-    <!-- Hero Section -->
-    <?= get_template_part('partials/sections/partial', 'hero'); ?>
+        <main id="primary" class="z-4 relative overflow-hidden">
 
-    <!-- Logos Slider Section -->
-    <?= get_template_part('partials/sections/partial', 'logo_slider', [
-        'class_container' => 'mx-auto lg:max-w-[1538px] mb-15 lg:mb-[84px]',
-        'field_name' => 'logo_slider',
-    ]); ?>
+            <!-- Hero Section -->
+            <?= get_template_part('partials/sections/partial', 'hero'); ?>
 
-    <!-- Cards Stack Section -->
-    <?php echo get_template_part('partials/sections/partial', 'card_stack', [
-        'section_stack_cards' => 'section_stack_cards',
-    ]);
-    ?>
+            <!-- Logos Slider Section -->
+            <?= get_template_part('partials/sections/partial', 'logo_slider', [
+                'class_container' => 'mx-auto lg:max-w-[1538px] mb-15 lg:mb-[84px]',
+                'field_name' => 'logo_slider',
+            ]); ?>
 
-    <!-- Dealership Insights Section -->
-    <?= get_template_part('partials/sections/partial', 'dealership_insights', [
-        'field_name' => 'section_dealership_insights',
-        'class_container' => 'mb-24 py-5 lg:py-10 xl:py-15',
-    ]); ?>
+            <!-- Cards Stack Section -->
+            <?php echo get_template_part('partials/sections/partial', 'card_stack', [
+                'section_stack_cards' => 'section_stack_cards',
+            ]);
+            ?>
 
-    <!--Integrations Section -->
-    <?= get_template_part('partials/sections/partial', 'integrations', [
-        'field_name' => 'section_integrations',
-        'class_container' => 'mb-24 relative z-5',
-    ]); ?>
+            <!-- Dealership Insights Section -->
+            <?= get_template_part('partials/sections/partial', 'dealership_insights', [
+                'field_name' => 'section_dealership_insights',
+                'class_container' => 'mb-24 py-5 lg:py-10 xl:py-15',
+            ]); ?>
 
-    <!-- Case Studies Section -->
-    <?= get_template_part('partials/sections/partial', 'case_studies', [
-        'field_name' => 'section_case_studies',
-        'class_container' => 'mb-24 lg:mb-32',
-    ]); ?>
+            <!--Integrations Section -->
+            <?= get_template_part('partials/sections/partial', 'integrations', [
+                'field_name' => 'section_integrations',
+                'class_container' => 'mb-24 relative z-5',
+            ]); ?>
 
-    <!-- Video Section -->
-    <?= get_template_part('partials/sections/partial', 'video', [
-        'field_name' => 'section_video',
-        'class_container' => 'mb-24 relative z-5',
-    ]); ?>
+            <!-- Case Studies Section -->
+            <?= get_template_part('partials/sections/partial', 'case_studies', [
+                'field_name' => 'section_case_studies',
+                'class_container' => 'mb-24 lg:mb-32',
+            ]); ?>
 
-    <!-- Aards Section -->
-    <?= get_template_part('partials/sections/partial', 'awards', [
-        'field_name' => 'section_awards',
-    ]); ?>
+            <!-- Video Section -->
+            <?= get_template_part('partials/sections/partial', 'video', [
+                'field_name' => 'section_video',
+                'class_container' => 'mb-24 relative z-5',
+            ]); ?>
 
-    <!--Blog Section -->
-    <?= get_template_part('partials/sections/partial', 'blog_cards', [
-        'field_name' => 'section_blog_cards',
-        'class_container' => '3xl:mb-60 lg:mb-40 mb-20 relative z-5',
-    ]); ?>
+            <!-- Aards Section -->
+            <?= get_template_part('partials/sections/partial', 'awards', [
+                'field_name' => 'section_awards',
+            ]); ?>
 
-    <!-- Contact Form Section -->
-    <?= get_template_part('partials/sections/partial', 'contact_form', [
-        'field_name' => 'section_contact_form',
-        'class_container' => ' mb-24',
-    ]); ?>
+            <!--Blog Section -->
+            <?= get_template_part('partials/sections/partial', 'blog_cards', [
+                'field_name' => 'section_blog_cards',
+                'class_container' => '3xl:mb-60 lg:mb-40 mb-20 relative z-5',
+            ]); ?>
 
-</main>
+            <!-- Contact Form Section -->
+            <?= get_template_part('partials/sections/partial', 'contact_form', [
+                'field_name' => 'section_contact',
+                'class_container' => ' mb-24',
+            ]); ?>
+
+        </main>
 <?php
+    endwhile;
+endif;
+
 get_footer();
