@@ -1,6 +1,6 @@
 <div class="main-width relative">
     <div class="relative aspect-video overflow-hidden group h-[200px] lg:h-[500px] 3xl:h-[727px] mx-auto">
-        <img id="thumbnail" src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg" alt="Video Thumbnail" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-300">
+        <img id="thumbnail" src="http://localhost/nits/wp-content/uploads/2025/05/Rectangle-31.jpg" alt="Video Thumbnail" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-300">
         <video id="myVideo" class="w-full h-full object-cover">
             <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
         </video>

@@ -179,5 +179,79 @@
   
 
 }
+/*Contact Form 7*/
+
+/* Form container */
+.wpcf7 {
+  @apply max-w-xl mx-auto;
+}
+
+/* Form wrapper */
+.wpcf7-form {
+  @apply space-y-6;
+}
+
+/* Labels */
+.wpcf7-form label {
+  @apply block text-gray-800 text-base font-normal mb-2;
+}
+
+/* Text inputs and textareas */
+.wpcf7-form input[type="text"],
+.wpcf7-form input[type="email"],
+.wpcf7-form input[type="tel"],
+.wpcf7-form textarea {
+  @apply w-full px-4 py-3 border-b border-[#CACACA] focus:border-blue-500 focus:outline-none transition-colors duration-200;
+}
+
+/* Message textarea specific */
+.wpcf7-form textarea {
+  @apply h-32 resize-none;
+}
+
+/* Submit button */
+.wpcf7-submit {
+  /* @apply w-full bg-blue-500 text-white px-6 py-3 rounded-md hover:bg-blue-600 transition-colors duration-200 flex items-center justify-center gap-2 font-medium; */
+  @apply bg-nitsPrimary text-white  hover:text-nitsPrimary cursor-pointer font-medium transition-all duration-100 ease-linear leading-[24px] px-[22px] py-[17px] font-type2 text-base lg:text-lg rounded-md 3xl:text-xl border;
+  background: linear-gradient(277.13deg, #2387FF 30.3%, #68C0FF 101.46%);
+  &:hover {
+      background: white !important;
+  }
+}
+
+/* Optional text style */
+.optional {
+  @apply text-gray-500 text-sm ml-1;
+}
+
+/* Error messages */
+.wpcf7-not-valid-tip {
+  @apply text-red-500 text-sm mt-1;
+}
+
+/* Form response output */
+.wpcf7-response-output {
+  @apply mt-4 p-4 rounded-md text-sm;
+}
+
+/* Success message */
+.wpcf7-form.sent .wpcf7-response-output {
+  @apply bg-green-50 text-green-700 border border-green-200;
+}
+
+/* Error message */
+.wpcf7-form.invalid .wpcf7-response-output {
+  @apply bg-red-50 text-red-700 border border-red-200;
+}
+
+/* Loading spinner */
+.wpcf7-spinner {
+  @apply opacity-70;
+}
+
+/* Form field wrapper */
+.wpcf7-form-control-wrap {
+  @apply block mb-4;
+}
 
 }

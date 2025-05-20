@@ -60,6 +60,12 @@ get_header();
         'class_container' => 'mb-24 relative z-5',
     ]); ?>
 
+    <!-- Contact Form Section -->
+    <?= get_template_part('partials/sections/partial', 'contact_form', [
+        'field_name' => 'section_contact_form',
+        'class_container' => 'mb-24 relative z-5',
+    ]); ?>
+
 </main>
 <?php
 get_footer();

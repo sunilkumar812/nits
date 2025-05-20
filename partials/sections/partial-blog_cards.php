@@ -23,16 +23,6 @@ if (!empty($section_blog)): ?>
                 foreach ($section_blog['nits_blog_posts'] as $post):
                     setup_postdata($post);
                     $author_id = get_the_author_meta('ID');
-                    // $read_time = ceil(str_word_count(strip_tags(get_the_content())) / 200); // ~200 wpm
-                    // $title = get_the_title($post);
-                    // $permalink = get_permalink($post);
-                    // $excerpt = wp_trim_words(get_the_excerpt($post), 25, '...');
-                    // $thumbnail = get_the_post_thumbnail_url($post, 'medium_large');
-                    // $categories = get_the_category($post);
-                    // $date = get_the_date('d M Y', $post);
-                    // $author_name = get_the_author_meta('display_name', $author_id);
-                    // $avatar = get_avatar_url($author_id);
-
                     echo get_template_part('partials/core/partial', 'card_2', [
                         'post' => $post,
                         'author_id' => get_the_author_meta('ID'),

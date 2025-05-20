@@ -9,7 +9,7 @@ if (!empty($section_case_studies)):
     <div class="py-10 lg:pt-20 lg:pb-28 3xl:pt-[105px] 3xl:pb-[103px] relative overflow-hidden" style="background-image:linear-gradient(289.33deg, #2287FF -2.16%, #012C79 108.05%);">
         <div class="absolute -bottom-10 right-20 h-full"><img class="h-full" src="<?= esc_url($background_image['url']);  ?>"> </div>
         <?php echo get_template_part('partials/core/partial', 'section_heading_2', [
-            'class_container' => '',
+            'class_container' => 'main-width',
             'heading_1' => $heading_1 ?? 'Insights',
             'class_heading_1' => '3xl:text-xl font-semibold text-white mb-2 lg:mb-3 3xl:mb-3.5',
             'heading_2' => $heading_2 ?? 'Client Success Stories',
