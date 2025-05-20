@@ -1,11 +1,11 @@
 <?php
 $section_case_studies = get_field($args['field_name']);
-if (!empty($section_case_studies)):
-    $background_image = $section_case_studies['background_image'] ?? '';
-    $heading_1 = $section_case_studies['heading_1'] ?? '';
-    $heading_2 = $section_case_studies['heading_2'] ?? '';
-    $heading_desc = $section_case_studies['heading_desc'] ?? '';
-?>
+$background_image = $section_case_studies['background_image'] ?? '';
+$heading_1 = $section_case_studies['heading_1'] ?? '';
+$heading_2 = $section_case_studies['heading_2'] ?? '';
+$heading_desc = $section_case_studies['heading_desc'] ?? '';
+
+if (is_array($section_case_studies) && !empty(array_filter($section_case_studies))): ?>
     <div class="py-10 lg:pt-20 lg:pb-28 3xl:pt-[105px] 3xl:pb-[103px] relative overflow-hidden" style="background-image:linear-gradient(289.33deg, #2287FF -2.16%, #012C79 108.05%);">
         <div class="absolute -bottom-10 right-20 h-full"><img class="h-full" src="<?= esc_url($background_image['url']);  ?>"> </div>
         <?php echo get_template_part('partials/core/partial', 'section_heading_2', [
@@ -25,7 +25,7 @@ if (!empty($section_case_studies)):
                 <div class="swiper-slide">
                     <div class="lg:flex flex-row lg:gap-16 3xl:gap-20">
                         <div class="max-w-[643px] 3xl:max-w-[743px] aspect-[3/2]">
-                            <img src="http://localhost/nits/wp-content/uploads/2025/05/Rectangle-18.jpg" alt="" class="object-cover w-full">
+                            <img src="http://nits.ai/wordpress/wp-content/uploads/2025/05/Rectangle-18.jpg" alt="" class="object-cover w-full">
                         </div>
                         <div class="flex flex-col gap-10 justify-end py-10 max-w-[500px]">
                             <div class="flex flex-col gap-5">
@@ -51,7 +51,7 @@ if (!empty($section_case_studies)):
                 <div class="swiper-slide">
                     <div class="lg:flex flex-row lg:gap-16 3xl:gap-20">
                         <div class="max-w-[643px] 3xl:max-w-[743px] aspect-[3/2]">
-                            <img src="http://localhost/nits/wp-content/uploads/2025/05/Rectangle-18.jpg" alt="" class="object-cover w-full">
+                            <img src="http://nits.ai/wordpress/wp-content/uploads/2025/05/Rectangle-18.jpg" alt="" class="object-cover w-full">
                         </div>
                         <div class="flex flex-col gap-10 justify-end py-10 max-w-[500px]">
                             <div class="flex flex-col gap-5">
@@ -77,7 +77,7 @@ if (!empty($section_case_studies)):
                 <div class="swiper-slide">
                     <div class="lg:flex flex-row lg:gap-16 3xl:gap-20">
                         <div class="max-w-[643px] 3xl:max-w-[743px] aspect-[3/2]">
-                            <img src="http://localhost/nits/wp-content/uploads/2025/05/Rectangle-18.jpg" alt="" class="object-cover w-full">
+                            <img src="http://nits.ai/wordpress/wp-content/uploads/2025/05/Rectangle-18.jpg" alt="" class="object-cover w-full">
                         </div>
                         <div class="flex flex-col gap-10 justify-end py-10 max-w-[500px]">
                             <div class="flex flex-col gap-5">
