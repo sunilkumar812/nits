@@ -5,7 +5,7 @@ $video_url = $section_video['video_url'] ?? '';
 $thumbnail_url = $section_video['thumbnail'] ?? '';
 $class_container = $args['class_container'] ?? '';
 ?>
-<?php if (!empty(array_filter($section_video))): ?>
+<?php if (is_array($section_video) && !empty(array_filter($section_video))): ?>
     <div class="main-width relative<?= $class_container; ?>">
         <div class="relative aspect-video overflow-hidden group h-[200px] lg:h-[500px] 3xl:h-[727px] mx-auto">
             <?php if ($thumbnail_url): ?>
