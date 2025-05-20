@@ -46,7 +46,8 @@ get_header();
 
     <!-- Video Section -->
     <?= get_template_part('partials/sections/partial', 'video', [
-        'field_name' => 'video_section',
+        'field_name' => 'section_video',
+        'class_container' => 'mb-24 relative z-5',
     ]); ?>
 
     <!-- Aards Section -->
@@ -57,13 +58,13 @@ get_header();
     <!--Blog Section -->
     <?= get_template_part('partials/sections/partial', 'blog_cards', [
         'field_name' => 'section_blog_cards',
-        'class_container' => 'mb-24 relative z-5',
+        'class_container' => '3xl:mb-60 lg:mb-40 mb-20 relative z-5',
     ]); ?>
 
     <!-- Contact Form Section -->
     <?= get_template_part('partials/sections/partial', 'contact_form', [
         'field_name' => 'section_contact_form',
-        'class_container' => 'mb-24 relative z-5',
+        'class_container' => ' mb-24',
     ]); ?>
 
 </main>

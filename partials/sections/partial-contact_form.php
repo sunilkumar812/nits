@@ -1,4 +1,7 @@
-<div class="main-width">
+<?php
+$class_container = $args['class_container'] ?? '';
+?>
+<div class="main-width<?= $class_container; ?>">
     <div class="flex flex-row gap-20">
         <div class="w-full max-w-[739px]">
             <?php echo get_template_part('partials/core/partial', 'section_heading_2', [
@@ -10,7 +13,7 @@
                 'heading_desc' => $heading_desc ?? '',
                 'class_heading_desc' => '',
             ]); ?>
-            <div class="w-full">
+            <div class="w-full 3xl:mt-14 lg:mt-12 mt-6">
                 <img src="http://localhost/nits/wp-content/uploads/2025/05/Group-64.png" alt="" class="w-full mb-4">
             </div>
         </div>
