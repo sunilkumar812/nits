@@ -12,7 +12,7 @@ $aos_attributes = $args['aos_attributes'] ?? '';
             <img src="<?= esc_url($card_image['url']); ?>" alt="<?= esc_attr($card_image['alt']) ?>" class="w-full h-full object-cover" <?= $aos_attributes; ?>>
         <?php endif; ?>
     </div>
-    <div class="flex flex-col gap-3.5 lg:max-w-[310px] align-middle items-center mx-auto">
+    <div class="flex flex-col gap-3.5 lg:max-w-[360px] align-middle items-center mx-auto">
         <h3 class="text-lg lg:text-xl 3xl:text-2xl text-nitsDarkGray text-center font-type2"><?= $card_heading; ?></h3>
         <p class="text-sm lg:text-base text-black text-center"><?= $card_description; ?></p>
     </div>

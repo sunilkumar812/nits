@@ -19,5 +19,11 @@ function nits_scripts()
             true
         );
     }
+    /**Case study filter pages(Home,) */
+    wp_enqueue_script('cs-filter', get_template_directory_uri() . '/js/ajax/home.js', ['jquery'], null, true);
+    wp_localize_script('cs-filter', 'nits_ajax_object', [
+        'ajax_url' => admin_url('admin-ajax.php'),
+        'nonce'    => wp_create_nonce('nits_nonce')
+    ]);
 }
 add_action('wp_enqueue_scripts', 'nits_scripts');

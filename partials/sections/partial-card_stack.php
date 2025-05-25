@@ -1,5 +1,5 @@
 <?php
-$section_stack_cards = get_field($args['section_stack_cards']);
+$section_stack_cards = get_field($args['field_name']);
 ?>
 
 <?php if ($section_stack_cards): ?>

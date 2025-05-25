@@ -24,9 +24,10 @@ if (have_posts()) :
                 'field_name' => 'logo_slider',
             ]); ?>
 
-            <!-- Cards Stack Section -->
-            <?php echo get_template_part('partials/sections/partial', 'card_stack', [
-                'section_stack_cards' => 'section_stack_cards',
+            <!--Solutions Sections -->
+            <?= get_template_part('partials/sections/partial', 'solutions', [
+                'field_name' => 'section_solutions',
+                'class_container' => 'lg:mb-18 3xl:mb-24 relative z-5',
             ]);
             ?>
 
@@ -39,7 +40,7 @@ if (have_posts()) :
             <!--Integrations Section -->
             <?= get_template_part('partials/sections/partial', 'integrations', [
                 'field_name' => 'section_integrations',
-                'class_container' => 'mb-24 relative z-5',
+                'class_container' => 'mb-24 relative z-5 mb-10 lg:mb-16 3xl:mb-20',
             ]); ?>
 
             <!-- Case Studies Section -->

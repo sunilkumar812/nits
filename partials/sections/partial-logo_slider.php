@@ -5,7 +5,7 @@ $logo_slider_heading = get_field('logo_slider_heading');
 ?>
 <!-- Separator H3 -->
 <?= get_template_part('partials/core/partial', 'separator_h3', [
-    'class_container' => 'px-4 max-w-5xl mx-auto mt-15 mb-15 lg:mt-20 lg:mb-16',
+    'class_container' => 'px-4 max-w-5xl mx-auto my-15 lg:mt-16 lg:mb-12 3xl:mt-20 3xl:mb-18',
     'class_text' => 'text-xl md:text-xl font-semibold text-nitsSteelBlue text-center',
     'field_name' => $logo_slider_heading,
 ]); ?>

@@ -12,8 +12,11 @@
 $lang = apply_filters('wpml_current_language', null);
 ?>
 
-<footer id="colophon" class="site-footer bg-black relative overflow-hidden py-[60px] md:py-[130px]">
-	<div class="main-width">
+<footer id="colophon" class="site-footer bg-black relative py-[60px] md:py-[130px]">
+	<button id="back-to-top-btn" class="absolute -top-8 right-30 z-4 w-[80px] focus:outline-none cursor-pointer" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
+		<img src=" <?php echo esc_url(get_template_directory_uri() . '/assets/src/images/back-to-top-btn.png'); ?>" alt="Back to top" />
+	</button>
+	<div class="main-width relative">
 		<div class="flex flex-col lg:flex-row justify-between lg:items-top gap-10 xl:gap-24 relative z-1 text-nitsPrimary">
 			<div class="lg:w-3/5">
 				<div class="mb-8">

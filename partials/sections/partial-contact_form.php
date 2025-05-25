@@ -12,7 +12,7 @@ if (is_array($section_contact_form) && !empty(array_filter($section_contact_form
 ?>
 
     <div class="main-width<?= $class_container; ?>">
-        <div class="flex flex-row gap-20">
+        <div class="lg:flex 3xl:flex flex-row gap-20">
             <div class="w-full max-w-[739px]">
                 <?php echo get_template_part('partials/core/partial', 'section_heading_2', [
                     'class_container' => '3xl:max-w-[520px] lg:max-w-[471px]',

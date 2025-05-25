@@ -2,19 +2,38 @@
 $section_blog = get_field($args['field_name']);
 $class_container = $args['class_container'] ?? 'mb-24';
 
-//var_dump($section_blog);
+$blog_categories = get_terms([
+    'taxonomy' => 'category',
+    'hide_empty' => true,
+]);
 
 if (!empty($section_blog)): ?>
     <div class="main-width <?= esc_attr($class_container); ?>">
         <!--Section Heading -->
         <?= get_template_part('partials/core/partial', 'section_heading_1', [
-            'class_container' => 'mb-15 lg:mb-24',
+            'class_container' => 'mb-5 lg:mb-8 3xl:mb-15',
             'icon' => $section_blog['icon']['url'],
             'icon_heading' => $section_blog['icon_heading'],
             'heading' => $section_blog['heading'],
             'heading_desc' => $section_blog['heading_desc'],
         ]); ?>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+        <div class="flex justify-center items-center gap-4 mb-15">
+            <div class="min-w-4 lg:min-w-[103px] h-px bg-nitsBluePlus"></div>
+
+            <?php foreach ($blog_categories as $blog_category) : ?>
+                <button
+                    class="blog-filter px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 cursor-pointer"
+                    data-id="<?= esc_attr($blog_category->term_id); ?>">
+                    <?= esc_html($blog_category->name); ?>
+                </button>
+            <?php endforeach; ?>
+
+            <div class="min-w-4 lg:min-w-[103px] h-px bg-nitsBluePlus"></div>
+        </div>
+        <div id="blog-loader" class="w-full text-center mb-4 hidden">
+            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/src/images/blue_loading.gif'); ?>" alt="Loading..." class="inline-block w-30 h-30" />
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-16" id="blog-post-results">
 
             <?php
             if ($section_blog['nits_blog_posts'] && is_array($section_blog['nits_blog_posts'])):

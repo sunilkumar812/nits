@@ -1,5 +1,5 @@
 /* @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Manrope:wght@200..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Manrope:wght@200..800&family=Roboto:ital,wght@0,100..900;1,100..900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
 @import "tailwindcss";
 @tailwind base;
 @tailwind components;
@@ -9,7 +9,7 @@
      /*Font Family*/ 
     --font-roboto: "Roboto", sans-serif; 
     --font-dmsans: "DM Sans", sans-serif; 
-    --font-type1: "Exo 2", sans-serif;
+    --font-type1: "Titillium Web", sans-serif;
     --font-type2: "Manrope", sans-serif;
 
      /*Color*/ 
@@ -80,7 +80,7 @@
 
   /* Header */
   .main-navigation .mega-menu-wrapper{
-    @apply opacity-0 invisible opacity-100 transition-opacity duration-500 ease-in-out w-full absolute inset-x-0 top-0 w-full text-white mx-auto overflow-hidden shadow-md pt-[150px] z-0 pb-6;
+    @apply opacity-0 invisible opacity-100 transition-opacity duration-500 ease-in-out w-full absolute inset-x-0 top-0 w-full text-white mx-auto overflow-hidden shadow-md lg:pt-[110px] 3xl:pt-[150px] z-0 pb-6;
     background: linear-gradient(354.97deg, #2E5FB2 -59.85%, #14294C 95.76%);
   }
 
@@ -92,7 +92,7 @@
     @apply opacity-100 visible;
   }
   .mega-menu-wrapper ul.sub-menu li.menu-col{
-    @apply mb-12;
+    @apply lg:mb-8 3xl:mb-12;
   }
   .mega-menu-wrapper ul.sub-menu li.menu-col ul li{
     @apply mb-[3px];
