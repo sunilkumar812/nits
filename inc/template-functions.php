@@ -110,6 +110,7 @@ function ajax_filter_casestudies()
 add_action('wp_ajax_filter_casestudies', 'ajax_filter_casestudies');
 add_action('wp_ajax_nopriv_filter_casestudies', 'ajax_filter_casestudies');
 
+/** Home Blog ajax filter functions */
 function nits_filter_blog_posts()
 {
 	if (!isset($_POST['nonce']) || !wp_verify_nonce($_POST['nonce'], 'nits_nonce')) {
