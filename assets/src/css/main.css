@@ -6,13 +6,13 @@
 @tailwind utilities;
 
 @theme {
-     /*Font Family*/ 
+    
     --font-roboto: "Roboto", sans-serif; 
     --font-dmsans: "DM Sans", sans-serif; 
     --font-type1: "Titillium Web", sans-serif;
     --font-type2: "Manrope", sans-serif;
 
-     /*Color*/ 
+
     --color-nitsPrimary:#14294C;
     --color-nitsLightBlue:#88C4FF;
     --color-nitsBlue:#083D91;

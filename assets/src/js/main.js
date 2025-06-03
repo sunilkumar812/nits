@@ -8,8 +8,8 @@ import Lenis from 'lenis';
 import AOS from 'aos';
 import Marquee3k from 'marquee3000';
 import gsap from "gsap";
-import { ScrollTrigger, Draggable, MotionPathPlugin, Observer } from "gsap/all";
-gsap.registerPlugin(ScrollTrigger, Draggable, Observer, MotionPathPlugin); 
+import { ScrollTrigger, Draggable, MotionPathPlugin, Observer, DrawSVGPlugin } from "gsap/all";
+gsap.registerPlugin(ScrollTrigger, Draggable, Observer, MotionPathPlugin, DrawSVGPlugin); 
 
 // Animation
 AOS.init({
@@ -120,7 +120,21 @@ if (menu) {
     },
   });
 
-    
+  const scroller = document.querySelector(".scroller");
+  const totalScroll = scroller.scrollWidth - window.innerWidth;
+
+  gsap.to(scroller, {
+    x: () => `-${totalScroll}px`,
+    ease: "none",
+    scrollTrigger: {
+      trigger: "#horizontal-scroll",
+      start: "top top",
+      end: () => `+=${totalScroll}`,
+      scrub: true,
+      pin: true,
+      anticipatePin: 1
+    }
+  });
   // const cardsContainerId = document.getElementById('stackcards-containerId');
   // const cardsContainer = gsap.utils.toArray(".stackcards-container");
   // const cards = gsap.utils.toArray(".stackcard");
@@ -154,5 +168,45 @@ if (menu) {
   //   });
   // });
   // }
+// console.clear();
 
+// gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin, MotionPathPlugin);
+
+// gsap.set(".pathBall", {xPercent: -50, yPercent: -50});
+
+// var dir;
+// var prog = 0;
+// var action = gsap.timeline({defaults: {duration: 1, ease:'none' },
+//   scrollTrigger: {
+//     trigger: "#path",
+//     scrub:0,
+//     start: "top top",
+//     end: "bottom +=220%", // new
+//     onUpdate: self => { 
+//       prog = self.progress.toFixed(2);
+//       console.log(prog);
+//     } // new: info for position
+//   }})
+// .fromTo(".pathLine", {drawSVG: "100% 100%"}, {drawSVG: "0% 100%"}, 0)
+// .from(".pathBall", {motionPath: {path: ".pathLine", align: ".pathLine", offsetX:0, offsetY:0,  }}, 0)
+
+// .to('#wrap', {y:'+=200',duration:0.25,},0)
+// .to('#wrap', {y:'-=40',duration:0.05,},0.40)
+// .to('#wrap', {y:'-=800',duration:0.2,},0.5)
+// .to('#wrap', {y:'-=50',duration:0.2,},0.60)
+// .to('#wrap', {y:'-=500',duration:0.2,},0.80)
+// const fillElement = document.querySelector("#fill-element");
+    
+//     // Create the fill animation
+//     gsap.to(fillElement, {
+//       fill: "#1a73e8", // Blue color
+//       ease: "none",
+//       scrollTrigger: {
+//         trigger: "body", // Use the body as trigger for full page scroll
+//         start: "top top",
+//         end: "bottom bottom",
+//         scrub: true, // Smooth scrubbing effect
+//         markers: true // Remove in production
+//       }
+//     });
 });

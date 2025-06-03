@@ -17,7 +17,8 @@ $button = $solutions['button'] ?? '';
 <?php if (is_array($solutions['cards']) && !empty(array_filter($solutions['cards']))):
 ?>
     <div class="main-width <?= esc_attr($class_container); ?>">
-        <div class="flex flex-col lg:flex-row items-center justify-between lg:gap-20 3xl:gap-12">
+        <!-- <div class="flex flex-col lg:flex-row items-center justify-between lg:gap-20 3xl:gap-12"> -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 grid-flow-row justify-between gap-5.5 md:gap-13">
             <?php
             $delay = 100;
             foreach ($solutions['cards'] as $card):

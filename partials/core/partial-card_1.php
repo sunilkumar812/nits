@@ -6,7 +6,7 @@ $class_container = $args['class_container'] ?? '';
 $aos_attributes = $args['aos_attributes'] ?? '';
 ?>
 
-<div class="flex flex-col gap-5 lg:gap-10 3xl:gap-12 <?= esc_attr($class_container); ?>">
+<div class="flex flex-col gap-5 lg:gap-5 3xl:gap-5 <?= esc_attr($class_container); ?>">
     <div class="w-full flex justify-center aspect-[5/4]">
         <?php if ($card_image): ?>
             <img src="<?= esc_url($card_image['url']); ?>" alt="<?= esc_attr($card_image['alt']) ?>" class="w-full h-full object-cover" <?= $aos_attributes; ?>>

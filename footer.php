@@ -13,9 +13,7 @@ $lang = apply_filters('wpml_current_language', null);
 ?>
 
 <footer id="colophon" class="site-footer bg-black relative py-[60px] md:py-[130px]">
-	<button id="back-to-top-btn" class="absolute -top-8 right-30 z-4 w-[80px] focus:outline-none cursor-pointer" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
-		<img src=" <?php echo esc_url(get_template_directory_uri() . '/assets/src/images/back-to-top-btn.png'); ?>" alt="Back to top" />
-	</button>
+
 	<div class="main-width relative">
 		<div class="flex flex-col lg:flex-row justify-between lg:items-top gap-10 xl:gap-24 relative z-1 text-nitsPrimary">
 			<div class="lg:w-3/5">
@@ -90,9 +88,11 @@ $lang = apply_filters('wpml_current_language', null);
 							</a>
 						</div>
 						<div class="flex flex-row gap-2 items-baseline mb-4 font-dmsans">
-							<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M8.00004 1.33301C5.42004 1.33301 3.33337 3.41967 3.33337 5.99967C3.33337 9.49967 8.00004 14.6663 8.00004 14.6663C8.00004 14.6663 12.6667 9.49967 12.6667 5.99967C12.6667 3.41967 10.58 1.33301 8.00004 1.33301ZM8.00004 7.66634C7.08004 7.66634 6.33337 6.91967 6.33337 5.99967C6.33337 5.07967 7.08004 4.33301 8.00004 4.33301C8.92004 4.33301 9.66671 5.07967 9.66671 5.99967C9.66671 6.91967 8.92004 7.66634 8.00004 7.66634Z" fill="#2387FF" />
-							</svg>
+							<div class="min-w-[16px]">
+								<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M8.00004 1.33301C5.42004 1.33301 3.33337 3.41967 3.33337 5.99967C3.33337 9.49967 8.00004 14.6663 8.00004 14.6663C8.00004 14.6663 12.6667 9.49967 12.6667 5.99967C12.6667 3.41967 10.58 1.33301 8.00004 1.33301ZM8.00004 7.66634C7.08004 7.66634 6.33337 6.91967 6.33337 5.99967C6.33337 5.07967 7.08004 4.33301 8.00004 4.33301C8.92004 4.33301 9.66671 5.07967 9.66671 5.99967C9.66671 6.91967 8.92004 7.66634 8.00004 7.66634Z" fill="#2387FF" />
+								</svg>
+							</div>
 							<div class="flex flex-col">
 								<h3 class="text-nitsLightBlue font-medium text-xl mb-1">Company HQ</h3>
 								<p class="text-white text-base">
@@ -101,11 +101,13 @@ $lang = apply_filters('wpml_current_language', null);
 							</div>
 						</div>
 						<div class="flex flex-row gap-2 items-baseline mb-4 font-dmsans">
-							<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M8.00004 1.33301C5.42004 1.33301 3.33337 3.41967 3.33337 5.99967C3.33337 9.49967 8.00004 14.6663 8.00004 14.6663C8.00004 14.6663 12.6667 9.49967 12.6667 5.99967C12.6667 3.41967 10.58 1.33301 8.00004 1.33301ZM8.00004 7.66634C7.08004 7.66634 6.33337 6.91967 6.33337 5.99967C6.33337 5.07967 7.08004 4.33301 8.00004 4.33301C8.92004 4.33301 9.66671 5.07967 9.66671 5.99967C9.66671 6.91967 8.92004 7.66634 8.00004 7.66634Z" fill="#2387FF" />
-							</svg>
+							<div class="min-w-[16px]">
+								<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M8.00004 1.33301C5.42004 1.33301 3.33337 3.41967 3.33337 5.99967C3.33337 9.49967 8.00004 14.6663 8.00004 14.6663C8.00004 14.6663 12.6667 9.49967 12.6667 5.99967C12.6667 3.41967 10.58 1.33301 8.00004 1.33301ZM8.00004 7.66634C7.08004 7.66634 6.33337 6.91967 6.33337 5.99967C6.33337 5.07967 7.08004 4.33301 8.00004 4.33301C8.92004 4.33301 9.66671 5.07967 9.66671 5.99967C9.66671 6.91967 8.92004 7.66634 8.00004 7.66634Z" fill="#2387FF" />
+								</svg>
+							</div>
 							<div>
-								<h3 class="text-nitsLightBlue font-medium text-xl mb-1">Company HQ</h3>
+								<h3 class="text-nitsLightBlue font-medium text-xl mb-1">India Location</h3>
 								<p class="text-white text-base">
 									<?php echo esc_html(get_field('address_2', 'option')); ?>
 								</p>
@@ -129,6 +131,9 @@ $lang = apply_filters('wpml_current_language', null);
 			</div>
 		</div>
 	</div><!-- .site-info -->
+	<button id="back-to-top-btn" class="absolute bottom-2 right-2 z-4 w-[80px] focus:outline-none cursor-pointer" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
+		<img src=" <?php echo esc_url(get_template_directory_uri() . '/assets/src/images/back-to-top-btn.png'); ?>" alt="Back to top" />
+	</button>
 </footer><!-- #colophon -->
 <div class="bg-nitsBlue py-5">
 	<div class="main-width">

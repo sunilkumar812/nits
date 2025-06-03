@@ -5,7 +5,7 @@ $background_image = get_field('background_image');
 $heading = get_field('heading') ?: 'AI-Driven Dealership Analytics for Your Success';
 $description = get_field('description') ?: 'Unlock the power of your dealership data with our innovative AI solutions. Transform insights into actionable strategies that drive growth and enhance customer experiences.';
 ?>
-<div class=" relative min-h-screen flex items-center justify-center overflow-hidden z-[4]">
+<div class="relative min-h-screen flex items-center justify-center overflow-hidden z-[4]">
     <!-- Dynamic Background -->
     <?php if ($background_type === 'video' && $background_video): ?>
         <video

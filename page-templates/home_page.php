@@ -8,73 +8,67 @@
  * @package nits
  */
 get_header();
-if (have_posts()) :
-    while (have_posts()) :
-        the_post();
 ?>
 
-        <main id="primary" class="z-4 relative overflow-hidden">
+<main id="primary" class="z-4 relative overflow-hidden">
 
-            <!-- Hero Section -->
-            <?= get_template_part('partials/sections/partial', 'hero'); ?>
+    <!-- Hero Section -->
+    <?= get_template_part('partials/sections/hero/partial', 'hero'); ?>
 
-            <!-- Logos Slider Section -->
-            <?= get_template_part('partials/sections/partial', 'logo_slider', [
-                'class_container' => 'mx-auto lg:max-w-[1538px] mb-15 lg:mb-[84px]',
-                'field_name' => 'logo_slider',
-            ]); ?>
+    <!-- Logos Slider Section -->
+    <?= get_template_part('partials/sections/partial', 'logo_slider', [
+        'class_container' => 'mx-auto lg:max-w-[1538px] mb-15 lg:mb-[84px]',
+        'field_name' => 'logo_slider',
+    ]); ?>
 
-            <!--Solutions Sections -->
-            <?= get_template_part('partials/sections/partial', 'solutions', [
-                'field_name' => 'section_solutions',
-                'class_container' => 'lg:mb-18 3xl:mb-24 relative z-5',
-            ]);
-            ?>
+    <!--Solutions Sections -->
+    <?= get_template_part('partials/sections/partial', 'solutions', [
+        'field_name' => 'section_solutions',
+        'class_container' => 'lg:mb-18 3xl:mb-24 relative z-5',
+    ]);
+    ?>
 
-            <!-- Dealership Insights Section -->
-            <?= get_template_part('partials/sections/partial', 'dealership_insights', [
-                'field_name' => 'section_dealership_insights',
-                'class_container' => 'mb-24 py-5 lg:py-10 xl:py-15',
-            ]); ?>
+    <!-- Dealership Insights Section -->
+    <?= get_template_part('partials/sections/partial', 'dealership_insights', [
+        'field_name' => 'section_dealership_insights',
+        'class_container' => 'mb-24 py-5 lg:py-10 xl:py-15',
+    ]); ?>
 
-            <!--Integrations Section -->
-            <?= get_template_part('partials/sections/partial', 'integrations', [
-                'field_name' => 'section_integrations',
-                'class_container' => 'mb-24 relative z-5 mb-10 lg:mb-16 3xl:mb-20',
-            ]); ?>
+    <!--Integrations Section -->
+    <?= get_template_part('partials/sections/partial', 'integrations', [
+        'field_name' => 'section_integrations',
+        'class_container' => 'mb-24 relative z-5 mb-10 lg:mb-16 3xl:mb-20',
+    ]); ?>
 
-            <!-- Case Studies Section -->
-            <?= get_template_part('partials/sections/partial', 'case_studies', [
-                'field_name' => 'section_case_studies',
-                'class_container' => 'mb-24 lg:mb-32',
-            ]); ?>
+    <!-- Case Studies Section -->
+    <?= get_template_part('partials/sections/partial', 'case_studies', [
+        'field_name' => 'section_case_studies',
+        'class_container' => 'mb-24 lg:mb-32',
+    ]); ?>
 
-            <!-- Video Section -->
-            <?= get_template_part('partials/sections/partial', 'video', [
-                'field_name' => 'section_video',
-                'class_container' => 'mb-24 relative z-5',
-            ]); ?>
+    <!-- Video Section -->
+    <?= get_template_part('partials/sections/partial', 'video', [
+        'field_name' => 'section_video',
+        'class_container' => 'mb-24 relative z-5',
+    ]); ?>
 
-            <!-- Aards Section -->
-            <?= get_template_part('partials/sections/partial', 'awards', [
-                'field_name' => 'section_awards',
-            ]); ?>
+    <!-- Aards Section -->
+    <?= get_template_part('partials/sections/partial', 'awards', [
+        'field_name' => 'section_awards',
+    ]); ?>
 
-            <!--Blog Section -->
-            <?= get_template_part('partials/sections/partial', 'blog_cards', [
-                'field_name' => 'section_blog_cards',
-                'class_container' => '3xl:mb-60 lg:mb-40 mb-20 relative z-5',
-            ]); ?>
+    <!--Blog Section -->
+    <?= get_template_part('partials/sections/partial', 'blog_cards', [
+        'field_name' => 'section_blog_cards',
+        'class_container' => '3xl:mb-60 lg:mb-40 mb-20 relative z-5',
+    ]); ?>
 
-            <!-- Contact Form Section -->
-            <?= get_template_part('partials/sections/partial', 'contact_form', [
-                'field_name' => 'section_contact',
-                'class_container' => ' mb-24',
-            ]); ?>
+    <!-- Contact Form Section -->
+    <?= get_template_part('partials/sections/partial', 'contact_form', [
+        'field_name' => 'section_contact',
+        'class_container' => ' mb-24',
+    ]); ?>
 
-        </main>
+</main>
 <?php
-    endwhile;
-endif;
-
 get_footer();
