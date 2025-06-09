@@ -182,7 +182,7 @@
 /*Contact Form 7*/
 
 /* Form container */
-.wpcf7 {
+.home-contact{
   @apply max-w-xl mx-auto;
 }
 
@@ -253,5 +253,56 @@
 .wpcf7-form-control-wrap {
   @apply block mb-4;
 }
+/*Contact us page */
+.formC-wrapper{
+  @apply grid grid-cols-1 md:grid-cols-2 gap-x-[8rem] gap-y-0 lg:py-0;
+}
+.formC-wrapper .formC-lable{
+  @apply block text-sm lg:text-base font-medium text-black mb-0;
+}
+.formC-wrapper input[type="text"], 
+.formC-wrapper input[type="email"],
+.formC-wrapper input[type="tel"],
+.formC-wrapper textarea {
+  @apply pt-6 ;
+}
+.formC-wrapper textarea {
+  @apply h-15 overflow-hidden;
+}
+.formC-check .wpcf7-checkbox{
+  @apply grid grid-cols-2 md:grid-cols-2 gap-x-0 gap-y-4;
+}
+.formC-check .wpcf7-list-item{
+  @apply max-w-[200px];
+}
+.faq-item {
+  @apply py-4 border-b border-blue-100 cursor-pointer transition-colors duration-200;
+}
+.faq-item:not(.active) {
+  @apply text-gray-500;
+}
+.faq-item.active {
+  @apply text-nitsSteelBlue;
+}
+.faq-content {
+  @apply max-h-0 overflow-hidden transition-all duration-300;
+}
+.faq-item.active .faq-content {
+  @apply max-h-32 mt-2;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

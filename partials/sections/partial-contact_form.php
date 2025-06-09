@@ -30,9 +30,11 @@ if (is_array($section_contact_form) && !empty(array_filter($section_contact_form
                 </div>
             </div>
             <div class="w-full max-w-[653px]">
-                <?php if (!empty($form)):
-                    echo  do_shortcode($form);
-                endif; ?>
+                <div class="contact-page">
+                    <?php if (!empty($form)):
+                        echo  do_shortcode($form);
+                    endif; ?>
+                </div>
             </div>
         </div>
     </div>
