@@ -9,9 +9,9 @@ $aos_attributes = $args['aos_attributes'] ?? '';
 ?>
 <div class="transition-transform duration-300 hover:transform hover:scale-105<?= esc_attr($class_container); ?>" <?= $aos_attributes; ?>>
     <?php if (!empty($image)): ?>
-        <img src="<?= esc_url($image); ?>" alt="<?= esc_attr($title); ?>" class="w-full h-48 object-cover">
+        <img src="<?= esc_url($image); ?>" alt="<?= esc_attr($title); ?>" class="">
     <?php endif; ?>
-    <div class="p-6 flex flex-col justify-between gap-5 lg:gap-7 3xl:gap-10">
+    <div class="py-6 flex flex-col justify-between gap-5 lg:gap-7 3xl:gap-10">
         <div class="">
             <h3 class="mb-2 text-xl 3xl:text-2xl font-bold text-black font-type2 leading-8">
                 <?= esc_html($title); ?>
