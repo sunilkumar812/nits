@@ -21,11 +21,10 @@
     --color-nitsDarkBlue:#1E4B93;
     --color-nitsDarkGray:#1F1F1F;
 
-     /*Letter Spacing*/ 
     --tracking-1em: 1em;
     --tracking-05em: 0.5em;
 
-     /*Breakpoints*/ 
+    
     --breakpoint-3xl: 100rem;
 
 }

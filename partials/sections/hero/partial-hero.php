@@ -8,11 +8,6 @@ $cta_1 = get_field('cta_1') ?: [];
 $cta_2 = get_field('cta_2') ?: [];
 ?>
 <?php if (!empty($background_image) || !empty($heading) || !empty($description)): ?>
-    <style>
-        .main-width {
-            max-width: 1200px;
-        }
-    </style>
     <div class="relative min-h-screen flex items-center justify-center overflow-hidden z-[4]">
         <!-- Dynamic Background -->
         <?php if ($background_type === 'video' && $background_video): ?>
