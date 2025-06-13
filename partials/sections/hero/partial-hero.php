@@ -4,6 +4,8 @@ $background_video = get_field('background_video');
 $background_image = get_field('background_image');
 $heading = get_field('heading') ?: '';
 $description = get_field('description') ?: '';
+$cta_1 = get_field('cta_1') ?: [];
+$cta_2 = get_field('cta_2') ?: [];
 ?>
 <?php if (!empty($background_image) || !empty($heading) || !empty($description)): ?>
     <style>
@@ -47,16 +49,20 @@ $description = get_field('description') ?: '';
                     <?php endif; ?>
 
                     <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                        <?= get_template_part('partials/core/partial', 'button_primary', [
-                            'class' => 'btn-primary font-bold px-[22px] py-[17px] rounded-md text-lg 3xl:text-xl',
-                            'text' => 'Contact Us',
-                            'link' =>  '/',
-                        ]); ?>
-                        <?= get_template_part('partials/core/partial', 'button_primary', [
-                            'class' => 'btn-white font-bold px-[22px] py-[17px] rounded-md lg:text-lg 3xl:text-xl',
-                            'text' => 'Get a Demo',
-                            'link' =>  '/',
-                        ]); ?>
+                        <?php if (!empty($cta_1['title'])): ?>
+                            <?= get_template_part('partials/core/partial', 'button_primary', [
+                                'class' => 'btn-primary font-bold px-[22px] py-[17px] rounded-md text-lg 3xl:text-xl',
+                                'text' => $cta_1['title'] ?: 'Learn More',
+                                'link' =>  $cta_1['url'] ?: '#',
+                            ]); ?>
+                        <?php endif; ?>
+                        <?php if (!empty($cta_2['title'])): ?>
+                            <?= get_template_part('partials/core/partial', 'button_primary', [
+                                'class' => 'btn-white font-bold px-[22px] py-[17px] rounded-md lg:text-lg 3xl:text-xl',
+                                'text' => $cta_2['title'] ?: 'Get Started',
+                                'link' =>  $cta_2['url'] ?: '#',
+                            ]); ?>
+                        <?php endif; ?>
                     </div>
 
                 </div>
