@@ -3,7 +3,6 @@ $faq = get_field($args['field_name']);
 $heading_1 = $faq['heading'] ?? '';
 $description = $faq['description'] ?? '';
 ?>
-
 <div class="bg-[#EEF8FF] py-8 lg:py-24">
     <div class="main-width">
         <div class="grid lg:grid-cols-2 gap-12 ">
