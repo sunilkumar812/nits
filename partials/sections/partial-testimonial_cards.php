@@ -8,7 +8,7 @@ $class_container = $args['class_container'] ?? '';
 
         <?php
         echo get_template_part('partials/core/partial', 'card_3', [
-            'image' => 'http://localhost/nits/wp-content/uploads/2025/06/Ellipse-16.png',
+            'image' => 'https://nits.webknitter.in/wp-content/uploads/2025/06/Ellipse-16.png',
             'title' => 'NITS has completely transformed how we manage our fixed ops strategy ',
             'description' => 'Their analytics driven approach has helped us streamline our wholesale parts distribution and significantly boost revenue The level of detail in their insights is unparalleled allowing us to make informed decisions faster than ever Theyre not just a vendor theyre a true partner in our success',
             'name' => 'Jim Reynolds',
@@ -17,7 +17,7 @@ $class_container = $args['class_container'] ?? '';
             //'aos_attributes' => 'data-cursor="inverse" data-aos="fade-down" data-aos-delay="' . esc_attr($delay) . '" data-aos-anchor-placement="top-bottom"',
         ]);
         echo get_template_part('partials/core/partial', 'card_3', [
-            'image' => 'http://localhost/nits/wp-content/uploads/2025/06/Ellipse-16.png',
+            'image' => 'https://nits.webknitter.in/wp-content/uploads/2025/06/Ellipse-16.png',
             'title' => 'NITS has completely transformed how we manage our fixed ops strategy ',
             'description' => 'Their analytics driven approach has helped us streamline our wholesale parts distribution and significantly boost revenue The level of detail in their insights is unparalleled allowing us to make informed decisions faster than ever Theyre not just a vendor theyre a true partner in our success',
             'name' => 'Jim Reynolds',
@@ -26,7 +26,7 @@ $class_container = $args['class_container'] ?? '';
             //'aos_attributes' => 'data-cursor="inverse" data-aos="fade-down" data-aos-delay="' . esc_attr($delay) . '" data-aos-anchor-placement="top-bottom"',
         ]);
         echo get_template_part('partials/core/partial', 'card_3', [
-            'image' => 'http://localhost/nits/wp-content/uploads/2025/06/Ellipse-16.png',
+            'image' => 'https://nits.webknitter.in/wp-content/uploads/2025/06/Ellipse-16.png',
             'title' => 'NITS has completely transformed how we manage our fixed ops strategy ',
             'description' => 'Their analytics driven approach has helped us streamline our wholesale parts distribution and significantly boost revenue The level of detail in their insights is unparalleled allowing us to make informed decisions faster than ever Theyre not just a vendor theyre a true partner in our success',
             'name' => 'Jim Reynolds',
