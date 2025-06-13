@@ -13,7 +13,7 @@ $class_heading_desc = isset($args['class_heading_desc']) ? $args['class_heading_
         <h3 class="text-sm lg:text-lg uppercase tracking-[0.3em] font-type2 <?= $class_heading_1; ?>"><?= esc_html($heading_1); ?></h3>
     <?php endif;
     if ($heading_2): ?>
-        <h2 class="text-2xl lg:text-3xl font-type1 <?= $class_heading_2; ?>"><?= esc_html($heading_2); ?></h2>
+        <h2 class="text-2xl lg:text-3xl font-type1 <?= $class_heading_2; ?>"><?= $heading_2; ?></h2>
     <?php endif;
     if ($heading_desc): ?>
         <p class="text-sm lg:text-base font-roboto <?= $class_heading_desc; ?>"><?= esc_html($heading_desc); ?></p>
