@@ -77,6 +77,15 @@
     }
   }
 
+  /*Effects*/
+ /* tailwind.css or global CSS file */
+ .nits-scale-110 {
+  @apply transition-transform duration-200 ease-in-out;
+}
+
+.nits-scale-110:hover {
+  @apply scale-110;
+}
   /* Header */
   .main-navigation .mega-menu-wrapper{
     @apply opacity-0 invisible opacity-100 transition-opacity duration-500 ease-in-out w-full absolute inset-x-0 top-0 w-full text-white mx-auto overflow-hidden shadow-md lg:pt-[110px] 3xl:pt-[150px] z-0 pb-6;

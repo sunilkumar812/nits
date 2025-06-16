@@ -15,8 +15,8 @@ $lang = apply_filters('wpml_current_language', null);
 <footer id="colophon" class="site-footer bg-black relative py-[60px] md:py-[130px]">
 
 	<div class="main-width relative">
-		<div class="flex flex-col lg:flex-row justify-between lg:items-top gap-10 xl:gap-24 relative z-1 text-nitsPrimary">
-			<div class="lg:w-3/5">
+		<div class="flex flex-col lg:flex-row justify-between lg:items-top gap-10 xl:gap-24 z-1 relative text-nitsPrimary">
+			<div class="lg:w-2.2/5">
 				<div class="mb-8">
 					<svg width="126" height="35" viewBox="0 0 126 35" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M9.79376 0.418266H0.699554C0.313201 0.418266 0 0.731467 0 1.11782V10.212C0 10.5984 0.313201 10.9116 0.699554 10.9116H9.79376C10.1801 10.9116 10.4933 10.5984 10.4933 10.212V1.11782C10.4933 0.731467 10.1801 0.418266 9.79376 0.418266Z" fill="#2387FF" />
@@ -62,7 +62,8 @@ $lang = apply_filters('wpml_current_language', null);
 					</a>
 				</div>
 			</div>
-			<div class="lg:w-2/5">
+			<div class="lg:w-2.2/5">
+
 				<div class="flex flex-col lg:flex-row gap-10 md:gap-[105px]">
 					<div class="min-w-[120px]">
 						<h3 class="font-dmsans text-nitsLightBlue font-medium text-xl mb-4 lg:mb-10">Quick Links</h3>
@@ -129,11 +130,13 @@ $lang = apply_filters('wpml_current_language', null);
 					</div>
 				</div>
 			</div>
-		</div>
-	</div><!-- .site-info -->
-	<button id="back-to-top-btn" class="absolute bottom-2 right-2 z-4 w-[80px] focus:outline-none cursor-pointer" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
-		<img src=" <?php echo esc_url(get_template_directory_uri() . '/assets/src/images/back-to-top-btn.png'); ?>" alt="Back to top" />
-	</button>
+			<div class="lg:w-0.6/5">
+				<img class="lg:absolute lg:top-[-130px] lg:right-0" src="https://nits.webknitter.in/wp-content/uploads/2025/06/Certification-Badge-01.png" alt="Map" />
+			</div>
+		</div><!-- .site-info -->
+		<button id="back-to-top-btn" class="absolute right-0 lg:top-[-165px] lg:left-1/2 transform -translate-x-1/2 z-40 w-[80px] focus:outline-none cursor-pointer" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
+			<img src=" <?php echo esc_url(get_template_directory_uri() . '/assets/src/images/back-to-top-btn.png'); ?>" alt="Back to top" />
+		</button>
 </footer><!-- #colophon -->
 <div class="bg-nitsBlue py-5">
 	<div class="main-width">

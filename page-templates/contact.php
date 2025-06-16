@@ -8,6 +8,7 @@
  * @package nits
  */
 get_header(); ?>
+
 <main id="primary" class="z-4 relative overflow-hidden">
 
     <!-- Hero Section -->

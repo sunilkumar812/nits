@@ -31,7 +31,7 @@ $cta_2 = get_field('cta_2') ?: [];
         <!-- Content -->
         <?php if (!empty($heading) || !empty($description)): ?>
             <div class="main-width">
-                <div class=" relative z-20 text-center px-4 max-w-[800px] mx-auto">
+                <div class=" relative z-20 text-center px-4 max-w-[1000px] mx-auto">
                     <?php if (!empty($heading)): ?>
                         <h1 class="text-4xl lg:text-4xl 2xl:text-5xl 3xl:text-6xl font-semibold text-white mb-10 font-type1" data-aos="flip-down">
                             <?php echo esc_html($heading); ?>
