@@ -48,39 +48,50 @@
     </div>
 
     <!-- Timeline Line -->
-    <div class="absolute left-20 top-[280px] bottom-0 w-[3px] bg-gray-300">
+    <div class="absolute left-19 top-[280px] bottom-0 w-[3px] bg-gray-300">
         <div id="timeline-progress" class="w-[3px] bg-blue-500 absolute top-0 h-0 "></div>
     </div>
-    <!-- Timeline Section -->
-    <section class="main-width ml-19 relative py-16">
 
-        <!-- Inception -->
-        <div class="relative section py-16" data-index="1">
-            <div class="absolute -left-20 top-1 w-5 h-5 bg-blue-500 rounded-sm z-10 dot"></div>
-            <!-- <div class="absolute -left-20 top-1 w-6 h-6 bg-white border-2 border-blue-500 rounded-full dot"></div> -->
-            <div>
+    <!-- Sec 1 -->
+    <div class="section" data-index="0">
+        <div class="main-width flex relative ml-19 flex-col justify-center h-full relative py-20">
+            <div class="relative">
+                <div class=" absolute -left-20 top-1 w-5 h-5 bg-blue-500 rounded-sm z-10 blink dot"></div>
                 <h4 class="uppercase text-xs text-gray-500 mb-1">Inception</h4>
                 <h3 class="text-[#11386E] font-semibold mb-2">Core values & Mission Copy here</h3>
                 <p class="text-sm mb-3 text-[#333]">Our efforts encompass our Mission, Vision and Values and every decision we make helps to build our inclusive and diverse workplace...</p>
                 <button class="text-xs text-white bg-[#0077FF] px-3 py-1 rounded">View More</button>
-                <div id="horizontal-scroll" class="relative h-screen overflow-hidden bg-white">
-                    <div class="scroller flex space-x-6 w-max h-full items-center px-20">
-                        <!-- Slides -->
-                        <div class="w-[300px] h-[200px] bg-blue-500 text-white text-xl flex items-center justify-center rounded">1</div>
-                        <div class="w-[300px] h-[200px] bg-blue-500 text-white text-xl flex items-center justify-center rounded">2</div>
-                        <div class="w-[300px] h-[200px] bg-blue-500 text-white text-xl flex items-center justify-center rounded">3</div>
-                        <div class="w-[300px] h-[200px] bg-blue-500 text-white text-xl flex items-center justify-center rounded">4</div>
-                        <div class="w-[300px] h-[200px] bg-blue-500 text-white text-xl flex items-center justify-center rounded">5</div>
-                        <div class="w-[300px] h-[200px] bg-blue-500 text-white text-xl flex items-center justify-center rounded">6</div>
-                        <div class="w-[300px] h-[200px] bg-blue-500 text-white text-xl flex items-center justify-center rounded">7</div>
-                    </div>
-                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- Timeline Section -->
+    <section class="main-width relative py-16">
+
+        <!-- Inception -->
+        <div class="relative section" data-index="1">
+            <div>
+                <div class="absolute top-1 w-5 h-5 bg-blue-500 rounded-sm z-10 dot"></div>
+                <span>INCEPTION</span>
+            </div>
+            <!-- <div class="absolute -left-20 top-1 w-6 h-6 bg-white border-2 border-blue-500 rounded-full dot"></div> -->
+            <div class="main-width">
+                <h4 class="uppercase text-xs text-gray-500 mb-1">Inception</h4>
+                <h3 class="text-[#11386E] font-semibold mb-2">Core values & Mission Copy here</h3>
+                <p class="text-sm mb-3 text-[#333]">Our efforts encompass our Mission, Vision and Values and every decision we make helps to build our inclusive and diverse workplace...</p>
+                <button class="text-xs text-white bg-[#0077FF] px-3 py-1 rounded">View More</button>
+
             </div>
         </div>
 
         <!-- 2010 -->
         <div class="relative section py-16" data-index="2">
-            <div class="absolute -left-20 top-1 w-5 h-5 bg-blue-500 rounded-sm z-10 dot"></div>
+            <div class="absolute top-1 w-5 h-5 bg-blue-500 rounded-sm z-10 dot"></div>
             <!-- <div class="absolute -left-20 top-1 w-6 h-6 bg-white border-2 border-blue-500 rounded-full dot"></div> -->
             <div>
                 <h4 class="uppercase text-xs text-gray-500 mb-1">2010</h4>
@@ -88,11 +99,23 @@
                 <p class="text-sm text-[#333] mb-4">Our efforts encompass our Mission, Vision and Values...</p>
                 <img src="https://placehold.co/400x200" alt="" />
             </div>
+            <div id="horizontal-scroll" class="relative h-screen overflow-hidden bg-white">
+                <div class="scroller flex space-x-6 w-max h-full items-center px-20">
+                    <!-- Slides -->
+                    <div class="w-[300px] h-[200px] bg-blue-500 text-white text-xl flex items-center justify-center rounded">1</div>
+                    <div class="w-[300px] h-[200px] bg-blue-500 text-white text-xl flex items-center justify-center rounded">2</div>
+                    <div class="w-[300px] h-[200px] bg-blue-500 text-white text-xl flex items-center justify-center rounded">3</div>
+                    <div class="w-[300px] h-[200px] bg-blue-500 text-white text-xl flex items-center justify-center rounded">4</div>
+                    <div class="w-[300px] h-[200px] bg-blue-500 text-white text-xl flex items-center justify-center rounded">5</div>
+                    <div class="w-[300px] h-[200px] bg-blue-500 text-white text-xl flex items-center justify-center rounded">6</div>
+                    <div class="w-[300px] h-[200px] bg-blue-500 text-white text-xl flex items-center justify-center rounded">7</div>
+                </div>
+            </div>
         </div>
 
         <!-- 2015 -->
         <div class="relative section py-16" data-index="3">
-            <div class="absolute -left-20 top-1 w-5 h-5 bg-blue-500 rounded-sm z-10 dot"></div>
+            <div class="absolute top-1 w-5 h-5 bg-blue-500 rounded-sm z-10 dot"></div>
             <!-- <div class="absolute -left-20 top-1 w-6 h-6 bg-white border-2 border-blue-500 rounded-full dot"></div> -->
             <div>
                 <h4 class="uppercase text-xs text-gray-500 mb-1">2015</h4>
@@ -108,7 +131,7 @@
 
         <!-- Our Founders -->
         <div class="relative section py-16" data-index="4">
-            <div class="absolute -left-20 top-1 w-5 h-5 bg-blue-500 rounded-sm z-10 dot"></div>
+            <div class="absolute top-1 w-5 h-5 bg-blue-500 rounded-sm z-10 dot"></div>
             <!-- <div class="absolute -left-20 top-1 w-6 h-6 bg-white border-2 border-blue-500 rounded-full dot"></div> -->
             <div>
                 <h4 class="uppercase text-xs text-gray-500 mb-1">Our Founders</h4>
