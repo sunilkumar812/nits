@@ -134,7 +134,7 @@ $lang = apply_filters('wpml_current_language', null);
 				<img class="lg:absolute lg:top-[-130px] lg:right-0" src="https://nits.webknitter.in/wp-content/uploads/2025/06/Certification-Badge-01.png" alt="Map" />
 			</div>
 		</div><!-- .site-info -->
-		<button id="back-to-top-btn" class="absolute right-0 lg:top-[-165px] lg:left-1/2 transform -translate-x-1/2 z-40 w-[80px] focus:outline-none cursor-pointer" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
+		<button id="back-to-top-btn" class="absolute right-0 lg:top-[-165px] lg:left-1/2 transform -translate-x-1/2 z-4 w-[80px] focus:outline-none cursor-pointer" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
 			<img src=" <?php echo esc_url(get_template_directory_uri() . '/assets/src/images/back-to-top-btn.png'); ?>" alt="Back to top" />
 		</button>
 </footer><!-- #colophon -->
