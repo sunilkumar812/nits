@@ -26,13 +26,11 @@ $faqs = $args['field_name'] ?? [];
         const clickedItem = items[index];
         const isActive = clickedItem.classList.contains('active');
 
-
         items.forEach(item => {
             item.classList.remove('active');
             const icon = item.querySelector('span');
             icon.textContent = '+';
         });
-
 
         if (!isActive) {
             clickedItem.classList.add('active');
@@ -40,7 +38,6 @@ $faqs = $args['field_name'] ?? [];
             icon.textContent = '-';
         }
     }
-
 
     document.addEventListener('DOMContentLoaded', () => {
         const firstItem = document.querySelector('.faq-item');

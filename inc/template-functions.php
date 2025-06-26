@@ -163,3 +163,14 @@ function nits_filter_blog_posts()
 }
 add_action('wp_ajax_filter_blog_posts', 'nits_filter_blog_posts');
 add_action('wp_ajax_nopriv_filter_blog_posts', 'nits_filter_blog_posts');
+
+
+add_action('pre_get_posts', 'order_products_by_menu_order');
+function order_products_by_menu_order($query)
+{
+	if (!is_admin() && $query->is_main_query() && is_post_type_archive('product')) {
+		$query->set('orderby', 'menu_order');
+		$query->set('order', 'ASC');
+		$query->set('posts_per_page', -1); // Optional: show all products
+	}
+}

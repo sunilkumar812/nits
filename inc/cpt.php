@@ -51,8 +51,8 @@ add_action('init', 'nits_register_case_studies_post_type');
 /**
  * Register Custom Taxonomies
  */
-add_action('init', 'create_custom_taxonomy');
-function create_custom_taxonomy()
+add_action('init', 'casestudy_custom_taxonomy');
+function casestudy_custom_taxonomy()
 {
     $labels = array(
         'name'              => __('Casestudy Categories'),
@@ -75,3 +75,41 @@ function create_custom_taxonomy()
         // 'rewrite'       => array('slug' => 'casestudy_categories'),
     ));
 }
+
+/**
+ * Register Custom Post Type for Product
+ */
+function register_product_cpt()
+{
+    $labels = array(
+        'name'               => _x('Products', 'post type general name', 'nits'),
+        'singular_name'      => _x('Product', 'post type singular name', 'nits'),
+        'menu_name'          => _x('Products', 'admin menu', 'nits'),
+        'name_admin_bar'     => _x('Product', 'add new on admin bar', 'nits'),
+        'add_new'            => _x('Add New', 'product', 'nits'),
+        'add_new_item'       => __('Add New Product', 'nits'),
+        'new_item'           => __('New Product', 'nits'),
+        'edit_item'          => __('Edit Product', 'nits'),
+        'view_item'          => __('View Product', 'nits'),
+        'all_items'          => __('All Products', 'nits'),
+        'search_items'       => __('Search Products', 'nits'),
+        'not_found'          => __('No products found.', 'nits'),
+        'not_found_in_trash' => __('No products found in Trash.', 'nits')
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true,
+        'has_archive'        => true,
+        'rewrite'            => array('slug' => 'products'),
+        'menu_icon'          => 'dashicons-admin-tools',
+        'publicly_queryable' => true,
+        'show_in_rest'       => true,
+        'supports'           => array('title', 'editor', 'thumbnail', 'excerpt', 'page-attributes'),
+        'show_in_menu'       => true,
+        'menu_position'      => 5,
+    );
+
+    register_post_type('product', $args);
+}
+add_action('init', 'register_product_cpt');
