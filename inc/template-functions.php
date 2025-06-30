@@ -174,3 +174,10 @@ function order_products_by_menu_order($query)
 		$query->set('posts_per_page', -1); // Optional: show all products
 	}
 }
+
+add_filter('wpseo_breadcrumb_links', 'remove_home_from_yoast_breadcrumb');
+function remove_home_from_yoast_breadcrumb($links)
+{
+	array_shift($links);
+	return $links;
+}

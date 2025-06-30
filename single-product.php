@@ -9,25 +9,27 @@
  */
 
 get_header(); ?>
-
-<main class="container single-product">
-    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-            <article>
-                <h1><?php the_title(); ?></h1>
-
-                <?php if (has_post_thumbnail()) : ?>
-                    <div class="product-image">
-                        <?php the_post_thumbnail('large'); ?>
-                    </div>
-                <?php endif; ?>
-
-                <div class="product-content">
-                    <?php the_content(); ?>
-                </div>
-            </article>
-    <?php endwhile;
-    endif; ?>
-</main>
+<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 
+        <!-- Hero Section -->
+        <?= get_template_part('partials/sections/hero/partial', 'hero_5', [
+            'field_name' => 'Hero',
+        ]); ?>
+
+        <!--Product Highlights Section -->
+        <?= get_template_part('partials/single-product/partial', 'product_highlights', [
+            'class_container' => 'bg-nitsSoftBlue py-8 lg:py-24',
+            'field_name' => 'product_highlights',
+        ]); ?>
+
+        <!-- Video Section -->
+        <?= get_template_part('partials/sections/partial', 'video_2', [
+            'field_name' => 'video_section',
+            'class_container' => ' py-8 lg:py-24',
+        ]); ?>
+
+
+<?php endwhile;
+endif; ?>
 <?php get_footer(); ?>
