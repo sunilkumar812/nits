@@ -48,7 +48,7 @@ if (is_array($video_2) && !empty(array_filter($video_2))): ?>
                     <div>
                         <!-- CTA Button -->
                         <?= get_template_part('partials/core/partial', 'button_primary', [
-                            'class' => 'inline-block btn-primary px-3 py-2 lg:px-[22px] lg:py-[17px] rounded-md text-md lg:text-xl font-bold hover:border-1 hover:boreder-nitsLightBlue',
+                            'class' => 'inline-block btn-primary px-3 py-2 lg:px-[22px] lg:py-[17px] rounded-md text-md lg:text-xl font-bold border-1 hover:border-1 hover:boreder-nitsLightBlue',
                             'text' => $video_button_text,
                             'link' => $video_button_link,
                             'target' => $video_button_target,

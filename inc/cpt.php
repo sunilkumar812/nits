@@ -77,31 +77,31 @@ function casestudy_custom_taxonomy()
 }
 
 /**
- * Register Custom Post Type for Product
+ * Register Custom Post Type for Solution
  */
-function register_product_cpt()
+function register_solution_cpt()
 {
     $labels = array(
-        'name'               => _x('Products', 'post type general name', 'nits'),
-        'singular_name'      => _x('Product', 'post type singular name', 'nits'),
-        'menu_name'          => _x('Products', 'admin menu', 'nits'),
-        'name_admin_bar'     => _x('Product', 'add new on admin bar', 'nits'),
-        'add_new'            => _x('Add New', 'product', 'nits'),
-        'add_new_item'       => __('Add New Product', 'nits'),
-        'new_item'           => __('New Product', 'nits'),
-        'edit_item'          => __('Edit Product', 'nits'),
-        'view_item'          => __('View Product', 'nits'),
-        'all_items'          => __('All Products', 'nits'),
-        'search_items'       => __('Search Products', 'nits'),
-        'not_found'          => __('No products found.', 'nits'),
-        'not_found_in_trash' => __('No products found in Trash.', 'nits')
+        'name'               => _x('Solutions', 'post type general name', 'nits'),
+        'singular_name'      => _x('Solution', 'post type singular name', 'nits'),
+        'menu_name'          => _x('Solutions', 'admin menu', 'nits'),
+        'name_admin_bar'     => _x('Solution', 'add new on admin bar', 'nits'),
+        'add_new'            => _x('Add New', 'solution', 'nits'),
+        'add_new_item'       => __('Add New Solution', 'nits'),
+        'new_item'           => __('New Solution', 'nits'),
+        'edit_item'          => __('Edit Solution', 'nits'),
+        'view_item'          => __('View Solution', 'nits'),
+        'all_items'          => __('All Solutions', 'nits'),
+        'search_items'       => __('Search Solutions', 'nits'),
+        'not_found'          => __('No solutions found.', 'nits'),
+        'not_found_in_trash' => __('No solutions found in Trash.', 'nits')
     );
 
     $args = array(
         'labels'             => $labels,
         'public'             => true,
         'has_archive'        => true,
-        'rewrite'            => array('slug' => 'products'),
+        'rewrite'            => array('slug' => 'solutions'),
         'menu_icon'          => 'dashicons-admin-tools',
         'publicly_queryable' => true,
         'show_in_rest'       => true,
@@ -110,6 +110,6 @@ function register_product_cpt()
         'menu_position'      => 5,
     );
 
-    register_post_type('product', $args);
+    register_post_type('solution', $args);
 }
-add_action('init', 'register_product_cpt');
+add_action('init', 'register_solution_cpt');

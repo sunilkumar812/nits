@@ -60,6 +60,11 @@
     @apply sr-only;
   }
 }
+@layer utilities {
+  .bg-gradient-277 {
+    background: linear-gradient(277.13deg, #14294C 30.3%, #1E4B93 101.46%);
+  }
+}
 
 @layer components {
   .main-width {
@@ -131,7 +136,17 @@
   .card_4:hover .card_4_btn {
     @apply lg:opacity-100 lg:visible lg:translate-y-0;
   }
-  
+  .card_6_description{
+   p{ 
+    @apply text-[#00000080] text-lg;
+   }
+   ul{
+    @apply list-disc pl-6 text-[#00000080] text-lg;
+    li{
+      @apply mb-1;
+    }
+   }
+  }
 
 
 

@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_685d900eb371c",
-            "label": "Product Archive",
+            "label": "Solution Archive",
             "name": "",
             "aria-label": "",
             "type": "tab",
@@ -23,8 +23,8 @@
         },
         {
             "key": "field_685d91019bb8a",
-            "label": "Product Archive Hero",
-            "name": "product_archive_hero",
+            "label": "Solution Archive Hero",
+            "name": "solution_archive_hero",
             "aria-label": "",
             "type": "group",
             "instructions": "",
@@ -131,8 +131,8 @@
         },
         {
             "key": "field_685da2236daff",
-            "label": "Product Archive Faq",
-            "name": "product_archive_faq",
+            "label": "Solution Archive Faq",
+            "name": "solution_archive_faq",
             "aria-label": "",
             "type": "group",
             "instructions": "",
@@ -283,5 +283,5 @@
     "description": "",
     "show_in_rest": 0,
     "acfml_field_group_mode": "translation",
-    "modified": 1751266547
+    "modified": 1751380383
 }
