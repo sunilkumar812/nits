@@ -207,14 +207,14 @@ if (class_exists('WooCommerce')) {
  * Vite.
  */
 include 'inc/vite.php';
-// function migrate_product_to_solution_once()
-// {
-// 	$products = get_posts(['post_type' => 'product', 'numberposts' => -1]);
-// 	foreach ($products as $post) {
-// 		wp_update_post([
-// 			'ID' => $post->ID,
-// 			'post_type' => 'solution'
-// 		]);
-// 	}
-// }
-// add_action('init', 'migrate_product_to_solution_once');
+function migrate_product_to_solution_once()
+{
+	$products = get_posts(['post_type' => 'product', 'numberposts' => -1]);
+	foreach ($products as $post) {
+		wp_update_post([
+			'ID' => $post->ID,
+			'post_type' => 'solution'
+		]);
+	}
+}
+add_action('init', 'migrate_product_to_solution_once');
