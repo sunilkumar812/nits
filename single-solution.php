@@ -16,7 +16,7 @@ if (have_posts()) : while (have_posts()) : the_post(); ?>
         ]); ?>
 
         <!--solution Highlights Section -->
-        <?= get_template_part('partials/single-solution/partial', 'solution_highlights', [
+        <?= get_template_part('partials/single-solution/partial', 'highlights', [
             'class_container' => 'bg-nitsSoftBlue py-8 lg:py-24',
             'field_name' => 'solution_highlights',
         ]); ?>
@@ -28,7 +28,7 @@ if (have_posts()) : while (have_posts()) : the_post(); ?>
         ]); ?>
 
         <!-- solution Features Section -->
-        <?= get_template_part('partials/single-solution/partial', 'solution_features', [
+        <?= get_template_part('partials/single-solution/partial', 'features', [
             'class_container' => ' py-8 lg:py-24',
             'field_name' => 'solution_features',
         ]); ?>
@@ -41,8 +41,8 @@ if (have_posts()) : while (have_posts()) : the_post(); ?>
 
         <!-- CTA Section -->
         <?= get_template_part('partials/sections/cta/partial', 'cta', [
-            'field_name' => 'cta_section',
-            'class_container' => 'bg-nitsDarkBlue text-white py-8 lg:py-24',
+            'field_name' => 'cta',
+            'class_container' => ' text-white px-4 lg:px-16 pb-0 pt-10',
         ]); ?>
 
 <?php endwhile;

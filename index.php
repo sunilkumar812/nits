@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The main template file
  *
@@ -13,45 +14,34 @@
  */
 
 get_header();
+$page = get_page_by_path('blogs');
+$page_id = $page ? $page->ID : null;
 ?>
 
-	<main id="primary" class="site-main">
+<main id="primary" class="z-4 relative overflow-hidden">
 
-		<?php
-		if ( have_posts() ) :
+	<!-- Hero Setion -->
+	<?= get_template_part('partials/pages/blogs/partial', 'hero', [
+		'class_container' => 'text-white mb-30',
+		'field_name' => 'hero',
+		'page_id' => $page_id,
+	]); ?>
 
-			if ( is_home() && ! is_front_page() ) :
-				?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
-				<?php
-			endif;
+	<!-- Blog Cards Section -->
+	<?= get_template_part('partials/pages/blogs/partial', 'blog_cards', [
+		'field_name' => 'section_blog_cards',
+		'class_container' => '3xl:mb-60 lg:mb-40 mb-20 relative z-5',
+		'page_id' => $page_id,
+	]); ?>
 
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+	<!-- Subscribe Section -->
+	<?= get_template_part('partials/sections/partial', 'subscribe', [
+		'field_name' => 'subscribe',
+		'class_container' => 'bg-nitsBluePlus py-10 lg:py-20',
+		'page_id' => $page_id,
+	]); ?>
 
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_type() );
-
-			endwhile;
-
-			the_posts_navigation();
-
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
-
-	</main><!-- #main -->
+</main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();

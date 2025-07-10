@@ -29,12 +29,13 @@ get_header(); ?>
 
     <!--Testimonial Section -->
     <?= get_template_part('partials/sections/partial', 'testimonial_cards', [
-        // 'field_name' => 'section_blog_cards',
+        'field_name' => 'testimonials',
         'class_container' => 'py-5 lg:py-10 xl:py-25',
     ]); ?>
 
     <!-- Subscribe Section -->
     <?= get_template_part('partials/sections/partial', 'subscribe', [
+        'field_name' => 'subscribe',
         'class_container' => 'bg-nitsBluePlus py-10 lg:py-20',
     ]); ?>
 </main>
