@@ -1,13 +1,11 @@
 <?php
 $page_id = $args['page_id'] ?? null;
 $field_name = $args['field_name'] ?? '';
-
 $subscribe = !empty($page_id)
     ? get_field($field_name, $page_id)
     : get_field($field_name);
 
 $subscribe = is_array($subscribe) ? $subscribe : [];
-
 $heading         = $subscribe['heading'] ?? '';
 $description     = $subscribe['description'] ?? '';
 $form_shortcode  = $subscribe['form_shortcode'] ?? '';
