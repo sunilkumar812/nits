@@ -27,10 +27,22 @@ $page_id = $page ? $page->ID : null;
 		'page_id' => $page_id,
 	]); ?>
 
+	<!-- One Post Section -->
+	<?= get_template_part('partials/sections/posts/partial', 'one_post', [
+		'class_container' => 'mb-20',
+		'field_name' => 'one_post',
+	]); ?>
+
+	<!-- Recent Post Section -->
+	<?= get_template_part('partials/sections/posts/partial', 'recent_post', [
+		'class_container' => 'mb-20',
+		'field_name' => 'recent_post',
+	]); ?>
+
 	<!-- Blog Cards Section -->
 	<?= get_template_part('partials/pages/blogs/partial', 'blog_cards', [
 		'field_name' => 'section_blog_cards',
-		'class_container' => '3xl:mb-60 lg:mb-40 mb-20 relative z-5',
+		'class_container' => 'lg:mb-30 mb-10 relative z-5',
 		'page_id' => $page_id,
 	]); ?>
 
