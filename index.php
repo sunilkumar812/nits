@@ -29,13 +29,14 @@ $page_id = $page ? $page->ID : null;
 
 	<!-- One Post Section -->
 	<?= get_template_part('partials/sections/posts/partial', 'one_post', [
-		'class_container' => 'mb-20',
+		'class_container' => '',
 		'field_name' => 'one_post',
+		'page_id' => $page_id,
 	]); ?>
 
 	<!-- Recent Post Section -->
 	<?= get_template_part('partials/sections/posts/partial', 'recent_post', [
-		'class_container' => 'mb-20',
+		'class_container' => '',
 		'field_name' => 'recent_post',
 	]); ?>
 

@@ -21,6 +21,12 @@ get_header(); ?>
         'class_container' => '',
     ]); ?>
 
+    <!-- Why Choose Section -->
+    <?= get_template_part('partials/archive-solution/partial', 'why_choose', [
+        'field_name' => 'solution_archive_why_choose',
+        'class_container' => '',
+    ]); ?>
+
     <!-- FAQ Section -->
     <?= get_template_part('partials/archive-solution/partial', 'section_faq', [
         'field_name' => 'solution_archive_faq',
