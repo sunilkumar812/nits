@@ -48,6 +48,69 @@ add_filter('acf/settings/save_json', function ($path) {
 	return $path;
 });
 
+/**
+ * Classic Editor should be enabled for specific post types
+ */
+// add_filter('use_block_editor_for_post_type', function ($use_block_editor, $post_type) {
+// 	// Post types for which Classic Editor should be enabled
+// 	$classic_editor_post_types = ['page', 'solution'];
+
+// 	if (in_array($post_type, $classic_editor_post_types, true)) {
+// 		return false; // Disable Gutenberg (use Classic)
+// 	}
+
+// 	return true; // Enable Gutenberg for all others
+// }, 10, 2);
+add_filter('use_block_editor_for_post', function ($use_block_editor, $post) {
+	// Post types for which Gutenberg is disabled by default
+	$classic_editor_post_types = ['page', 'solution'];
+
+	// Page templates where Gutenberg should be enabled, even for 'page' post type
+	$gutenberg_allowed_templates = [
+		'page-templates/gut_page.php',
+	];
+
+	// Check post type
+	if (in_array($post->post_type, $classic_editor_post_types, true)) {
+		// Check if it's a page template override
+		if ($post->post_type === 'page') {
+			$template = get_page_template_slug($post);
+			if (in_array($template, $gutenberg_allowed_templates, true)) {
+				return true; // Enable Gutenberg for specific templates
+			}
+		}
+
+		return false; // Otherwise disable Gutenberg (Classic Editor)
+	}
+
+	return $use_block_editor; // Keep default behavior for other post types
+}, 10, 2);
+
+
+/**
+ * Enqueue Gutenberg assets for specific post types
+ *
+ */
+add_action('wp_enqueue_scripts', function () {
+	// Remove default Gutenberg block styles
+	wp_dequeue_style('wp-block-library');
+	wp_dequeue_style('wp-block-library-theme');
+	wp_dequeue_style('wc-block-style'); // If using WooCommerce
+}, 100);
+
+
+add_action('wp_enqueue_scripts', function () {
+	$allowed_templates = ['page-templates/gut_page.php'];
+	if (
+		is_singular(['post'])
+		||
+		(is_page() && is_page_template($allowed_templates))
+	) {
+		wp_enqueue_style('wp-block-library');
+		wp_enqueue_style('wp-block-library-theme');
+	}
+}, 101);
+
 /** Home Case study ajax filter functions */
 function ajax_filter_casestudies()
 {

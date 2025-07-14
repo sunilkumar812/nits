@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying all single posts
  *
@@ -10,31 +11,35 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+<main id="primary" class="site-main">
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
+	<!-- Blog Hero -->
+	<?= get_template_part('partials/single-blog/partial', 'hero'); ?>
 
-			get_template_part( 'template-parts/content', get_post_type() );
+	<!-- Blog Content -->
+	<div class="entry-content main-width mb-20 lg:mb-40">
+		<div class="nits-gutenberg">
+			<?php
+			while (have_posts()) :
+				the_post();
 
-			the_post_navigation(
-				array(
-					'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous:', 'nits' ) . '</span> <span class="nav-title">%title</span>',
-					'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', 'nits' ) . '</span> <span class="nav-title">%title</span>',
-				)
-			);
+				the_content();
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
+			endwhile; // End of the loop.
+			?>
+		</div>
+	</div>
 
-		endwhile; // End of the loop.
-		?>
+	<!-- Related Posts -->
+	<?= get_template_part('partials/single-blog/partial', 'related_post'); ?>
 
-	</main><!-- #main -->
+	<!-- CTA Section -->
+	<?= get_template_part('partials/single-blog/partial', 'cta', [
+		'field_name' => 'cta',
+		'class_container' => ' text-white px-4 lg:px-16 pb-0 pt-10',
+	]); ?>
+
+</main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();
