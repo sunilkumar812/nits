@@ -1,4 +1,4 @@
-<div class="main-width pt-28 lg:pt-44 mb-8 lg:mb-16">
+<div class="main-width pt-28 lg:mt-44 mb-8 lg:mb-16">
     <div class="flex items-center text-sm text-gray-500 mb-2">
 
         <?php

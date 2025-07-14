@@ -382,19 +382,28 @@
 /* Blog Post Content */
 .nits-gutenberg{
   p{
-    @apply text-[#666666] text-base leading-7 mb-4 lg:mb-6;
+    /* @apply text-[#666666] text-base leading-7 mb-4 lg:mb-6; */
+    @apply text-[#666666] text-base leading-[1.2];
+
   }
+
   blockquote{
-    @apply border-l-4 !border-l-nitsBluePlus !text-base text-[#666666] italic !my-8 lg:!my-16 !font-normal;
+    @apply border-l-4 !border-l-nitsBluePlus !text-base text-[#666666] italic !my-8 lg:!my-16 !font-normal leading-[1.2];
     p{
       @apply text-xl lg:text-2xl;
     }
     cite{
       @apply !text-base;
     }
+    
   }
 
-
+  ul.uldisk{
+    @apply !list-disc pl-6 text-[#1E1E1E] leading-[1.2];
+    li{
+      @apply mb-1 leading-[1.2];
+    }
+  }
 
 }
 
