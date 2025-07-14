@@ -383,7 +383,7 @@
 .nits-gutenberg{
   p{
     /* @apply text-[#666666] text-base leading-7 mb-4 lg:mb-6; */
-    @apply text-[#666666] text-base leading-[1.2];
+    @apply text-[#666666] text-base leading-[1.4];
 
   }
 
@@ -399,9 +399,9 @@
   }
 
   ul.uldisk{
-    @apply !list-disc pl-6 text-[#1E1E1E] leading-[1.2];
+    @apply !list-disc pl-6 leading-[1.2];
     li{
-      @apply mb-1 leading-[1.2];
+      @apply mb-4 leading-[1.4];
     }
   }
 
