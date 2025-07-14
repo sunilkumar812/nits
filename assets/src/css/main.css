@@ -404,6 +404,12 @@
       @apply mb-4 leading-[1.4];
     }
   }
+  ol.uldisk{
+    @apply !list-decimal pl-6 leading-[1.2];
+    li{
+      @apply mb-4 leading-[1.4];
+    }
+  }
 
 }
 
