@@ -405,7 +405,7 @@
     }
   }
   ul.uldisk ul{
-    @apply  pl-6 leading-[1.2];
+    @apply  pl-6 leading-[1.2] mt-4 lg:mt-6;
     list-style: circle !important;
     li{
       @apply mb-4 leading-[1.4];
@@ -418,7 +418,7 @@
     }
   }
   ol.uldisk ul{
-    @apply pl-6 leading-[1.2];
+    @apply pl-6 leading-[1.2] mt-4 lg:mt-6;
     list-style: circle !important;
     li{
       @apply mb-4 leading-[1.4];
