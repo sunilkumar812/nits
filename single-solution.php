@@ -13,6 +13,8 @@ if (have_posts()) : while (have_posts()) : the_post(); ?>
         <!-- Hero Section -->
         <?= get_template_part('partials/sections/hero/partial', 'hero_5', [
             'field_name' => 'Hero',
+            'class_container' => ' pt-30 pb-15 lg:pt-40 lg:pb-28',
+            'class_image' => 'rounded-lg shadow-2xl img_anim',
         ]); ?>
 
         <!--solution Highlights Section -->
