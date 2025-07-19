@@ -1,5 +1,10 @@
 <?php
-$cta = get_field($args['field_name']);
+$field_name = $args['field_name'];
+$class_container = $args['class_container'] ?? '';
+$use_option = isset($args['option']) && $args['option'] === 'yes';
+
+$cta = $use_option ? get_field($field_name, 'option') : get_field($field_name);
+
 $heading = $cta['heading'] ?? '';
 $description = $cta['description'] ?? '';
 $button_1 = $cta['button_1'] ?? [];

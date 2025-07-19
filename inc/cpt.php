@@ -39,7 +39,7 @@ function nits_register_case_studies_post_type()
         'public'             => true,
         'show_in_rest'       => true,
         'has_archive'        => true,
-        // 'rewrite'            => ['slug' => 'case-studies'],
+        'rewrite'            => ['slug' => 'casestudies'],
         'supports'           => ['title', 'editor', 'thumbnail', 'excerpt'],
         'menu_icon'          => 'dashicons-portfolio',
     ];

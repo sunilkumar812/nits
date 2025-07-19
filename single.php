@@ -33,10 +33,10 @@ get_header();
 	<!-- Related Posts -->
 	<?= get_template_part('partials/single-blog/partial', 'related_post'); ?>
 
-	<!-- CTA Section -->
-	<?= get_template_part('partials/single-blog/partial', 'cta', [
+	<?= get_template_part('partials/sections/cta/partial', 'cta', [
 		'field_name' => 'cta',
 		'class_container' => ' text-white px-4 lg:px-16 pb-0 pt-10',
+		'option' => 'yes',
 	]); ?>
 
 </main><!-- #main -->

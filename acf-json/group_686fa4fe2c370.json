@@ -124,7 +124,7 @@
                 "class": "",
                 "id": ""
             },
-            "wpml_cf_preferences": 0,
+            "wpml_cf_preferences": 1,
             "post_type": [
                 "post"
             ],
@@ -385,5 +385,5 @@
     "description": "",
     "show_in_rest": 0,
     "acfml_field_group_mode": "translation",
-    "modified": 1752259686
+    "modified": 1752839155
 }
