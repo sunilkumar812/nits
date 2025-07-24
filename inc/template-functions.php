@@ -387,11 +387,17 @@ function nits_common_post_listing($args = [])
 						}
 					});
 
-					// Handle category filter clicks
+					// Handle category filter clicks - UPDATED VERSION
 					$(document).on('click', '.flex.justify-center.items-center.gap-4.mb-15 a', function(e) {
 						e.preventDefault();
 						var href = $(this).attr('href');
-						window.location.href = href + '#post-listing-container';
+						if (href) {
+							// Add hash if not already present
+							if (href.indexOf('#post-listing-container') === -1) {
+								href += '#post-listing-container';
+							}
+							window.location.href = href;
+						}
 					});
 
 					// Scroll on initial load if hash exists
