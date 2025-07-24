@@ -40,12 +40,24 @@ $page_id = $page ? $page->ID : null;
 		'field_name' => 'recent_post',
 	]); ?>
 
-	<!-- Blog Cards Section -->
-	<?= get_template_part('partials/pages/blogs/partial', 'blog_cards', [
-		'field_name' => 'section_blog_cards',
+	<!-- Common Post Filter Section -->
+	<?= get_template_part('partials/sections/partial', 'common_post_filter', [
 		'class_container' => 'lg:mb-30 mb-10 relative z-5',
+		'field_name' => 'section_blog_cards',
+		'post_type' => 'post',
+		'taxonomy' => 'category',
+		'heading_class' => 'mb-5 lg:mb-8 3xl:mb-15',
 		'page_id' => $page_id,
 	]); ?>
+
+	<!-- Blog Cards Section -->
+	<?php //get_template_part('partials/pages/blogs/partial', 'blog_cards', [
+	//'field_name' => 'section_blog_cards',
+	//'class_container' => 'lg:mb-30 mb-10 relative z-5',
+	//'page_id' => $page_id,
+	//]); 
+	?>
+	?>
 
 	<!-- Subscribe Section -->
 	<?= get_template_part('partials/sections/partial', 'subscribe', [

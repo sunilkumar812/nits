@@ -24,7 +24,7 @@ class MegaMenuWalker extends Walker_Nav_Menu
     $indent = ($depth) ? str_repeat("\t", $depth) : '';
 
     $classes = empty($item->classes) ? array() : (array) $item->classes;
-    $classes[] = 'menu-item';
+    $classes[] = 'menu-item menu-item-top';
     if (in_array('menu-item-has-children', $classes)) {
       $classes[] = 'menu-item-has-children';
     }

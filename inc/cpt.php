@@ -39,9 +39,10 @@ function nits_register_case_studies_post_type()
         'public'             => true,
         'show_in_rest'       => true,
         'has_archive'        => true,
-        'rewrite'            => ['slug' => 'casestudies'],
+        'rewrite'            => ['slug' => 'casestudies', 'with_front' => false],
         'supports'           => ['title', 'editor', 'thumbnail', 'excerpt'],
         'menu_icon'          => 'dashicons-portfolio',
+        'capability_type' => 'post',
     ];
 
     register_post_type('casestudy', $args);

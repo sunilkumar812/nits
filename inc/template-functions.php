@@ -161,7 +161,7 @@ function ajax_filter_casestudies()
 					</div>
 				</div>
 			</div>
-<?php
+	<?php
 		endwhile;
 		wp_reset_postdata();
 	else :
@@ -243,4 +243,166 @@ function remove_home_from_yoast_breadcrumb($links)
 {
 	array_shift($links);
 	return $links;
+}
+
+
+
+
+
+function nits_common_post_listing($args = [])
+{
+	$defaults = [
+		'post_type' => 'post',
+		'posts_per_page' => 6,
+		'taxonomy' => 'category',
+		'class_container' => '',
+		'icon' => '',
+		'icon_heading' => '',
+		'heading' => '',
+		'heading_desc' => '',
+		'heading_class' => 'mb-5 lg:mb-8 3xl:mb-15',
+	];
+
+	$args = wp_parse_args($args, $defaults);
+	extract($args);
+
+	// Get current page and category filter
+	$paged = max(1, get_query_var('paged'));
+	$current_category = isset($_GET['category']) ? intval($_GET['category']) : 0;
+
+	// Get terms for filter buttons
+	$terms = (!empty($taxonomy) && taxonomy_exists($taxonomy)) ?
+		get_terms(['taxonomy' => $taxonomy, 'hide_empty' => true]) :
+		[];
+
+	// Setup query args
+	$query_args = [
+		'post_type' => $post_type,
+		'posts_per_page' => $posts_per_page,
+		'paged' => $paged,
+	];
+
+	// Add category filter if selected
+	if ($current_category > 0) {
+		$query_args['tax_query'] = [[
+			'taxonomy' => $taxonomy,
+			'field' => 'term_id',
+			'terms' => $current_category,
+		]];
+	}
+
+	$query = new WP_Query($query_args);
+	ob_start();
+	?>
+
+	<div class="main-width <?= esc_attr($class_container); ?>" id="post-listing-container">
+		<?= get_template_part('partials/core/partial', 'section_heading_1', [
+			'class_container' => $heading_class,
+			'icon' => $icon,
+			'icon_heading' => $icon_heading,
+			'heading' => $heading,
+			'heading_desc' => $heading_desc,
+		]); ?>
+
+		<?php if (!empty($terms)) : ?>
+			<div class="flex justify-center items-center gap-4 mb-15">
+				<div class="min-w-4 lg:min-w-[103px] h-px bg-nitsBluePlus"></div>
+				<a href="<?= remove_query_arg('category'); ?>"
+					class="px-4 py-2 text-sm font-medium <?= ($current_category == 0) ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'; ?>">
+					All
+				</a>
+				<?php foreach ($terms as $term) : ?>
+					<a href="<?= add_query_arg('category', $term->term_id); ?>"
+						class="px-4 py-2 text-sm font-medium <?= ($current_category == $term->term_id) ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'; ?>">
+						<?= esc_html($term->name); ?>
+					</a>
+				<?php endforeach; ?>
+				<div class="min-w-4 lg:min-w-[103px] h-px bg-nitsBluePlus"></div>
+			</div>
+		<?php endif; ?>
+
+		<div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+			<?php
+			if ($query->have_posts()) :
+				$delay = 100;
+				while ($query->have_posts()) : $query->the_post();
+					$author_id = get_the_author_meta('ID');
+					echo get_template_part('partials/core/partial', 'card_2', [
+						'post' => get_post(),
+						'author_id' => $author_id,
+						'read_time' => ceil(str_word_count(strip_tags(get_the_content())) / 200),
+						'title' => get_the_title(),
+						'permalink' => get_permalink(),
+						'excerpt' => wp_trim_words(get_the_excerpt(), 25, '...'),
+						'thumbnail' => get_the_post_thumbnail_url(null, 'medium_large'),
+						'categories' => get_the_category(),
+						'date' => get_the_date('d M Y'),
+						'author_name' => get_the_author_meta('display_name', $author_id),
+						'avatar' => get_avatar_url($author_id),
+						'class_container' => 'bg-white overflow-hidden max-w-[416px]',
+						'aos_attributes' => 'data-cursor="inverse" data-aos="fade-down" data-aos-delay="' . esc_attr($delay) . '" data-aos-anchor-placement="top-bottom"',
+					]);
+					$delay += 100;
+				endwhile;
+			else :
+				echo '<p>No posts found.</p>';
+			endif;
+			wp_reset_postdata();
+			?>
+		</div>
+
+		<?php if ($query->max_num_pages > 1) : ?>
+			<div class="pagination-wrapper text-center mt-10">
+				<?php
+				echo paginate_links([
+					'base' => str_replace(999999999, '%#%', esc_url(get_pagenum_link(999999999))),
+					'format' => '?paged=%#%',
+					'current' => max(1, $paged),
+					'total' => $query->max_num_pages,
+					'prev_text' => __('« Prev'),
+					'next_text' => __('Next »'),
+					'mid_size' => 2,
+					'end_size' => 1,
+					'add_args' => ($current_category > 0) ? ['category' => $current_category] : [],
+					'before_page_number' => '<span class="scroll-trigger">', // Add wrapper for pagination links
+					'after_page_number' => '</span>',
+				]);
+				?>
+			</div>
+			<script>
+				(function($) {
+					// Scroll to container on pagination or filter change
+					function scrollToPosts() {
+						$('html, body').animate({
+							scrollTop: $('#post-listing-container').offset().top - 100
+						}, 100);
+					}
+
+					// Handle pagination clicks
+					$(document).on('click', '.pagination-wrapper a.page-numbers, .pagination-wrapper span.scroll-trigger', function(e) {
+						e.preventDefault();
+						var href = $(this).attr('href');
+						if (href) {
+							window.location.href = href + '#post-listing-container';
+						}
+					});
+
+					// Handle category filter clicks
+					$(document).on('click', '.flex.justify-center.items-center.gap-4.mb-15 a', function(e) {
+						e.preventDefault();
+						var href = $(this).attr('href');
+						window.location.href = href + '#post-listing-container';
+					});
+
+					// Scroll on initial load if hash exists
+					if (window.location.hash === '#post-listing-container') {
+						scrollToPosts();
+					}
+				})(jQuery);
+			</script>
+		<?php endif; ?>
+	</div>
+
+<?php
+	return ob_get_clean();
 }

@@ -249,34 +249,6 @@
                     "rows": "",
                     "placeholder": "",
                     "new_lines": ""
-                },
-                {
-                    "key": "field_686fad0190ca6",
-                    "label": "Nits Blog Posts",
-                    "name": "nits_blog_posts",
-                    "aria-label": "",
-                    "type": "post_object",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "wpml_cf_preferences": 1,
-                    "post_type": [
-                        "post"
-                    ],
-                    "post_status": "",
-                    "taxonomy": "",
-                    "return_format": "object",
-                    "multiple": 1,
-                    "allow_null": 0,
-                    "allow_in_bindings": 0,
-                    "bidirectional": 0,
-                    "ui": 1,
-                    "bidirectional_target": []
                 }
             ]
         },
@@ -384,6 +356,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "acfml_field_group_mode": "translation",
-    "modified": 1752839155
+    "modified": 1753358986
 }

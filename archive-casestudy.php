@@ -36,10 +36,14 @@ get_header();
         'field_name' => 'recent_casestudy',
     ]); ?>
 
-    <!-- Casestudies Cards Section -->
-    <?= get_template_part('partials/archive-casestudy/partial', 'casestudy_cards', [
-        'field_name' => 'section_casestudies_cards',
+    <!-- Common Post Filter Section -->
+    <?= get_template_part('partials/sections/partial', 'common_post_filter', [
         'class_container' => 'lg:mb-30 mb-10 relative z-5',
+        'field_name' => 'section_casestudies_cards',
+        'post_type' => 'casestudy',
+        'taxonomy' => 'casestudy_category',
+        'heading_class' => 'mb-5 lg:mb-16 3xl:mb-15',
+        'option' => 'yes',
     ]); ?>
 
     <!-- CTA Section -->
@@ -48,7 +52,6 @@ get_header();
         'class_container' => ' text-white px-4 lg:px-16 pb-0 pt-10',
         'option' => 'yes',
     ]); ?>
-
 </main><!-- #main -->
 
 <?php
