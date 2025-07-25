@@ -305,7 +305,7 @@ function nits_common_post_listing($args = [])
 		]); ?>
 
 		<?php if (!empty($terms)) : ?>
-			<div class="flex justify-center items-center gap-4 mb-15">
+			<div class="flex justify-center items-center gap-4 mb-15 filter-cat">
 				<div class="min-w-4 lg:min-w-[103px] h-px bg-nitsBluePlus"></div>
 				<a href="<?= remove_query_arg('category'); ?>"
 					class="px-4 py-2 text-sm font-medium <?= ($current_category == 0) ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'; ?>">
@@ -364,49 +364,50 @@ function nits_common_post_listing($args = [])
 					'mid_size' => 2,
 					'end_size' => 1,
 					'add_args' => ($current_category > 0) ? ['category' => $current_category] : [],
-					'before_page_number' => '<span class="scroll-trigger">', // Add wrapper for pagination links
+					'before_page_number' => '<span class="scroll-trigger pagi-span">', // Add wrapper for pagination links
 					'after_page_number' => '</span>',
 				]);
 				?>
 			</div>
-			<script>
-				(function($) {
-					// Scroll to container on pagination or filter change
-					function scrollToPosts() {
-						$('html, body').animate({
-							scrollTop: $('#post-listing-container').offset().top - 100
-						}, 100);
-					}
-
-					// Handle pagination clicks
-					$(document).on('click', '.pagination-wrapper a.page-numbers, .pagination-wrapper span.scroll-trigger', function(e) {
-						e.preventDefault();
-						var href = $(this).attr('href');
-						if (href) {
-							window.location.href = href + '#post-listing-container';
-						}
-					});
-
-					// Handle category filter clicks - UPDATED VERSION
-					$(document).on('click', '.flex.justify-center.items-center.gap-4.mb-15 a', function(e) {
-						e.preventDefault();
-						var href = $(this).attr('href');
-						if (href) {
-							// Add hash if not already present
-							if (href.indexOf('#post-listing-container') === -1) {
-								href += '#post-listing-container';
-							}
-							window.location.href = href;
-						}
-					});
-
-					// Scroll on initial load if hash exists
-					if (window.location.hash === '#post-listing-container') {
-						scrollToPosts();
-					}
-				})(jQuery);
-			</script>
 		<?php endif; ?>
+		<script>
+			(function($) {
+				// Scroll to container on pagination or filter change
+				function scrollToPosts() {
+					$('html, body').animate({
+						scrollTop: $('#post-listing-container').offset().top - 100
+					}, 100);
+				}
+
+				// Handle pagination clicks
+				$(document).on('click', 'span.pagi-span', function(e) {
+					e.preventDefault();
+					var href = $(this).attr('href');
+					if (href) {
+						window.location.href = href + '#post-listing-container';
+					}
+				});
+
+				// Handle category filter clicks - UPDATED VERSION
+				$(document).on('click', '.filter-cat a', function(e) {
+					e.preventDefault();
+					var href = $(this).attr('href');
+					if (href) {
+						// Add hash if not already present
+						if (href.indexOf('#post-listing-container') === -1) {
+							href += '#post-listing-container';
+						}
+						window.location.href = href;
+					}
+				});
+
+				// Scroll on initial load if hash exists
+				if (window.location.hash === '#post-listing-container') {
+					scrollToPosts();
+				}
+			})(jQuery);
+		</script>
+
 	</div>
 
 <?php
