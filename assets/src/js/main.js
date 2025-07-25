@@ -120,21 +120,21 @@ if (menu) {
     },
   });
 
-  const scroller = document.querySelector(".scroller");
-  const totalScroll = scroller.scrollWidth - window.innerWidth;
+  // const scroller = document.querySelector(".scroller");
+  // const totalScroll = scroller.scrollWidth - window.innerWidth;
 
-  gsap.to(scroller, {
-    x: () => `-${totalScroll}px`,
-    ease: "none",
-    scrollTrigger: {
-      trigger: "#horizontal-scroll",
-      start: "top top",
-      end: () => `+=${totalScroll}`,
-      scrub: true,
-      pin: true,
-      anticipatePin: 1
-    }
-  });
+  // gsap.to(scroller, {
+  //   x: () => `-${totalScroll}px`,
+  //   ease: "none",
+  //   scrollTrigger: {
+  //     trigger: "#horizontal-scroll",
+  //     start: "top top",
+  //     end: () => `+=${totalScroll}`,
+  //     scrub: true,
+  //     pin: true,
+  //     anticipatePin: 1
+  //   }
+  // });
   // const cardsContainerId = document.getElementById('stackcards-containerId');
   // const cardsContainer = gsap.utils.toArray(".stackcards-container");
   // const cards = gsap.utils.toArray(".stackcard");
