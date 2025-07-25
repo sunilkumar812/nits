@@ -364,51 +364,54 @@ function nits_common_post_listing($args = [])
 					'mid_size' => 2,
 					'end_size' => 1,
 					'add_args' => ($current_category > 0) ? ['category' => $current_category] : [],
-					'before_page_number' => '<span class="scroll-trigger pagi-span">', // Add wrapper for pagination links
+					'before_page_number' => '<span class="scroll-trigger pagi-span">',
 					'after_page_number' => '</span>',
+					'type' => 'list',
+					'add_fragment' => '#post-listing-container',
 				]);
 				?>
 			</div>
-		<?php endif; ?>
-		<script>
-			(function($) {
-				// Scroll to container on pagination or filter change
-				function scrollToPosts() {
-					$('html, body').animate({
-						scrollTop: $('#post-listing-container').offset().top - 100
-					}, 100);
-				}
-
-				// Handle pagination clicks
-				$(document).on('click', 'span.pagi-span', function(e) {
-					e.preventDefault();
-					var href = $(this).attr('href');
-					if (href) {
-						window.location.href = href + '#post-listing-container';
-					}
-				});
-
-				// Handle category filter clicks - UPDATED VERSION
-				$(document).on('click', '.filter-cat a', function(e) {
-					e.preventDefault();
-					var href = $(this).attr('href');
-					if (href) {
-						// Add hash if not already present
-						if (href.indexOf('#post-listing-container') === -1) {
-							href += '#post-listing-container';
-						}
-						window.location.href = href;
-					}
-				});
-
-				// Scroll on initial load if hash exists
-				if (window.location.hash === '#post-listing-container') {
-					scrollToPosts();
-				}
-			})(jQuery);
-		</script>
-
 	</div>
+<?php endif; ?>
+<script>
+	(function($) {
+		// Scroll to container on pagination or filter change
+		function scrollToPosts() {
+			$('html, body').animate({
+				scrollTop: $('#post-listing-container').offset().top - 100
+			}, 100);
+		}
+
+		// Handle pagination clicks
+		$(document).on('click', 'span.pagi-span', function(e) {
+			e.preventDefault();
+			var href = $(this).attr('href');
+			if (href) {
+				window.location.href = href + '#post-listing-container';
+			}
+		});
+
+		// Handle category filter clicks - UPDATED VERSION
+		$(document).on('click', '.filter-cat a', function(e) {
+			e.preventDefault();
+			var href = $(this).attr('href');
+			if (href) {
+				// Add hash if not already present
+				if (href.indexOf('#post-listing-container') === -1) {
+					href += '#post-listing-container';
+				}
+				window.location.href = href;
+			}
+		});
+
+		// Scroll on initial load if hash exists
+		if (window.location.hash === '#post-listing-container') {
+			scrollToPosts();
+		}
+	})(jQuery);
+</script>
+
+</div>
 
 <?php
 	return ob_get_clean();

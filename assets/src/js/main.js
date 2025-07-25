@@ -210,3 +210,44 @@ if (menu) {
 //       }
 //     });
 });
+(function($) {
+  $(document).ready(function() {
+      // Add Tailwind classes to pagination elements
+      $('.pagination-wrapper a.page-numbers').not('.prev, .next, .dots').addClass(
+          'inline-flex items-center justify-center w-10 h-10 rounded text-sm font-medium ' +
+          'text-gray-700 border border-gray-200 hover:bg-gray-100 hover:text-blue-600 ' +
+          'transition-colors duration-300'
+      );
+      
+      $('.pagination-wrapper span.page-numbers.current').addClass(
+          'inline-flex items-center justify-center w-10 h-10 rounded text-sm font-medium ' +
+          'bg-blue-600 text-white border-blue-600'
+      );
+      
+      $('.pagination-wrapper a.prev, .pagination-wrapper a.next').addClass(
+          'px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600'
+      );
+      
+      $('.pagination-wrapper .dots').addClass('pointer-events-none');
+
+      // Fix click handler for number links
+      $(document).on('click', '.pagination-wrapper a.page-numbers', function(e) {
+          // Only prevent default if it's a scroll-trigger link
+          if ($(this).find('.scroll-trigger').length || $(this).hasClass('scroll-trigger')) {
+              e.preventDefault();
+              var href = $(this).attr('href');
+              if (href) {
+                  window.location.href = href;
+              }
+          }
+          // Let normal pagination links work as usual
+      });
+
+      // Scroll to container on pagination load
+      if (window.location.hash === '#post-listing-container') {
+          $('html, body').animate({
+              scrollTop: $('#post-listing-container').offset().top - 100
+          }, 100);
+      }
+  });
+})(jQuery);

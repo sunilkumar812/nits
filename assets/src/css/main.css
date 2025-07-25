@@ -148,9 +148,6 @@
    }
   }
 
-
-
-  /*Effects*/
  /* tailwind.css or global CSS file */
  .nits-scale-110 {
   @apply transition-transform duration-200 ease-in-out;
@@ -427,7 +424,44 @@
 
 }
 
+/* Add to your main CSS file */
+.pagination-wrapper ul {
+  @apply flex justify-center items-center gap-1;
+}
 
+.pagination-wrapper li {
+  @apply list-none;
+}
+
+.pagination-wrapper a,
+.pagination-wrapper span {
+  @apply inline-flex items-center justify-center w-10 h-10 rounded text-sm font-medium transition-colors duration-300;
+}
+
+.pagination-wrapper a {
+  @apply text-gray-700 border border-gray-200 hover:bg-gray-100 hover:text-blue-600;
+}
+
+.pagination-wrapper .current {
+  @apply bg-blue-600 text-white border-blue-600;
+}
+
+.pagination-wrapper .dots {
+  @apply border-none pointer-events-none;
+}
+
+.pagination-wrapper .prev,
+.pagination-wrapper .next {
+  @apply px-3 w-auto;
+}
+
+/* Responsive */
+@screen sm {
+  .pagination-wrapper a,
+  .pagination-wrapper span {
+      @apply w-12 h-12 text-base;
+  }
+}
 
 
 
