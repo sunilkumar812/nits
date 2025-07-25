@@ -9,16 +9,41 @@ if (!empty($awards)) :
         'class_text' => 'text-xl md:text-xl font-semibold text-nitsSteelBlue text-center',
         'field_name' => $heading,
     ]); ?>
-    <?php if (!empty($awards['icons'])) : ?>
+    <!-- <?php // if (!empty($awards['icons'])) : 
+            ?>
         <div class="main-width mx-auto mb-15 lg:mb-[84px]">
             <div class="flex items-center mx-auto w-fit">
-                <?php foreach ($awards['icons'] as $icon) :
-                    $image = $icon['icon_image'] ?? '';
+                <?php // foreach ($awards['icons'] as $icon) :
+                // $image = $icon['icon_image'] ?? '';
                 ?>
                     <div class="aspect-[1/1]">
-                        <img src="<?= esc_url($image['url']); ?>" alt="<?= esc_attr($image['alt']); ?>" class="object-cover w-full h-full">
+                        <img src="<?php // echo esc_url($image['url']); 
+                                    ?>" alt="<?php // echo esc_attr($image['alt']); 
+                                                                                    ?>" class="object-cover w-full h-full">
                     </div>
-                <?php endforeach; ?>
+                <?php //endforeach; 
+                ?>
+            </div>
+        </div> -->
+    <?php // endif; 
+    ?>
+
+
+    <?php
+    if (!empty($awards['icons'])) :  ?>
+        <div class="main-width">
+            <div class="marquee3k" data-speed="0.9">
+                <div class="whitespace-nowrap">
+                    <div class="flex items-center w-max">
+                        <?php foreach ($awards['icons'] as $icon) :
+                            $image = $icon['icon_image'] ?? '';
+                        ?>
+                            <div class="flex-auto mx-2.5 lg:mx-10">
+                                <img src="<?php echo esc_url($image['url']); ?>" alt="<?= esc_attr($image['alt']); ?>" class="object-contain scale-75 lg:scale-90">
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
             </div>
         </div>
 <?php endif;
