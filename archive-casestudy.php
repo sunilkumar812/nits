@@ -41,7 +41,7 @@ get_header();
         'class_container' => 'lg:mb-30 mb-10 relative z-5',
         'field_name' => 'section_casestudies_cards',
         'post_type' => 'casestudy',
-        'taxonomy' => 'casestudy_category',
+        'taxonomy' => 'casestudy_categories',
         'heading_class' => 'mb-5 lg:mb-16 3xl:mb-15',
         'option' => 'yes',
     ]); ?>
