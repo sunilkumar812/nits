@@ -49,12 +49,13 @@ get_header();
     <!-- Video Section -->
     <?= get_template_part('partials/sections/partial', 'video', [
         'field_name' => 'section_video',
-        'class_container' => 'mb-24 relative z-5',
+        'class_container' => ' mb-12 lg:mb-24 relative z-5',
     ]); ?>
 
     <!-- Aards Section -->
     <?= get_template_part('partials/sections/partial', 'awards', [
         'field_name' => 'section_awards',
+        'class_container' => 'mb-15 lg:mb-24 relative z-5',
     ]); ?>
 
     <!--Blog Section -->
