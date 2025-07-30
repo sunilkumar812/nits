@@ -142,7 +142,7 @@ function nits_register_jobs_post_type()
         'show_ui'            => true,
         'show_in_menu'       => true,
         'show_in_admin_bar'  => true,
-        'publicly_queryable' => true,
+        'publicly_queryable' => false,
         'show_in_rest'       => true,
         'menu_position'      => 20,
         'menu_icon'          => 'dashicons-clipboard',
