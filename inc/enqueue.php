@@ -19,6 +19,19 @@ function nits_scripts()
             true
         );
     }
+
+    if (is_page_template('page-templates/careers_page.php')) {
+        wp_enqueue_script(
+            'nits-main',
+            get_template_directory_uri() . '/js/ajax/jobs.js',
+            array('jquery'),
+            filemtime(get_template_directory() . '/js/ajax/jobs.js'),
+            true
+        );
+        wp_enqueue_style('fancybox-css', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css');
+        wp_enqueue_script('fancybox-js', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js', [], null, true);
+    }
+
     /**Case study filter pages(Home,) */
     wp_enqueue_script('cs-filter', get_template_directory_uri() . '/js/ajax/home.js', ['jquery'], null, true);
     wp_localize_script('cs-filter', 'nits_ajax_object', [

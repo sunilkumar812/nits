@@ -22,6 +22,18 @@ get_header(); ?>
         'field_name' => 'workplace_highlights',
     ]); ?>
 
+    <!-- Gallery Section -->
+    <?= get_template_part('partials/sections/partial', 'gallery', [
+        'field_name' => 'gallery',
+        'class_container' => '',
+    ]); ?>
+
+    <!-- Jobs Section -->
+    <?= get_template_part('partials/sections/partial', 'jobs', [
+        'field_name' => 'jobs',
+        'class_container' => 'bg-[#F0F9FF] py-16',
+    ]); ?>
+
     <!-- CTA Section -->
     <?= get_template_part('partials/sections/cta/partial', 'cta', [
         'field_name' => 'cta',

@@ -416,3 +416,100 @@ function nits_common_post_listing($args = [])
 <?php
 	return ob_get_clean();
 }
+
+
+add_action('wp_ajax_load_jobs', 'job_listing');
+add_action('wp_ajax_nopriv_load_jobs', 'job_listing');
+
+function job_listing()
+{
+
+	$category_slug = isset($_POST['category_id']) ? sanitize_text_field($_POST['category_id']) : '';
+	$paged = isset($_POST['paged']) ? intval($_POST['paged']) : 1;
+
+	if (isset($_POST['paged'])) {
+		if (!isset($_POST['nonce']) || !wp_verify_nonce($_POST['nonce'], 'nits_nonce')) {
+			wp_send_json_error('Invalid nonce');
+			wp_die();
+		}
+	}
+
+	$args = [
+		'post_type' => 'jobs',
+		'posts_per_page' => 3,
+		'paged' => $paged,
+	];
+
+	if (!empty($category_slug)) {
+		if (!isset($_POST['nonce']) || !wp_verify_nonce($_POST['nonce'], 'nits_nonce')) {
+			wp_send_json_error('Invalid nonce');
+			wp_die();
+		}
+		$args['tax_query'] = [
+			[
+				'taxonomy' => 'job_category',
+				'field' => 'slug',
+				'terms' => $category_slug,
+			]
+		];
+	}
+
+	$jobs = new WP_Query($args);
+
+	if ($jobs->have_posts()) : ?>
+	<div id="job-listings" class="space-y-6">
+		<?php
+		$index = 0;
+		while ($jobs->have_posts()) : $jobs->the_post();
+			$tags = get_the_tags();
+			$content_id = 'job-content-' . $index;
+		?>
+			<div class="bg-white p-6 shadow rounded">
+				<h3 class="text-xl font-semibold"><?php the_title(); ?></h3>
+
+				<?php if ($tags && !is_wp_error($tags)) : ?>
+					<div class="flex gap-4 my-4 flex-wrap">
+						<?php foreach ($tags as $tag) : ?>
+							<span class="text-sm text-nitsDarkBlue px-3 py-1 rounded-2xl border border-nitsDarkBlue cursor-pointer">
+								<?= esc_html($tag->name); ?>
+							</span>
+						<?php endforeach; ?>
+					</div>
+				<?php endif; ?>
+				<div class="text-sm mb-4">
+					<?php the_excerpt(); ?>
+				</div>
+				<!-- Hidden Full Content -->
+				<div id="<?= esc_attr($content_id); ?>" class="text-sm mb-4 hidden">
+					<?= wpautop(get_the_content()); ?>
+				</div>
+
+				<!-- Toggle Button -->
+				<div class="flex justify-end">
+					<!-- <button
+						type="button"
+						class="btn btn-fill font-type2 text-base inline-block btn-primary px-3 py-2 rounded-md border-1 hover:border-1 hover:boreder-nitsLightBlue cursor-pointer"
+						onclick="document.getElementById('<?php //echo esc_attr($content_id); 
+															?>').classList.toggle('hidden')">
+						See Position
+					</button> -->
+					<button
+						type="button"
+						class="btn btn-fill font-type2 text-base inline-block btn-primary px-3 py-2 rounded-md border-1 hover:border-1 hover:boreder-nitsLightBlue cursor-pointer"
+						onclick="document.getElementById('<?= esc_attr($content_id); ?>').classList.toggle('hidden')">
+						See Position
+					</button>
+				</div>
+			</div>
+		<?php
+			$index++;
+		endwhile;
+		?>
+	</div>
+<?php
+	else :
+		echo '<div class="swiper-slide text-center p-10">No Job found.</div>';
+	endif;
+	wp_reset_postdata();
+	//wp_die();
+} ?>
