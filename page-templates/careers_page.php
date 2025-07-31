@@ -9,7 +9,7 @@
  */
 get_header(); ?>
 
-<main id="primary" class="z-4 relative overflow-hidden">
+<main id="primary" class="z-4 relative">
     <!-- Hero Section -->
     <?= get_template_part('partials/sections/hero/partial', 'hero_5', [
         'field_name' => 'Hero',
