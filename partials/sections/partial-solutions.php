@@ -5,7 +5,7 @@ $button = $solutions['button'] ?? '';
 ?>
 <!--Heading -->
 <?= get_template_part('partials/core/partial', 'section_heading_1', [
-    'class_container' => 'lg:mb-12 3xl:mb-24',
+    'class_container' => 'mb-15 lg:mb-24',
     'icon' => $solutions['icon']['url'],
     'icon_alt' => $solutions['icon']['alt'],
     'icon_heading' => $solutions['icon_heading'],

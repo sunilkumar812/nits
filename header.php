@@ -47,7 +47,7 @@ use Detection\Exception\MobileDetectException;
 	<?php wp_body_open(); ?>
 	<div id="page" class="site">
 		<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Skip to content', 'nits'); ?></a>
-		<header id="masthead" class="site-header fixed inset-x-0 text-white z-6 bg-nitsPrimary lg:z-5 border-b border-[#1286F6]" data-aos="fade-down" data-aos-duration="500">
+		<header id="masthead" class="site-header fixed inset-x-0 text-white z-5 bg-nitsPrimary lg:z-5 border-b border-[#1286F6]" data-aos="fade-down" data-aos-duration="500">
 			<div class="main-width flex items-center justify-between 2xl:py-[20px] 3xl:py-[44px] lg:py-6 py-5">
 				<div class="site-branding z-[1] relative">
 					<a href="<?= esc_url(home_url('/')); ?>" rel="home">
@@ -103,7 +103,7 @@ use Detection\Exception\MobileDetectException;
 			</div>
 		</header><!-- #masthead -->
 		<?php if ($mobileDetect->isMobile()) : ?>
-			<div class="main-mobile-nav fixed inset-0 bg-nitsPrimary w-full h-full z-5 pt-[130px] md:pt-36 opacity-0 overflow-hidden transition-opacity duration-500 pointer-events-auto">
+			<div class="main-mobile-nav fixed inset-0 bg-nitsPrimary w-full h-full z-1 pt-[150px] md:pt-36 opacity-0 overflow-hidden transition-opacity duration-500 pointer-events-auto">
 				<div class="main-width h-full opacity-100 relative">
 					<div class="h-[1px] bg-nitsBluePlus absolute top-[-25px] left-0 right-0 w-[85%] mx-auto"></div>
 					<div class="overflow-y-auto h-full flex flex-col gap-10">

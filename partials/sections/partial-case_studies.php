@@ -19,7 +19,7 @@ $query = new WP_Query($args);
 
 
 if (is_array($section_case_studies) && !empty(array_filter($section_case_studies))): ?>
-    <div class="py-10 lg:pt-16 lg:pb-23 3xl:pt-[105px] 3xl:pb-[103px] relative overflow-hidden" style="background-image:linear-gradient(289.33deg, #2287FF -2.16%, #012C79 108.05%);">
+    <div class="py-20 lg:pt-16 lg:pb-23 3xl:pt-[105px] 3xl:pb-[103px] relative overflow-hidden" style="background-image:linear-gradient(289.33deg, #2287FF -2.16%, #012C79 108.05%);">
         <div class="absolute -bottom-10 right-20 h-full"><img class="h-full" src="<?= esc_url($background_image['url']);  ?>"> </div>
         <?php echo get_template_part('partials/core/partial', 'section_heading_2', [
             'class_container' => 'main-width',
@@ -82,19 +82,25 @@ if (is_array($section_case_studies) && !empty(array_filter($section_case_studies
     <div class="main-width mb-25">
         <!-- Category Navigation -->
 
-        <div class="flex justify-center items-center gap-4 mt-8">
-            <div class="min-w-4 lg:min-w-[103px] h-px bg-nitsBluePlus"></div>
+        <div class="flex flex-wrap justify-center items-center gap-4 mt-8 px-4">
+            <!-- Left Line -->
+            <div class="hidden lg:block min-w-4 lg:min-w-[103px] h-px bg-nitsBluePlus"></div>
 
-            <?php foreach ($casestudy_categories as $casestudy_category) : ?>
-                <button
-                    class="casestudy-filter px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 cursor-pointer"
-                    data-id="<?= esc_attr($casestudy_category->term_id); ?>">
-                    <?= esc_html($casestudy_category->name); ?>
-                </button>
-            <?php endforeach; ?>
+            <!-- Category Buttons -->
+            <div class="flex flex-wrap justify-center gap-2">
+                <?php foreach ($casestudy_categories as $casestudy_category) : ?>
+                    <button
+                        class="casestudy-filter px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 cursor-pointer border border-gray-200 rounded-md transition-colors"
+                        data-id="<?= esc_attr($casestudy_category->term_id); ?>">
+                        <?= esc_html($casestudy_category->name); ?>
+                    </button>
+                <?php endforeach; ?>
+            </div>
 
-            <div class="min-w-4 lg:min-w-[103px] h-px bg-nitsBluePlus"></div>
+            <!-- Right Line -->
+            <div class="hidden lg:block min-w-4 lg:min-w-[103px] h-px bg-nitsBluePlus"></div>
         </div>
+
 
     </div>
 <?php endif; ?>

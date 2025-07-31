@@ -17,19 +17,25 @@ if (!empty($section_blog)): ?>
             'heading' => $section_blog['heading'],
             'heading_desc' => $section_blog['heading_desc'],
         ]); ?>
-        <div class="flex justify-center items-center gap-4 mb-15">
-            <div class="min-w-4 lg:min-w-[103px] h-px bg-nitsBluePlus"></div>
+        <div class="flex flex-wrap justify-center items-center gap-4 mb-15 px-4">
+            <!-- Left Line -->
+            <div class="hidden lg:block min-w-4 lg:min-w-[103px] h-px bg-nitsBluePlus"></div>
 
-            <?php foreach ($blog_categories as $blog_category) : ?>
-                <button
-                    class="blog-filter px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 cursor-pointer"
-                    data-id="<?= esc_attr($blog_category->term_id); ?>">
-                    <?= esc_html($blog_category->name); ?>
-                </button>
-            <?php endforeach; ?>
+            <!-- Blog Category Buttons -->
+            <div class="flex flex-wrap justify-center gap-2">
+                <?php foreach ($blog_categories as $blog_category) : ?>
+                    <button
+                        class="blog-filter px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 border border-gray-200 rounded-md cursor-pointer transition-colors"
+                        data-id="<?= esc_attr($blog_category->term_id); ?>">
+                        <?= esc_html($blog_category->name); ?>
+                    </button>
+                <?php endforeach; ?>
+            </div>
 
-            <div class="min-w-4 lg:min-w-[103px] h-px bg-nitsBluePlus"></div>
+            <!-- Right Line -->
+            <div class="hidden lg:block min-w-4 lg:min-w-[103px] h-px bg-nitsBluePlus"></div>
         </div>
+
         <div id="blog-loader" class="w-full text-center mb-4 hidden">
             <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/src/images/blue_loading.gif'); ?>" alt="Loading..." class="inline-block w-30 h-30" />
         </div>
