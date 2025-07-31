@@ -57,7 +57,6 @@ $page_id = $page ? $page->ID : null;
 	//'page_id' => $page_id,
 	//]); 
 	?>
-	?>
 
 	<!-- Subscribe Section -->
 	<?= get_template_part('partials/sections/partial', 'subscribe', [
