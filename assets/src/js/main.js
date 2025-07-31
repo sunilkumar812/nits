@@ -42,17 +42,38 @@ function toggleClass(selector, className) {
 }
 
 //Toggle mobile menu
+// function toggleMobileMenu() {
+//   const nav = document.querySelector('.main-mobile-nav');
+//   nav.classList.toggle('opacity-0');
+//   //nav.classList.toggle('opacity-100');
+//   //nav.classList.toggle('pointer-events-none');
+//   //nav.classList.toggle('pointer-events-auto');
+
+//   toggleClass('.menu-toggle-open', 'hidden');
+//   toggleClass('.menu-toggle-close', 'hidden');
+// }
 function toggleMobileMenu() {
   const nav = document.querySelector('.main-mobile-nav');
+  const body = document.body;
+  
+  // Toggle menu visibility
   nav.classList.toggle('opacity-0');
-  //nav.classList.toggle('opacity-100');
-  //nav.classList.toggle('pointer-events-none');
-  //nav.classList.toggle('pointer-events-auto');
-
-  toggleClass('.menu-toggle-open', 'hidden');
-  toggleClass('.menu-toggle-close', 'hidden');
+  nav.classList.toggle('opacity-100');
+  nav.classList.toggle('pointer-events-none');
+  nav.classList.toggle('pointer-events-auto');
+  
+  // Toggle menu button icons
+  document.querySelector('.menu-toggle-open').classList.toggle('hidden');
+  document.querySelector('.menu-toggle-close').classList.toggle('hidden');
+  
+  // Prevent body scroll when menu is open
+  body.style.overflow = nav.classList.contains('opacity-100') ? 'hidden' : '';
 }
 
+// Close menu when clicking on a link (optional)
+document.querySelectorAll('#primary-menu-mobile a').forEach(link => {
+  link.addEventListener('click', toggleMobileMenu);
+});
 // Toggle mobile menu items on click
 const menuToggle = document.querySelector('.menu-toggle');
 if (menuToggle) {
