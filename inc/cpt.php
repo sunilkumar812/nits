@@ -189,3 +189,71 @@ function nits_register_job_category_taxonomy()
     register_taxonomy('job_category', array('jobs'), $args);
 }
 add_action('init', 'nits_register_job_category_taxonomy');
+
+
+/**
+ * Register Custom Post Type for News
+ */
+function nits_register_news_post_type()
+{
+    $labels = [
+        'name'               => __('News', 'nits'),
+        'singular_name'      => __('News', 'nits'),
+        'menu_name'          => __('News', 'nits'),
+        'name_admin_bar'     => __('News', 'nits'),
+        'add_new'            => __('Add New', 'nits'),
+        'add_new_item'       => __('Add New News Item', 'nits'),
+        'new_item'           => __('New News Item', 'nits'),
+        'edit_item'          => __('Edit News Item', 'nits'),
+        'view_item'          => __('View News Item', 'nits'),
+        'all_items'          => __('All News', 'nits'),
+        'search_items'       => __('Search News', 'nits'),
+        'parent_item_colon'  => __('Parent News:', 'nits'),
+        'not_found'          => __('No news items found.', 'nits'),
+        'not_found_in_trash' => __('No news items found in Trash.', 'nits'),
+    ];
+
+    $args = [
+        'labels'             => $labels,
+        'public'             => true,
+        'show_in_rest'       => true,
+        'has_archive'        => true,
+        'rewrite'            => ['slug' => 'news', 'with_front' => false],
+        'supports'           => ['title', 'editor', 'thumbnail', 'excerpt'],
+        'menu_icon'          => 'dashicons-megaphone',
+        'capability_type'    => 'post',
+    ];
+
+    register_post_type('news', $args);
+}
+add_action('init', 'nits_register_news_post_type');
+
+/**
+ * Register Custom Taxonomy for News Categories
+ */
+function nits_register_news_categories_taxonomy()
+{
+    $labels = [
+        'name'              => __('News Categories', 'nits'),
+        'singular_name'     => __('News Category', 'nits'),
+        'search_items'      => __('Search News Categories', 'nits'),
+        'all_items'         => __('All News Categories', 'nits'),
+        'parent_item'       => __('Parent News Category', 'nits'),
+        'edit_item'         => __('Edit News Category', 'nits'),
+        'update_item'       => __('Update News Category', 'nits'),
+        'add_new_item'      => __('Add New News Category', 'nits'),
+        'new_item_name'     => __('New News Category Name', 'nits'),
+        'menu_name'         => __('News Categories', 'nits'),
+    ];
+
+    register_taxonomy('news_categories', ['news'], [
+        'hierarchical'      => true,
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'show_in_rest'      => true,
+        // 'rewrite'        => ['slug' => 'news-categories'], // optional
+    ]);
+}
+add_action('init', 'nits_register_news_categories_taxonomy');
