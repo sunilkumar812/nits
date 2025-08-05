@@ -147,6 +147,17 @@
     }
    }
   }
+  .card_7_description{
+    p{ 
+     @apply text-[#000000CC] text-lg mb-3;
+    }
+    ul{
+     @apply list-disc pl-6 text-[#000000CC] text-lg;
+     li{
+       @apply mb-1 text-base;
+     }
+    }
+   }
 
  /* tailwind.css or global CSS file */
  .nits-scale-110 {
