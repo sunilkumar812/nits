@@ -62,7 +62,7 @@ class MegaMenuWalker extends Walker_Nav_Menu
     if ($depth === 0 && in_array('menu-item-has-children', $classes)) {
 
       $output .= "\n<div class=\"mega-menu-wrapper flex w-full items-baseline data-target menu-item-{$item->ID}\" data-target=\"menu-item-{$item->ID}\">\n";
-      $output .= "<div class=\"h-[1px] bg-nitsBluePlus absolute left-0 right-0 w-[85%] mx-auto\"></div>\n";
+      // $output .= "<div class=\"h-[1px] bg-nitsBluePlus absolute left-0 right-0 w-[85%] mx-auto\"></div>\n";
       $output .= "<div class=\"sub-menu-wrapper flex flex-wrap main-width lg:pt-15 3xl:pt-20\">\n";
     }
   }

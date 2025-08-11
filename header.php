@@ -41,6 +41,68 @@ use Detection\Exception\MobileDetectException;
 	// }
 	// 
 	?>
+	<style>
+		#primary-menu .top-item {
+			padding-top: 44px;
+			padding-bottom: 44px;
+		}
+
+		.menu-item-has-children {
+			position: relative;
+		}
+
+		.main-navigation .mega-menu-wrapper {
+			width: 360px;
+			inset-inline: unset;
+			top: 85px;
+			margin-inline: unset;
+			padding-top: 0;
+			padding-bottom: 0;
+			left: -145px;
+			overflow: visible;
+			box-shadow: 0 7px 20px rgba(0, 0, 0, 0.87);
+		}
+
+		/* .main-navigation .mega-menu-wrapper::before {
+			content: '';
+			position: absolute;
+			width: 0;
+			height: 0;
+			border-left: 15px solid transparent;
+			border-right: 15px solid transparent;
+			border-bottom: 15px solid #152C51;
+			top: -15px;
+			left: 44%;
+		} */
+
+		.sub-menu-wrapper {
+			padding-left: 60px;
+			padding-right: 35px;
+			padding-top: 35px;
+			padding-bottom: 35px;
+		}
+
+		.sub-menu-wrapper ul.sub-menu li.menu-item {
+			margin-bottom: 30px;
+		}
+
+		.sub-menu-wrapper {
+			padding-left: 60px;
+			padding-right: 35px;
+			padding-top: 35px;
+			padding-bottom: 35px;
+		}
+
+		.sub-menu-wrapper ul.sub-menu li.menu-item {
+			margin-bottom: 30px;
+		}
+
+		@media (min-width: 768px) {
+			.sub-menu {
+				display: block;
+			}
+		}
+	</style>
 </head>
 
 <body <?php body_class(); ?>>
@@ -48,7 +110,7 @@ use Detection\Exception\MobileDetectException;
 	<div id="page" class="site">
 		<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Skip to content', 'nits'); ?></a>
 		<header id="masthead" class="site-header fixed inset-x-0 text-white z-6 bg-nitsPrimary border-b border-[#1286F6]" data-aos="fade-down" data-aos-duration="500">
-			<div class="main-width flex items-center justify-between 2xl:py-[20px] 3xl:py-[44px] lg:py-6 py-5">
+			<div class="main-width flex items-center justify-between 2xl:py-0 3xl:py-0 lg:py-0 py-5">
 				<div class="site-branding z-[1] relative">
 					<a href="<?= esc_url(home_url('/')); ?>" rel="home">
 						<svg width="126" height="35" viewBox="0 0 126 35" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -61,7 +123,7 @@ use Detection\Exception\MobileDetectException;
 						</svg>
 					</a>
 				</div>
-				<nav id="site-navigation" class="main-navigation md:ml-auto lg:mr-12 xl:mr-14 overflow-hidden">
+				<nav id="site-navigation" class="main-navigation md:ml-auto lg:mr-12 xl:mr-14">
 					<button class="menu-toggle lg:hidden w-6 h-6" aria-controls="primary-menu" aria-expanded="false">
 						<span class="menu-toggle-open">
 							<svg class="stroke-white" width="21" height="10" viewBox="0 0 21 10" fill="none" xmlns="http://www.w3.org/2000/svg">
