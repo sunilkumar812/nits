@@ -139,6 +139,30 @@ if (menu) {
     },
   });
 
+  var about_us_intro = new Swiper(".about_us_intro", {
+    slidesPerView: 3,
+    spaceBetween: 30,
+    navigation: false,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: true,
+    },
+  });
+
+  var founder = new Swiper(".founder", {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    navigation: false,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    loop: true,
+  });
+
+
+
   // const scroller = document.querySelector(".scroller");
   // const totalScroll = scroller.scrollWidth - window.innerWidth;
 
@@ -151,9 +175,41 @@ if (menu) {
   //     end: () => `+=${totalScroll}`,
   //     scrub: true,
   //     pin: true,
-  //     anticipatePin: 1
+  //     anticipatePin: 1,
+  //     invalidateOnRefresh: true // recalc on resize
   //   }
   // });
+  const scroller = document.querySelector(".scroller");
+
+function setupHorizontal() {
+
+  const totalScroll = scroller.scrollWidth - window.innerWidth;
+
+  gsap.to(scroller, {
+    x: () => `-${totalScroll}px`,
+    ease: "none",
+    scrollTrigger: {
+      trigger: "#horizontal-scroll",
+      start: "top-=300 top",          
+      end: () => `+=${totalScroll + window.innerHeight}`,
+      scrub: true,
+      pin: true,
+      pinSpacing: true,                      
+      anticipatePin: 1,
+      invalidateOnRefresh: true
+    }
+  });
+}
+
+setupHorizontal();
+
+window.addEventListener("resize", () => {
+  ScrollTrigger.getAll().forEach(t => t.kill()); // reset
+  setupHorizontal(); // reinit
+});
+
+
+  
   // const cardsContainerId = document.getElementById('stackcards-containerId');
   // const cardsContainer = gsap.utils.toArray(".stackcards-container");
   // const cards = gsap.utils.toArray(".stackcard");
