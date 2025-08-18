@@ -148,6 +148,20 @@ if (menu) {
       disableOnInteraction: false,
       pauseOnMouseEnter: true,
     },
+    breakpoints: {
+      300: {
+      slidesPerView: 1,
+    },
+    640: {
+      slidesPerView: 1,
+    },
+    768: {
+      slidesPerView: 3,
+    },
+    1024: {
+      slidesPerView: 3,
+    },
+  },
   });
 
   var founder = new Swiper(".founder", {
@@ -158,6 +172,20 @@ if (menu) {
       delay: 3000,
       disableOnInteraction: false,
     },
+    breakpoints: {
+      300: {
+      slidesPerView: 1,
+    },
+    640: {
+      slidesPerView: 1,
+    },
+    768: {
+      slidesPerView: 1,
+    },
+    1024: {
+      slidesPerView: 1,
+    },
+  },
     loop: true,
   });
 

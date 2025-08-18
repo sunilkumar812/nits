@@ -1,12 +1,19 @@
+<?php
+    $our_approach = get_field($args['field_name']);
+    $oa_sub_heading = $our_approach['sub_heading'] ?? '';
+    $oa_heading     = $our_approach['heading'] ?? '';
+    $oa_button      = $our_approach['button'] ?? '';
+    $oa_right_image = $our_approach['right_image'] ?? '';
+    ?>
 <div class="" style="background: linear-gradient(206.01deg, #2287FF 11.53%, #1768D1 48.19%, #012C79 80.89%);">
-        <div class="section" data-index="5">
+        <div class="section hidden md:block" data-index="5">
             <div class="main-width flex relative ml-24 flex-col justify-centerrelative py-20">
                 <div class="relative">
                     <div class=" absolute -left-20 top-1 w-5 h-5 bg-blue-500 rounded-sm z-10 blink dot"></div>
                 </div>
             </div>
         </div>
-    <div class="main-width relative justify-centerrelative py-20">
+    <div class="main-width relative justify-centerrelative py-10 md:py-20">
     <?xml version="1.0" encoding="UTF-8"?>
                         <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 739 423">
                         <!-- Generator: Adobe Illustrator 29.5.1, SVG Export Plug-In . SVG Version: 2.1.0 Build 141)  -->
@@ -137,25 +144,43 @@
                         </svg>
     </div>
     
-        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between pl-20">
-            <!-- Left: Text Content -->
-            <div class="md:w-1/2 text-white z-10">
-            <p class="uppercase tracking-widest text-sm mb-4 text-white font-type2 tracking-widest">Our Approach</p>
-            <h1 class="text-4xl md:text-5xl font-semibold mb-20 leading-tight ">
-                Empowering<br />
-                Dealerships with<br />
-                <span class="text-white">AI-Driven Analytics</span>
+        <div class="main-width container mx-auto flex flex-col md:flex-row items-center justify-between md:pl-20">
+    
+    <!-- Left: Text Content -->
+    <div class="md:w-1/2 text-white z-10">
+
+        <!-- Sub Heading -->
+        <?php if ($oa_sub_heading): ?>
+            <p class="uppercase tracking-widest text-sm mb-4 text-white font-type2 tracking-widest">
+                <?= esc_html($oa_sub_heading); ?>
+            </p>
+        <?php endif; ?>
+
+        <!-- Heading -->
+        <?php if ($oa_heading): ?>
+            <h1 class="text-4xl md:text-5xl font-semibold mb-20 leading-tight">
+                <?= wp_kses_post($oa_heading); ?>
             </h1>
-            <a class="btn btn-fill font-type2 text-base lg:text-lg btn-primary px-[22px] py-[17px] mt-5 lg:mt-10 3xl:mt-15 rounded-md text-xl font-bold  hover:border-1 hover:boreder-nitsLightBlue" href="#">
-            Explore Solution</a>
-            </div>
-            <!-- Right: Image -->
-            <div class="md:w-1/2 flex justify-center md:justify-end mt-10 md:mt-0 relative z-10">
-            <img
-                src="https://nits.webknitter.in/wp-content/uploads/2025/08/image-18.png"
-                alt="Woman with tablet"
-                class="max-w-[500px]"
-            />        
-            </div>
-        </div>
+        <?php endif; ?>
+
+        <!-- Button -->
+        <?php if (!empty($oa_button['url']) && !empty($oa_button['title'])): ?>
+            <a class="btn btn-fill font-type2 text-base lg:text-lg btn-primary px-[22px] py-[17px] mt-5 lg:mt-10 3xl:mt-15 rounded-md text-xl font-bold hover:border-1 hover:border-nitsLightBlue"
+               href="<?= esc_url($oa_button['url']); ?>"
+               target="<?= esc_attr($oa_button['target'] ?: '_self'); ?>">
+                <?= esc_html($oa_button['title']); ?>
+            </a>
+        <?php endif; ?>
+    </div>
+
+    <!-- Right: Image -->
+    <div class="md:w-1/2 flex justify-center md:justify-end mt-10 md:mt-0 relative z-10">
+        <?php if (!empty($oa_right_image['url'])): ?>
+            <img src="<?= esc_url($oa_right_image['url']); ?>" 
+                 alt="<?= esc_attr($oa_right_image['alt'] ?? $oa_heading); ?>" 
+                 class="max-w-[500px]" />
+        <?php endif; ?>
+    </div>
+
+</div>
 </div>

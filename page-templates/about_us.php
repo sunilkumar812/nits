@@ -7,7 +7,40 @@
  *
  * @package nits
  */
-get_header(); ?>
+get_header();
+$hero = get_field('hero');
+$hero_heading = $hero['heading'] ?? '';
+$hero_description = $hero['description'] ?? '';
+
+$section_1 = get_field('section_1');
+$s1_blinker_text  = $section_1['blinker_text'] ?? '';
+$s1_heading       = $section_1['heading'] ?? '';
+$s1_description   = $section_1['description'] ?? '';
+$s1_button        = $section_1['button'] ?? '';
+$s1_icons         = $section_1['icons'] ?? [];
+
+$section_2 = get_field('section_2');
+$s2_blinker_text = $section_2['blinker_text'] ?? '';
+$s2_heading      = $section_2['heading'] ?? '';
+$s2_description  = $section_2['description'] ?? '';
+$s2_image        = $section_2['image'] ?? '';
+
+$section_3 = get_field('section_3');
+$s3_blinker_text = $section_3['blinker_text'] ?? '';
+$s3_heading      = $section_3['heading'] ?? '';
+$s3_description  = $section_3['description'] ?? '';
+$s3_slider       = $section_3['slider'] ?? [];
+
+$section_4 = get_field('section_4');
+$s4_blinker_text = $section_4['blinker_text'] ?? '';
+$s4_heading      = $section_4['heading'] ?? '';
+$s4_slider       = $section_4['slider'] ?? [];
+
+$gallery_tabs = get_field('gallery_tabs');
+$gallery_images = get_field('gallery_images');
+
+$final_cta = get_field('final_cta');
+?>
 <style>
     /* @keyframes blink {
 
@@ -72,57 +105,98 @@ get_header(); ?>
 <main id="primary" class="z-4 relative">
 
     <div class="mx-auto relative">
+        <!-- Timeline Line -->
+        <div class="absolute left-[96px] top-[280px] bottom-[40.7%] w-[3px] bg-gray-300 hidden md:block">
+            <div id="timeline-progress" class="w-[3px] bg-blue-500 absolute top-0 h-0 "></div>
+        </div>
+
         <!-- Hero -->
-        <div class="bg-black text-white h-[680px] section" data-index="0">
-            <div class="main-width flex relative ml-24 flex-col justify-center h-full relative">
+        <div class="bg-black text-white h-[380px] md:h-[680px] section" data-index="0">
+            <div class="main-width flex relative md:ml-24 flex-col justify-center h-full relative">
                 <div class="relative">
-                    <div class="absolute -left-20 top-2 w-5 h-5 bg-blue-500 rounded-sm z-1 blink dot"></div>
-                    <!-- <div class="absolute -left-20 top-1 w-6 h-6 bg-white border-2 border-blue-500 rounded-full dot"></div> -->
+                    <div class="absolute -left-20 top-2 w-5 h-5 bg-blue-500 rounded-sm z-1 blink dot hidden md:block"></div>
                     <div class="items-center relative">
-                        <h1 class="text:3xl lg:text-5xl 3xl:text-7xl font-light text-white font-type1 mb-4">WHO <br>ARE WE?</h1>
-                        <p class="text-white font-dmsans text-xl 3xl:text-xl font-light">Scroll to find out</p>
+                        <?php if ($hero_heading): ?>
+                            <h1 class="text-3xl lg:text-5xl 3xl:text-7xl font-light text-white font-type1 mb-4">
+                                <?= $hero_heading; ?>
+                            </h1>
+                        <?php endif; ?>
+
+                        <?php if ($hero_description): ?>
+                            <p class="text-white font-dmsans text-xl 3xl:text-xl font-light">
+                                <?= $hero_description; ?>
+                            </p>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <!-- Timeline Line -->
-        <div class="absolute left-[96px] top-[280px] bottom-[45%] w-[3px] bg-gray-300">
-            <div id="timeline-progress" class="w-[3px] bg-blue-500 absolute top-0 h-0 "></div>
         </div>
 
         <!-- Sec 1 -->
         <div class="section" data-index="1">
-            <div class="main-width flex ml-24 flex-col justify-center h-full relative py-20">
+            <div class="main-width flex md:ml-24 flex-col justify-center h-full relative py-10 md:py-20">
                 <div class="relative">
-                    <div class=" absolute -left-20 top-1 w-5 h-5 bg-blue-500 rounded-sm z-10 blink dot"></div>
-                    <div class="flex flex-row gap-10">
-                        <h4 class="uppercase text-xl text-gray-500 mb-1 font-type2 tracking-widest w-[250px]">Inception</h4>
+
+                    <!-- Blinker Dot -->
+                    <div class="absolute -left-20 top-1 w-5 h-5 bg-blue-500 rounded-sm z-10 blink dot hidden md:block"></div>
+
+                    <div class="flex flex-col md:flex-row gap-5">
+
+                        <!-- Blinker Text -->
+                        <?php if ($s1_blinker_text): ?>
+                            <h4 class="uppercase text-xl text-gray-500 mb-1 font-type2 tracking-widest w-[250px]">
+                                <?= esc_html($s1_blinker_text); ?>
+                            </h4>
+                        <?php endif; ?>
+
                         <div>
                             <div class="mb-20">
-                                <h3 class="text-nitsDarkBlue font-semibold mb-10 font-type1 text-3xl">Core values & Mission Copy here</h3>
-                                <p class="text-base mb-10 text-black max-w-[742px]">Our platform integrates with leading CRM and marketing solutions, ensuring a streamlined workflow. Connect effortlessly with financial systems and inventory management tools to optimize your dealership operations.</p>
-                                <a href="#" class="btn btn-fill font-type2 text-base lg:text-lg btn-primary px-[22px] py-[17px] mt-5 lg:mt-10 3xl:mt-15 rounded-md text-xl font-bold border border-1 hover:border-1 hover:boreder-nitsLightBlue" href="#">
-                                    Know Our Story</a>
+
+                                <!-- Heading -->
+                                <?php if ($s1_heading): ?>
+                                    <h3 class="text-nitsDarkBlue font-semibold mb-10 font-type1 text-3xl">
+                                        <?= esc_html($s1_heading); ?>
+                                    </h3>
+                                <?php endif; ?>
+
+                                <!-- Description -->
+                                <?php if ($s1_description): ?>
+                                    <p class="text-base mb-10 text-black max-w-[742px]">
+                                        <?= esc_html($s1_description); ?>
+                                    </p>
+                                <?php endif; ?>
+
+                                <!-- Button -->
+                                <?php if (!empty($s1_button['url']) && !empty($s1_button['title'])): ?>
+                                    <a href="<?= esc_url($s1_button['url']); ?>"
+                                        class="btn btn-fill font-type2 text-base lg:text-lg btn-primary px-[22px] py-[17px] mt-5 lg:mt-10 3xl:mt-15 rounded-md text-xl font-bold border border-1 hover:border-1 hover:border-nitsLightBlue"
+                                        target="<?= esc_attr($s1_button['target'] ?: '_self'); ?>">
+                                        <?= esc_html($s1_button['title']); ?>
+                                    </a>
+                                <?php endif; ?>
                             </div>
-                            <div class="flex flex-row gap-20">
-                                <div>
-                                    <img class="mb-4 w-[175px] h-[175px]" src="https://nits.webknitter.in/wp-content/uploads/2025/08/image-15.png" alt="" />
-                                    <p class="text-center">COLLABORATION</p>
+
+                            <!-- Icons Repeater -->
+                            <?php if (!empty($s1_icons)): ?>
+                                <div class="flex flex-col md:flex-row gap-20">
+                                    <?php foreach ($s1_icons as $icon):
+                                        $icon_img = $icon['image'] ?? '';
+                                        $icon_text = $icon['text'] ?? '';
+                                    ?>
+                                        <div>
+                                            <?php if (!empty($icon_img['url'])): ?>
+                                                <img class="mb-4 w-[175px] h-[175px] ml-auto mr-auto"
+                                                    src="<?= esc_url($icon_img['url']); ?>"
+                                                    alt="<?= esc_attr($icon_img['alt'] ?? $icon_text); ?>" />
+                                            <?php endif; ?>
+                                            <?php if ($icon_text): ?>
+                                                <p class="text-center"><?= esc_html($icon_text); ?></p>
+                                            <?php endif; ?>
+                                        </div>
+                                    <?php endforeach; ?>
                                 </div>
-                                <div>
-                                    <img class="mb-4 w-[175px] h-[175px]" src="https://nits.webknitter.in/wp-content/uploads/2025/08/image-16-1.png" alt="" />
-                                    <p class="text-center">INNOVATION</p>
-                                </div>
-                                <div>
-                                    <img class="mb-4 w-[175px] h-[175px]" src="https://nits.webknitter.in/wp-content/uploads/2025/08/image-17.png" alt="" />
-                                    <p class="text-center">RESILIENCE</p>
-                                </div>
-                                <div>
-                                    <img class="mb-4 w-[175px] h-[175px]" src="https://nits.webknitter.in/wp-content/uploads/2025/08/Isolation_Mode.png" alt="" />
-                                    <p class="text-center">DIVERSITY</p>
-                                </div>
-                            </div>
+                            <?php endif; ?>
+
                         </div>
                     </div>
 
@@ -130,141 +204,239 @@ get_header(); ?>
             </div>
         </div>
 
-        <!-- 2010 -->
+        <!-- Sec 2 -->
         <div class="section" data-index="2">
-            <div class="main-width flex relative ml-24 flex-col justify-centerrelative py-20">
+            <div class="main-width flex relative md:ml-24 flex-col justify-center relative py-10 md:py-20">
                 <div class="relative">
-                    <div class=" absolute -left-20 top-1 w-5 h-5 bg-blue-500 rounded-sm z-10 blink dot"></div>
-                    <div class="flex flex-row gap-10">
-                        <h4 class="uppercase text-xl text-gray-500 mb-1 font-type2 tracking-widest w-[250px]">2010</h4>
-                        <div class="mb-20">
 
-                            <h3 class="text-nitsDarkBlue font-semibold mb-10 font-type1 text-3xl">Intro copy here</h3>
-                            <p class="text-base mb-10 text-black max-w-[742px]">Our platform integrates with leading CRM and marketing solutions, ensuring a streamlined workflow. Connect effortlessly with financial systems and inventory management tools to optimize your dealership operations.</p>
-                            <img src="https://placehold.co/400x200" alt="" />
+                    <!-- Blinker Dot -->
+                    <div class="absolute -left-20 top-1 w-5 h-5 bg-blue-500 rounded-sm z-10 blink dot hidden md:block"></div>
+
+                    <div class="flex flex-col md:flex-row gap-5">
+
+                        <!-- Blinker Text -->
+                        <?php if ($s2_blinker_text): ?>
+                            <h4 class="uppercase text-xl text-gray-500 mb-1 font-type2 tracking-widest w-[250px]">
+                                <?= esc_html($s2_blinker_text); ?>
+                            </h4>
+                        <?php endif; ?>
+
+                        <div class="md:mb-20">
+
+                            <!-- Heading -->
+                            <?php if ($s2_heading): ?>
+                                <h3 class="text-nitsDarkBlue font-semibold mb-10 font-type1 text-3xl">
+                                    <?= esc_html($s2_heading); ?>
+                                </h3>
+                            <?php endif; ?>
+
+                            <!-- Description -->
+                            <?php if ($s2_description): ?>
+                                <p class="text-base mb-10 text-black max-w-[742px]">
+                                    <?= esc_html($s2_description); ?>
+                                </p>
+                            <?php endif; ?>
+
+                            <!-- Image -->
+                            <?php if (!empty($s2_image['url'])): ?>
+                                <img src="<?= esc_url($s2_image['url']); ?>"
+                                    alt="<?= esc_attr($s2_image['alt'] ?? $s2_heading); ?>"
+                                    class="max-w-full h-auto" />
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-
-        <!-- 2010 -->
+        <!-- Sec 3 -->
         <div class="section" data-index="3">
-            <div class="main-width flex relative ml-24 flex-col justify-centerrelative mt-20">
+            <div class="main-width flex relative md:ml-24 flex-col justify-center relative mt-10 md:mt-20">
                 <div class="relative">
-                    <div class=" absolute -left-20 top-1 w-5 h-5 bg-blue-500 rounded-sm z-10 blink dot"></div>
-                    <div class="flex flex-row gap-10">
-                        <h4 class="uppercase text-xl text-gray-500 mb-1 font-type2 tracking-widest w-[250px]">2010</h4>
-                        <div class="mb-20">
 
-                            <h3 class="text-nitsDarkBlue font-semibold mb-10 font-type1 text-3xl">Intro copy here</h3>
-                            <p class="text-base mb-10 text-black max-w-[742px]">Our platform integrates with leading CRM and marketing solutions, ensuring a streamlined workflow. Connect effortlessly with financial systems and inventory management tools to optimize your dealership operations.</p>
+                    <!-- Blinker Dot -->
+                    <div class="absolute -left-20 top-1 w-5 h-5 bg-blue-500 rounded-sm z-10 blink dot hidden md:block"></div>
+
+                    <div class="flex flex-col md:flex-row gap-5">
+
+                        <!-- Blinker Text -->
+                        <?php if ($s3_blinker_text): ?>
+                            <h4 class="uppercase text-xl text-gray-500 mb-1 font-type2 tracking-widest w-[250px]">
+                                <?= esc_html($s3_blinker_text); ?>
+                            </h4>
+                        <?php endif; ?>
+
+                        <div class="md:mb-20">
+
+                            <!-- Heading -->
+                            <?php if ($s3_heading): ?>
+                                <h3 class="text-nitsDarkBlue font-semibold mb-10 font-type1 text-3xl">
+                                    <?= esc_html($s3_heading); ?>
+                                </h3>
+                            <?php endif; ?>
+
+                            <!-- Description -->
+                            <?php if ($s3_description): ?>
+                                <p class="text-base mb-10 text-black max-w-[742px]">
+                                    <?= esc_html($s3_description); ?>
+                                </p>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- 
-        <div class="mr-auto">
-            <div id="horizontal-scroll" class="relative overflow-hidden bg-white mx-19">
-                <div class="scroller flex space-x-6 w-max items-center">
-                   
-                    <div class="min-w-[350px] h-[200px] bg-blue-500 text-white text-xl flex items-center justify-center rounded">1</div>
-                    <div class="min-w-[350px] h-[200px] bg-blue-500 text-white text-xl flex items-center justify-center rounded">2</div>
-                    <div class="min-w-[350px] h-[200px] bg-blue-500 text-white text-xl flex items-center justify-center rounded">3</div>
-                    <div class="min-w-[350px] h-[200px] bg-blue-500 text-white text-xl flex items-center justify-center rounded">4</div>
-                    <div class="min-w-[350px] h-[200px] bg-blue-500 text-white text-xl flex items-center justify-center rounded">5</div>
-                    <div class="min-w-[350px] h-[200px] bg-blue-500 text-white text-xl flex items-center justify-center rounded">6</div>
+        <!-- Swiper Slider -->
+        <?php if (!empty($s3_slider)): ?>
+            <div class="w-[80%] md:px-10 mx-auto md:mb-15">
+                <div class="swiper about_us_intro">
+                    <div class="swiper-wrapper">
+                        <?php foreach ($s3_slider as $slide):
+                            $slide_img = $slide['slide'] ?? '';
+                        ?>
+                            <?php if (!empty($slide_img['url'])): ?>
+                                <div class="intro_slide swiper-slide">
+                                    <img src="<?= esc_url($slide_img['url']); ?>"
+                                        alt="<?= esc_attr($slide_img['alt'] ?? $heading); ?>"
+                                        class="w-full h-auto" />
+                                </div>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    </div>
                 </div>
             </div>
-        </div> -->
-        <div class="w-[80%] px-10 mx-auto mb-15">
-            <div class="swiper about_us_intro">
+        <?php endif; ?>
 
-                <div class="swiper-wrapper">
-                    <div class="intro_slide swiper-slide">1</div>
-                    <div class="intro_slide swiper-slide">2</div>
-                    <div class="intro_slide swiper-slide">3</div>
-                    <div class="intro_slide swiper-slide">4</div>
-                    <div class="intro_slide swiper-slide">5</div>
-                    <div class="intro_slide swiper-slide">6</div>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- Our Founders -->
+        <!-- Sec 4 -->
         <div class="section mb-20" data-index="4">
-            <div class="main-width flex relative ml-24 flex-col justify-centerrelative py-20">
+            <div class="main-width flex relative md:ml-24 flex-col justify-center relative py-10 md:py-20">
                 <div class="relative">
-                    <div class="absolute -left-20 top-1 w-5 h-5 bg-blue-500 rounded-sm z-10 blink dot"></div>
-                    <div class="flex flex-row gap-10">
+
+                    <!-- Blinker Dot -->
+                    <div class="absolute -left-20 top-1 w-5 h-5 bg-blue-500 rounded-sm z-10 blink dot hidden md:block"></div>
+
+                    <div class="flex flex-col md:flex-row gap-5">
+
+                        <!-- Left Side -->
                         <div class="max-w-[350px]">
-                            <h4 class="uppercase text-xl text-gray-500 mb-1 font-type2 tracking-widest mb-10 w-[250px]">OUR FOUNDERS</h4>
-                            <h3 class="text-nitsDarkBlue font-semibold mb-10 font-type1 text-3xl">“An insipration quote to come here in three
-                                lines”</h3>
+                            <?php if ($s4_blinker_text): ?>
+                                <h4 class="uppercase text-xl text-gray-500 mb-1 font-type2 tracking-widest mb-10 w-[250px]">
+                                    <?= esc_html($s4_blinker_text); ?>
+                                </h4>
+                            <?php endif; ?>
+
+                            <?php if ($s4_heading): ?>
+                                <h3 class="text-nitsDarkBlue font-semibold mb-10 font-type1 text-3xl">
+                                    <?= esc_html($s4_heading); ?>
+                                </h3>
+                            <?php endif; ?>
                         </div>
-                        <div class="swiper founder">
-                            <div class="swiper-wrapper">
-                                <!-- Slides -->
-                                <div class="founder-slide swiper-slide">
-                                    <img src="https://placehold.co/500x200" alt="slide1" />
-                                </div>
-                                <div class="founder-slide swiper-slide">
-                                    <img src="https://placehold.co/500x200" alt="slide2" />
-                                </div>
-                                <div class="founder-slide swiper-slide">
-                                    <img src="https://placehold.co/500x200" alt="slide3" />
+
+                        <!-- Swiper Slider -->
+                        <?php if (!empty($s4_slider)): ?>
+                            <div class="swiper founder sm:px-10">
+                                <div class="swiper-wrapper">
+                                    <?php foreach ($s4_slider as $s4_slide):
+                                        $s4_slide_img = $s4_slide['slide'] ?? '';
+                                    ?>
+                                        <?php if (!empty($s4_slide_img['url'])): ?>
+                                            <div class="founder-slide swiper-slide">
+                                                <img src="<?= esc_url($s4_slide_img['url']); ?>"
+                                                    alt="<?= esc_attr($s4_slide_img['alt'] ?? $s4_heading); ?>"
+                                                    class="w-full h-auto" />
+                                            </div>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
                                 </div>
                             </div>
-                        </div>
+                        <?php endif; ?>
+
                     </div>
                 </div>
             </div>
         </div>
 
-        <?php get_template_part('partials/pages/about-us/partial', 'global_presence'); ?>
+        <?php get_template_part('partials/pages/about-us/partial', 'global_presence', [
+            'field_name' => 'our_approach',
+        ]); ?>
+        <?php
+        if ($gallery_tabs && isset($gallery_tabs['tabs']) && is_array($gallery_tabs['tabs'])) :
+        ?>
+            <div class="main-width flex flex-col items-center my-10 md:my-28">
 
-        <div class="main-width flex flex-col items-center my-28">
-            <!-- Tabs -->
-            <div class="flex justify-center items-center gap-8 mb-12">
-                <button id="tab1-btn" class="tab-btn px-4 py-1 rounded transition cursor-pointer">Festive Celebrations</button>
-                <button id="tab2-btn" class="tab-btn px-4 py-1 rounded transition cursor-pointer">Culture</button>
-                <button id="tab3-btn" class="tab-btn px-4 py-1 rounded transition cursor-pointer">Events & Expo</button>
-            </div>
-            <!-- Tab content -->
-            <div class="w-full mx-auto">
-                <!-- Festive Celebrations -->
-                <div id="tab1" class="tab-content flex flex-wrap gap-6 justify-center">
-                    <div class="bg-gray-200 w-[60%] aspect-[4/3]">1</div>
-                    <div class="flex flex-col gap-6 w-[35%]">
-                        <div class="bg-gray-200 aspect-[4/3]">2</div>
-                        <div class="bg-gray-200 aspect-[4/3]">3</div>
-                    </div>
+                <!-- Tabs -->
+                <div class="flex justify-center items-center gap-8 mb-12">
+                    <?php foreach ($gallery_tabs['tabs'] as $index => $tab) :
+                        $tab_id = $tab['tab_id'] ?? 'tab' . ($index + 1);
+                        $tab_heading = $tab['tab_heading'] ?? '';
+                    ?>
+                        <button
+                            id="<?php echo esc_attr($tab_id); ?>-btn"
+                            class="tab-btn px-4 py-1 rounded transition cursor-pointer <?php echo $index === 0 ? 'active' : ''; ?>">
+                            <?php echo esc_html($tab_heading); ?>
+                        </button>
+                    <?php endforeach; ?>
                 </div>
-                <!-- Culture -->
-                <div id="tab2" class="tab-content hidden flex flex-wrap gap-6 justify-center">
-                    <div class="bg-gray-200 w-[60%] aspect-[4/3]">4</div>
-                    <div class="flex flex-col gap-6 w-[35%]">
-                        <div class="bg-gray-200 aspect-[4/3]">5</div>
-                        <div class="bg-gray-200 aspect-[4/3]">6</div>
 
-                    </div>
+                <!-- Tab Content -->
+                <div class="w-full mx-auto">
+                    <?php if ($gallery_images && isset($gallery_images['tab_images'])) : ?>
+                        <?php foreach ($gallery_tabs['tabs'] as $index => $tab) :
+                            $tab_id = $tab['tab_id'] ?? 'tab' . ($index + 1);
+
+                            // Find matching tab images
+                            $matched_images = array_filter($gallery_images['tab_images'], function ($img) use ($tab_id) {
+                                return isset($img['tab_id']) && $img['tab_id'] === $tab_id;
+                            });
+
+                            $matched_images = reset($matched_images); // get first match
+                        ?>
+                            <div
+                                id="<?php echo esc_attr($tab_id); ?>"
+                                class="tab-content flex flex-wrap gap-6 justify-center <?php echo $index !== 0 ? 'hidden' : ''; ?>">
+
+                                <?php if ($matched_images) : ?>
+                                    <div class="bg-gray-200 w-[100%] md:w-[60%] aspect-[4/3] flex items-center justify-center overflow-hidden">
+                                        <?php if (!empty($matched_images['image_1'])) : ?>
+                                            <img src="<?php echo esc_url($matched_images['image_1']['url']); ?>"
+                                                alt=""
+                                                class="object-cover w-full h-full" />
+                                        <?php endif; ?>
+                                    </div>
+
+                                    <div class="flex flex-col gap-6 w-[100%] md:w-[35%]">
+                                        <div class="bg-gray-200 aspect-[4/3] flex items-center justify-center overflow-hidden">
+                                            <?php if (!empty($matched_images['image_2'])) : ?>
+                                                <img src="<?php echo esc_url($matched_images['image_2']['url']); ?>"
+                                                    alt=""
+                                                    class="object-cover w-full h-full" />
+                                            <?php endif; ?>
+                                        </div>
+                                        <div class="bg-gray-200 aspect-[4/3] flex items-center justify-center overflow-hidden">
+                                            <?php if (!empty($matched_images['image_3'])) : ?>
+                                                <img src="<?php echo esc_url($matched_images['image_3']['url']); ?>"
+                                                    alt=""
+                                                    class="object-cover w-full h-full" />
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+                                <?php endif; ?>
+
+                            </div>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
                 </div>
-                <!-- Events & Expo -->
-                <div id="tab3" class="tab-content hidden flex flex-wrap gap-6 justify-center">
-                    <div class="bg-gray-200 w-[60%] aspect-[4/3]">9</div>
-                    <div class="flex flex-col gap-6 w-[35%]">
-                        <div class="bg-gray-200 aspect-[4/3]">10</div>
-                        <div class="bg-gray-200 aspect-[4/3]">11</div>
-                    </div>
-                </div>
+            <?php endif; ?>
+            <!-- CTA -->
+            <?php if ($final_cta) : ?>
+                <a class="btn btn-fill font-type2 text-base lg:text-lg btn-primary px-[22px] py-[17px] mt-5 lg:mt-10 3xl:mt-15 rounded-md text-xl font-bold hover:border-1 hover:border-nitsLightBlue"
+                    href="<?php echo esc_url($final_cta['url']); ?>"
+                    target="<?php echo esc_attr($final_cta['target'] ?: '_self'); ?>">
+                    <?php echo esc_html($final_cta['title']); ?>
+                </a>
+            <?php endif; ?>
             </div>
-            <a class="btn btn-fill font-type2 text-base lg:text-lg btn-primary px-[22px] py-[17px] mt-5 lg:mt-10 3xl:mt-15 rounded-md text-xl font-bold  hover:border-1 hover:boreder-nitsLightBlue" href="#">
-                Explore Solution</a>
-        </div>
 
     </div>
 </main>
