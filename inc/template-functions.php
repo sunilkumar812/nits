@@ -421,7 +421,7 @@ function nits_common_post_listing($args = [])
 add_action('wp_ajax_load_jobs', 'job_listing');
 add_action('wp_ajax_nopriv_load_jobs', 'job_listing');
 
-function job_listing()
+function job_listing($apply_button_url = '')
 {
 
 	$category_slug = isset($_POST['category_id']) ? sanitize_text_field($_POST['category_id']) : '';
@@ -493,10 +493,14 @@ function job_listing()
 															?>').classList.toggle('hidden')">
 						See Position
 					</button> -->
+					<a href="<?php echo esc_url($apply_button_url); ?>" target="_blank" id="apply-button-<?= $index; ?>"
+						class="hidden btn btn-fill font-type2 text-base btn-primary px-3 py-2 rounded-md border-1 hover:border-1 hover:boreder-nitsLightBlue cursor-pointer mr-2">
+						Apply Now
+					</a>
 					<button
 						type="button"
 						class="btn btn-fill font-type2 text-base inline-block btn-primary px-3 py-2 rounded-md border-1 hover:border-1 hover:boreder-nitsLightBlue cursor-pointer"
-						onclick="document.getElementById('<?= esc_attr($content_id); ?>').classList.toggle('hidden')">
+						onclick="toggleJobContent('<?php echo esc_js($content_id); ?>', this, <?php echo esc_js($index); ?>)">
 						See Position
 					</button>
 				</div>
@@ -505,6 +509,23 @@ function job_listing()
 			$index++;
 		endwhile;
 		?>
+		<script>
+			function toggleJobContent(contentId, button, index) {
+				var contentDiv = document.getElementById(contentId);
+				var applyButton = document.getElementById('apply-button-' + index);
+				console.log(applyButton);
+
+				if (contentDiv.classList.contains('hidden')) {
+					contentDiv.classList.remove('hidden');
+					button.textContent = 'Hide Position';
+					applyButton.classList.remove('hidden');
+				} else {
+					contentDiv.classList.add('hidden');
+					button.textContent = 'See Position';
+					applyButton.classList.add('hidden');
+				}
+			}
+		</script>
 	</div>
 <?php
 	else :

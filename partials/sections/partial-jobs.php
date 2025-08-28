@@ -1,6 +1,7 @@
 <?php
 $jobs = get_field($args['field_name']);
 $sidebar_bottom_text = $jobs['sidebar_bottom_text'] ?? '';
+$apply_button_url = $jobs['apply_button_url'] ?? '';
 $class_container = $args['class_container'] ?? '';
 $count = wp_count_posts('jobs');
 $total_jobs = $count->publish; // Only published posts
@@ -38,7 +39,7 @@ $total_jobs = $count->publish; // Only published posts
                 <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/src/images/blue_loading.gif'); ?>" alt="Loading..." class="inline-block w-30 h-30" />
             </div>
             <div id="jobs-contanier">
-                <?php job_listing(); ?>
+                <?php job_listing($apply_button_url); ?>
             </div>
             <div class="text-center mt-8">
                 <button id="load-more-jobs" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded cursor-pointer">Load More</button>

@@ -413,6 +413,24 @@
                     "maxlength": "",
                     "placeholder": "",
                     "rows": ""
+                },
+                {
+                    "key": "field_68b0a590d3bfa",
+                    "label": "Apply Button URL",
+                    "name": "apply_button_url",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "wpml_cf_preferences": 0,
+                    "return_format": "url",
+                    "allow_in_bindings": 0
                 }
             ]
         },
@@ -561,5 +579,6 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1753818165
+    "acfml_field_group_mode": "advanced",
+    "modified": 1756407228
 }

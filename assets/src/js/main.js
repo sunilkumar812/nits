@@ -171,19 +171,23 @@ if (menu) {
     autoplay: {
       delay: 3000,
       disableOnInteraction: false,
+      pauseOnMouseEnter: true,
     },
     breakpoints: {
       300: {
       slidesPerView: 1,
+      spaceBetween: 20,
     },
     640: {
       slidesPerView: 1,
+      spaceBetween: 20,
     },
     768: {
       slidesPerView: 1,
+      spaceBetween: 20,
     },
     1024: {
-      slidesPerView: 1,
+      slidesPerView: 2,
     },
   },
     loop: true,

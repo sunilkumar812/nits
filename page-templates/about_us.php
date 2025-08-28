@@ -99,7 +99,7 @@ $final_cta = get_field('final_cta');
     }
 
     .founder {
-        max-width: 500px;
+        max-width: 900px;
     }
 </style>
 <main id="primary" class="z-4 relative">
@@ -339,12 +339,23 @@ $final_cta = get_field('final_cta');
                                 <div class="swiper-wrapper">
                                     <?php foreach ($s4_slider as $s4_slide):
                                         $s4_slide_img = $s4_slide['slide'] ?? '';
+                                        $s4_title = $s4_slide['title'] ?? '';
+                                        $s4_description = $s4_slide['description'] ?? '';
+                                        $s4_award_image = $s4_slide['award_image'] ?? '';
+
                                     ?>
                                         <?php if (!empty($s4_slide_img['url'])): ?>
                                             <div class="founder-slide swiper-slide">
-                                                <img src="<?= esc_url($s4_slide_img['url']); ?>"
-                                                    alt="<?= esc_attr($s4_slide_img['alt'] ?? $s4_heading); ?>"
-                                                    class="w-full h-auto" />
+                                                <div class="w-full">
+                                                    <img src="<?= esc_url($s4_slide_img['url']); ?>"
+                                                        alt="<?= esc_attr($s4_slide_img['alt'] ?? $s4_heading); ?>"
+                                                        class="max-w-[400px] object-contain" />
+                                                    <div class="p-4 max-w-[350px]">
+                                                        <p class="text-nitsPrimary text-xl font-semibold mb-2 font-type1"><?= esc_html($s4_title); ?></p>
+                                                        <p class="text-base text-gray-500 font-type2 mb-2"><?= esc_html($s4_description); ?></p>
+                                                        <img src="<?= esc_url($s4_award_image['url']); ?>" alt="<?= esc_attr($s4_award_image['alt'] ?? $s4_heading); ?>" />
+                                                    </div>
+                                                </div>
                                             </div>
                                         <?php endif; ?>
                                     <?php endforeach; ?>
@@ -363,7 +374,7 @@ $final_cta = get_field('final_cta');
         <?php
         if ($gallery_tabs && isset($gallery_tabs['tabs']) && is_array($gallery_tabs['tabs'])) :
         ?>
-            <div class="main-width flex flex-col items-center my-10 md:my-28">
+            <div class=" main-width flex flex-col items-center my-10 md:my-28">
 
                 <!-- Tabs -->
                 <div class="flex justify-center items-center gap-8 mb-12">
