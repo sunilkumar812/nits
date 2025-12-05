@@ -139,6 +139,171 @@ function nits_widgets_init()
 }
 add_action('widgets_init', 'nits_widgets_init');
 
+
+/**
+ * Submits Contact Form 7 data to an external API.
+ *
+ * @param WPCF7_ContactForm $contact_form The Contact Form 7 instance.
+ */
+
+
+
+
+add_action('wp_ajax_my_custom_ajax_action', 'my_custom_php_function');
+add_action('wp_ajax_nopriv_my_custom_ajax_action', 'my_custom_php_function');
+
+function my_custom_php_function() {
+    $name = sanitize_text_field($_POST['name']);
+	$email = sanitize_text_field($_POST['email']);
+	$phone = sanitize_text_field($_POST['phoneNumber']);
+	$message = sanitize_text_field($_POST['message']);
+	$company = sanitize_text_field($_POST['company']);
+	$jobTitle = sanitize_text_field($_POST['jobTitle']);
+	$interestedProduct = sanitize_text_field($_POST['interestedProduct']);
+	$dealerName = sanitize_text_field($_POST['dealerName']);
+	$api_key = '1129188-4062545251366749954890331440401-6XEY7AVh3ZJNmL9Nj7WIdPTFPIgBChrMD5c0hDrOcL1W3RpcAy'; // Replace with your actual API key
+        $api_url = 'https://api.lessannoyingcrm.com/v2/';
+	$api_user_key = "1129188";//user id in LA CRM
+
+	// Send the email
+	
+	// $headers = array('Content-Type: text/plain; charset=UTF-8', 'From: ' . $name . ' <' . $email . '>');
+	// Email details
+	
+	// $from = 'no-reply@nitssolutions.com';
+	// $to = 'gpatra@nitssolutions.com'; // Replace with the recipient email address
+	// $subject = 'New Contact Form Submission from ' . $name;
+	// $body = "Name: " . $name . "\n";
+	// $body .= "Email: " . $email . "\n";
+	// $body .= "Message: " . $message . "\n";
+	// $body .= "Phone: " . $phone . "\n";
+	// $body .= "Company: " . $company . "\n";
+	// $body .= "Dealer Name: " . $dealerName . "\n";
+	// $body .= "Product Of Interest: " . $interestedProduct . "\n";
+	// $body .= '-- This is a notification that a contact form was submitted on your website.';
+
+	// $headers[] = 'MIME-Version: 1.0';
+    // $headers[] = 'Content-type: text/html; charset=iso-8859-1';
+    // $headers[] .= "Organization: Sender Organization";
+    // $headers[] .= "X-Priority: 3";
+    // $headers[] .= "X-Mailer: PHP". phpversion();
+	// $headers[] = 'From: ' . $name . ' <' . $email . '>';
+	// // $headers = array('Content-Type: text/html; charset=iso-8859-1','X-Priority: 3', 'Organization: Sender Organization', 'MIME-Version: 1.0', 'From: ' . $name . ' <' . $email . '>');
+    // // $sent = wp_mail($to, $subject, $body, implode("\r\n", $headers));
+	// $sent = mail($to, $subject, $body, implode("\r\n", $headers),"-f$from");
+
+
+
+
+
+	// Step 2: Create Contact linked to Company
+	$contact_response = wp_remote_post($api_url, [
+		'headers' => [
+			'Authorization' => $api_key,
+			'Content-Type'  => 'application/json',
+		],
+		'body' => json_encode([
+			'Function' => 'CreateContact',
+			'Parameters' => [
+				'FullName' => $name,
+				'Name' => $name,
+				'Email'     => $email,
+				'Phone'		=> $phone,
+				'AssignedTo' => $api_user_key,//user id in LA CRM
+				'BackgroundInfo' => $message,
+				'Background Info' => $message,
+				// 'CompanyId'   => $company_id,
+				'CompanyName' => $company,
+				'Company Name' => $company,
+				'IsCompany'   => false,
+				'Job Title'	  => $jobTitle,
+				'Dealer Name'   => $dealerName
+				// 'Tags'        => ['Lead'],
+				// 'CustomFields' => [
+				// 	'JobTitle'		=> $jobTitle,
+				// 	'InterestedProduct' => $interestedProduct,
+				// 	'LeadSource' => 'Pipeline B'
+				// ]
+			]
+		])
+	]);
+
+
+	$contact_data = json_decode(wp_remote_retrieve_body($contact_response), true);
+	$contact_id = $contact_data['ContactId'] ?? null;
+
+	if ($contact_id) {
+		$pipeline_response = wp_remote_post($api_url, [
+			'headers' => [
+				'Authorization' => $api_key,
+				'Content-Type'  => 'application/json'
+			],
+			'body' => json_encode([
+			'Function' => 'CreatePipelineItem',
+			'Parameters' => [
+				'ContactId'     => $contact_id,
+				'PipelineName'  => 'Pipeline B', // Must match an existing pipeline name
+				'Status'        => 'New Lead',       // Must match a valid status in that pipeline
+				'AssignedTo'    => $api_user_key,
+				'Note'          => 'Lead submitted via WordPress form',
+				'PipelineId'	=> '4052181071723722874856587814908',
+				'StatusId'		=> '4052181072549214672155091252321',
+				'Calendar Year' => '2025',
+				'Opportunity'	=> '',
+				'Description'	=> '',
+				'Probability'	=> '',
+				'Product'		=> $interestedProduct,
+				'Expected Landing Date'	=> '',
+				'PO / Line Number'	=> '',
+				'Dealer Name'   => $dealerName
+			]
+			])
+		]);
+
+		$pipeline_data = json_decode(wp_remote_retrieve_body($pipeline_response), true);
+	}
+
+
+
+
+	if (is_wp_error($response)) {
+		error_log('LACRM API error: ' . $response->get_error_message());
+	}
+    $contact_data = json_decode(wp_remote_retrieve_body($contact_response), true);
+    error_log('LACRM Contact created: ' . print_r($contact_data, true));
+
+    // Your custom logic here
+    error_log("Button clicked by: $name");
+
+    echo "Hello, $name,$contact_id, $pipeline_data!";
+    wp_die(); // Required to terminate AJAX call
+}
+/**
+*LA CRM Form Integration End
+**/
+
+
+
+/** Captcha Code Integration Start **/
+add_action('init', function() {
+    if (!session_id()) {
+        session_start();
+    }
+    if (empty($_SESSION['captcha_code'])) {
+        $_SESSION['captcha_code'] = substr(str_shuffle("ABCDEFGHJKLMNPQRSTUVWXYZ23456789"), 0, 6);
+    }
+});
+
+function show_captcha_code() {
+    return '<div style="font-size:20px; font-weight:bold;">' . $_SESSION['captcha_code'] . '</div>';
+}
+add_shortcode('captcha_code', 'show_captcha_code');
+
+
+/** Captcha Code Integration End **/
+
+
+
 /**
  * Enqueue scripts and styles.
  */
